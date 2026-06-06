@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="UE5 locations, shortcuts, troubleshooting, and final ownership notice." />
+  <meta name="theme-color" content="#14070b" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Living Pins" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+  <title>Resources - Night of the Living Pins</title>
+</head>
+<body data-page="resources">
+  <div class="noise"></div><div class="fog"></div>
+  <a class="skip-link" href="#main">Skip to guide</a>
+  <div class="app">
+    <div class="mobilebar">
+      <button class="hamburger" id="openNav" type="button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false"><span><i></i><i></i><i></i></span> Guide Menu</button>
+      <button class="iconbtn" id="mobilePrint" type="button" title="Print guide">Print</button>
+    </div>
+
+    <aside id="sidebar" aria-label="Guide navigation">
+      <button class="navBack" id="closeNav" type="button" aria-label="Close navigation">Back to guide</button>
+      <div class="brand">
+        <div class="emblem" aria-hidden="true"></div>
+        <div><h1>Night of the Living Pins</h1><p>UE5 Level Build Bible</p></div>
+      </div>
+
+      <div class="progressBox">
+        <div class="progressTop"><span>Build progress</span><strong id="progressLabel">0%</strong></div>
+        <div class="progressBar"><div class="progressFill" id="progressFill"></div></div>
+        <div class="miniStats">
+          <div><strong id="doneCount">0</strong><span>Done</span></div>
+          <div><strong id="totalCount">0</strong><span>Tasks</span></div>
+          <div><strong>UE5</strong><span>Ready</span></div>
+        </div>
+      </div>
+
+      <div class="searchWrap">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m21 21-4.3-4.3m2.3-5.2a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="guideSearch" type="search" placeholder="Search guide pages..." />
+        <div class="searchStatus" id="searchStatus" role="status" aria-live="polite"></div>
+      </div>
+
+      <nav id="toc">
+        <a class="navLink" data-page="overview" data-search="vision vision playable, spooky, reusable ue5 level template. 00" href="index.html"><b>00</b> Vision</a>
+        <a class="navLink" data-page="artref" data-search="artwork ref artwork reference visual north star, palette, art hierarchy, and local image references. ar" href="artwork-reference.html"><b>AR</b> Artwork Ref</a>
+        <a class="navLink" data-page="story" data-search="story loop story loop arcade story spine, player goal, threat escalation, rewards, and boss frame. st" href="story-loop.html"><b>ST</b> Story Loop</a>
+        <a class="navLink" data-page="editor" data-search="editor basics unreal editor basics viewport, outliner, details, content drawer, actor workflow, and recovery notes. ed" href="editor-basics.html"><b>ED</b> Editor Basics</a>
+        <a class="navLink" data-page="setup" data-search="project setup project setup folder structure, map setup, naming, and level organization. 01" href="project-setup.html"><b>01</b> Project Setup</a>
+        <a class="navLink" data-page="scale" data-search="scale plan scale plan lane dimensions, coordinates, axes, and top-down ue5 plan. 02" href="scale-plan.html"><b>02</b> Scale Plan</a>
+        <a class="navLink" data-page="blockout" data-search="blockout blockout approach, lane, gutters, walls, ceiling, back wall, and construction values. 03" href="blockout.html"><b>03</b> Blockout</a>
+        <a class="navLink" data-page="markers" data-search="gameplay markers gameplay markers target points, triggers, spawn markers, collision volumes, and tags. 04" href="gameplay-markers.html"><b>04</b> Gameplay Markers</a>
+        <a class="navLink" data-page="controls" data-search="mouse controls mouse controls mouse-only throw, charge, aim, release, steering, and input states. in" href="mouse-controls.html"><b>IN</b> Mouse Controls</a>
+        <a class="navLink" data-page="camera" data-search="camera director camera director camera states, readable results, reset flow, and click-to-play return. cm" href="camera-director.html"><b>CM</b> Camera Director</a>
+        <a class="navLink" data-page="lighting" data-search="lighting lighting lumen setup, practical lights, horror accents, and readable lane lighting. 05" href="lighting.html"><b>05</b> Lighting</a>
+        <a class="navLink" data-page="atmosphere" data-search="fog &amp; post fog and post process volumetric fog, exposure, bloom, vignette, and post-process targets. 06" href="fog-post.html"><b>06</b> Fog &amp; Post</a>
+        <a class="navLink" data-page="materials" data-search="materials materials lane wood, concrete, metal, grime, decals, and material instances. 07" href="materials.html"><b>07</b> Materials</a>
+        <a class="navLink" data-page="dressing" data-search="set dressing set dressing props, dressing zones, readability, and horror bowling alley detail. 08" href="set-dressing.html"><b>08</b> Set Dressing</a>
+        <a class="navLink" data-page="screens" data-search="ue5 screens ue5 screenshot aids screenshot checklist and visual references for important editor states. 09" href="ue5-screens.html"><b>09</b> UE5 Screens</a>
+        <a class="navLink" data-page="reuse" data-search="reuse system reuse system level instances, reusable chunks, templates, and future lane variants. 10" href="reuse-system.html"><b>10</b> Reuse System</a>
+        <a class="navLink" data-page="checklist" data-search="checklist interactive checklist guided build checklist with local progress tracking and phase filters. 11" href="checklist.html"><b>11</b> Checklist</a>
+        <a class="navLink active" aria-current="page" data-page="resources" data-search="resources resources ue5 locations, shortcuts, troubleshooting, and final ownership notice. 12" href="resources.html"><b>12</b> Resources</a>
+      </nav>
+
+      <div class="sideActions">
+        <a class="btn primary" href="checklist.html">Continue Build</a>
+        <button class="btn ghost checklistOnly" id="collapseDone" type="button">Hide completed tasks</button>
+        <button class="btn ghost" id="printBtn" type="button">Print / save PDF</button>
+        <button class="btn danger" id="resetProgress" type="button">Reset progress</button>
+      </div>
+    </aside>
+    <button class="navScrim" id="navScrim" type="button" aria-label="Close navigation"></button>
+
+    <main id="main">
+      <section class="card searchable" id="resources" data-title="resources official documentation shortcuts how to find tools unreal engine">
+        <div class="sectionHead"><div class="sectionNum">12</div><div class="sectionTitle"><h2>Quick reference: where to find things in UE5</h2><p>Use this as a practical command centre while building. These are the things you will keep looking for as you learn the editor again.</p></div><div class="tagRow"><span class="tag good">Cheat sheet</span><span class="tag">Editor locations</span></div></div>
+        <div class="sectionBody">
+          <div class="pillGrid">
+            <div class="pillBox"><strong>Content Drawer</strong><span><span class="kbd">Ctrl</span> + <span class="kbd">Space</span></span></div>
+            <div class="pillBox"><strong>Place Actors</strong><span>Left panel / Window menu</span></div>
+            <div class="pillBox"><strong>Details Panel</strong><span>Window â†’ Details</span></div>
+            <div class="pillBox"><strong>Outliner</strong><span>Window â†’ Outliner</span></div>
+            <div class="pillBox"><strong>Modeling Mode</strong><span>Mode dropdown or <span class="kbd">Shift</span> + <span class="kbd">5</span></span></div>
+            <div class="pillBox"><strong>Fab</strong><span>Window â†’ Fab / Content Drawer Fab button</span></div>
+            <div class="pillBox"><strong>Post Process Volume</strong><span>Place Actors â†’ Visual Effects</span></div>
+            <div class="pillBox"><strong>Exponential Height Fog</strong><span>Place Actors â†’ Visual Effects</span></div>
+            <div class="pillBox"><strong>Target Point</strong><span>Place Actors â†’ Basic</span></div>
+            <div class="pillBox"><strong>Blocking Volume</strong><span>Place Actors â†’ Volumes</span></div>
+            <div class="pillBox"><strong>Cine Camera Actor</strong><span>Place Actors â†’ Cinematic</span></div>
+            <div class="pillBox"><strong>Play In Editor</strong><span>Main Toolbar â†’ Play</span></div>
+          </div>
+          <div class="tableWrap" style="margin-top:16px">
+            <table>
+              <thead><tr><th>Task</th><th>Editor location</th><th>What to edit</th></tr></thead>
+              <tbody>
+                <tr><td>Create project folders</td><td>Content Drawer / Content Browser</td><td>Right-click to create folders, then keep maps, materials, meshes, Blueprints, FX, audio, and dev notes separated.</td></tr>
+                <tr><td>Create or save the level</td><td>File menu and Main Toolbar Save button</td><td>Use <code>L_BowlingAlley_Template</code> for the clean template, then duplicate for playable variants.</td></tr>
+                <tr><td>Place cubes and simple shapes</td><td>Place Actors &gt; Shapes</td><td>Drag into the viewport, rename in Outliner, type Location and Scale in Details.</td></tr>
+                <tr><td>Place lights</td><td>Place Actors &gt; Lights</td><td>Set Intensity, color, Source Width/Height, attenuation, and mobility in Details.</td></tr>
+                <tr><td>Add fog/post process</td><td>Place Actors &gt; Visual Effects</td><td>Select the actor and tune Volumetric Fog, Infinite Extent, exposure, bloom, vignette, and film grain in Details.</td></tr>
+                <tr><td>Add gameplay markers</td><td>Place Actors &gt; Basic</td><td>Use Target Point actors, stable <code>TP_</code> names, exact Location values, and Actor Tags.</td></tr>
+                <tr><td>Add collision and triggers</td><td>Place Actors &gt; Volumes</td><td>Resize Trigger Volumes and Blocking Volumes in Details; keep gameplay collision simple during prototype.</td></tr>
+                <tr><td>Find lost actors</td><td>Outliner search</td><td>Search by prefix, select the actor, press <span class="kbd">F</span> in the viewport to frame it.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="grid three" style="margin-top:16px">
+            <div class="tile"><h3>Daily editor warm-up</h3><ol><li>Open the template map.</li><li>Open or dock the Content Drawer.</li><li>Check Outliner folders are visible.</li><li>Select one actor and confirm Details appears.</li><li>Press Play once before making big changes.</li></ol></div>
+            <div class="tile"><h3>Common shortcuts</h3><ul><li><span class="kbd">Ctrl</span> + <span class="kbd">S</span>: save current level.</li><li><span class="kbd">Ctrl</span> + <span class="kbd">Space</span>: Content Drawer.</li><li><span class="kbd">W</span>: move.</li><li><span class="kbd">E</span>: rotate.</li><li><span class="kbd">R</span>: scale.</li><li><span class="kbd">F</span>: focus selected actor.</li><li><span class="kbd">G</span>: Game View.</li></ul></div>
+            <div class="tile"><h3>Panel troubleshooting</h3><ul><li>If Details is blank, select an actor first.</li><li>If the Content Drawer keeps closing, dock it.</li><li>If a volume is hard to see, select it in Outliner.</li><li>If the viewport is slow, lower viewport scalability while editing.</li><li>If the layout feels broken, reload the default layout.</li></ul></div>
+          </div>
+          <div class="footer"><strong>Final milestone:</strong> before moving into proper gameplay programming, you want a greybox haunted bowling lane where a temporary physics ball can roll into temporary physics pins. Once that is satisfying, the art pass becomes safer because the level already works.</div>
+          <div class="legalNotice" role="contentinfo" aria-label="Project ownership disclaimer">
+            <strong>Official unreleased project notice and ownership disclaimer</strong>
+            <div class="legalMeta"><span>Unreleased project</span><span>Property of Robin Doak</span><span>All rights reserved</span></div>
+            <p><em>Night of the Living Pins</em> is an unreleased game project currently in development. All information presented in this guide, including story details, game concepts, level plans, artwork references, design documentation, mechanics, names, terminology, and related materials, is provisional and may change before any public release.</p>
+            <p>All intellectual property, creative material, story content, characters, artwork concepts, game design information, and related project documentation for <em>Night of the Living Pins</em> are and remain the property of Robin Doak. Copyright &copy; <span id="currentYear">2026</span> Robin Doak. All rights reserved.</p>
+          </div>
+        </div>
+      </section>
+      <nav class="pagePager" aria-label="Guide page navigation">
+        <a class="prev" href="checklist.html"><small>Previous page</small><strong>Checklist</strong></a>
+        <div class="pageCurrent" aria-label="Current page"><b>12</b><small>Current page</small><strong>Resources</strong><span class="routeHint">UE5 locations, shortcuts, troubleshooting, and final ownership notice.</span></div>
+        <a class="next" href="index.html"><small>Next page</small><strong>Vision</strong></a>
+      </nav>    </main>
+  </div>
+  <button class="topBtn" id="topBtn" type="button" aria-label="Back to top">&uarr; Top</button>
+  <div class="diagramLightbox" id="diagramLightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Diagram viewer">
+    <div class="lightboxTop">
+      <strong id="diagramLightboxTitle">Diagram</strong>
+      <div class="lightboxControls" aria-label="Diagram zoom controls">
+        <button id="diagramZoomOut" type="button" aria-label="Zoom out">-</button>
+        <button id="diagramZoomIn" type="button" aria-label="Zoom in">+</button>
+        <span class="zoomLabel" id="diagramZoomLabel">100%</span>
+        <button id="diagramZoomReset" type="button">Reset</button>
+        <button id="diagramLightboxClose" type="button">Close</button>
+      </div>
+    </div>
+    <div class="lightboxStage" id="diagramLightboxStage">
+      <img id="diagramLightboxImg" alt="" />
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Guided build checklist with local progress tracking and phase filters." />
+  <meta name="theme-color" content="#14070b" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Living Pins" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+  <title>Interactive Checklist - Night of the Living Pins</title>
+</head>
+<body data-page="checklist">
+  <div class="noise"></div><div class="fog"></div>
+  <a class="skip-link" href="#main">Skip to guide</a>
+  <div class="app">
+    <div class="mobilebar">
+      <button class="hamburger" id="openNav" type="button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false"><span><i></i><i></i><i></i></span> Guide Menu</button>
+      <button class="iconbtn" id="mobilePrint" type="button" title="Print guide">Print</button>
+    </div>
+
+    <aside id="sidebar" aria-label="Guide navigation">
+      <button class="navBack" id="closeNav" type="button" aria-label="Close navigation">Back to guide</button>
+      <div class="brand">
+        <div class="emblem" aria-hidden="true"></div>
+        <div><h1>Night of the Living Pins</h1><p>UE5 Level Build Bible</p></div>
+      </div>
+
+      <div class="progressBox">
+        <div class="progressTop"><span>Build progress</span><strong id="progressLabel">0%</strong></div>
+        <div class="progressBar"><div class="progressFill" id="progressFill"></div></div>
+        <div class="miniStats">
+          <div><strong id="doneCount">0</strong><span>Done</span></div>
+          <div><strong id="totalCount">0</strong><span>Tasks</span></div>
+          <div><strong>UE5</strong><span>Ready</span></div>
+        </div>
+      </div>
+
+      <div class="searchWrap">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m21 21-4.3-4.3m2.3-5.2a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="guideSearch" type="search" placeholder="Search guide pages..." />
+        <div class="searchStatus" id="searchStatus" role="status" aria-live="polite"></div>
+      </div>
+
+      <nav id="toc">
+        <a class="navLink" data-page="overview" data-search="vision vision playable, spooky, reusable ue5 level template. 00" href="index.html"><b>00</b> Vision</a>
+        <a class="navLink" data-page="artref" data-search="artwork ref artwork reference visual north star, palette, art hierarchy, and local image references. ar" href="artwork-reference.html"><b>AR</b> Artwork Ref</a>
+        <a class="navLink" data-page="story" data-search="story loop story loop arcade story spine, player goal, threat escalation, rewards, and boss frame. st" href="story-loop.html"><b>ST</b> Story Loop</a>
+        <a class="navLink" data-page="editor" data-search="editor basics unreal editor basics viewport, outliner, details, content drawer, actor workflow, and recovery notes. ed" href="editor-basics.html"><b>ED</b> Editor Basics</a>
+        <a class="navLink" data-page="setup" data-search="project setup project setup folder structure, map setup, naming, and level organization. 01" href="project-setup.html"><b>01</b> Project Setup</a>
+        <a class="navLink" data-page="scale" data-search="scale plan scale plan lane dimensions, coordinates, axes, and top-down ue5 plan. 02" href="scale-plan.html"><b>02</b> Scale Plan</a>
+        <a class="navLink" data-page="blockout" data-search="blockout blockout approach, lane, gutters, walls, ceiling, back wall, and construction values. 03" href="blockout.html"><b>03</b> Blockout</a>
+        <a class="navLink" data-page="markers" data-search="gameplay markers gameplay markers target points, triggers, spawn markers, collision volumes, and tags. 04" href="gameplay-markers.html"><b>04</b> Gameplay Markers</a>
+        <a class="navLink" data-page="controls" data-search="mouse controls mouse controls mouse-only throw, charge, aim, release, steering, and input states. in" href="mouse-controls.html"><b>IN</b> Mouse Controls</a>
+        <a class="navLink" data-page="camera" data-search="camera director camera director camera states, readable results, reset flow, and click-to-play return. cm" href="camera-director.html"><b>CM</b> Camera Director</a>
+        <a class="navLink" data-page="lighting" data-search="lighting lighting lumen setup, practical lights, horror accents, and readable lane lighting. 05" href="lighting.html"><b>05</b> Lighting</a>
+        <a class="navLink" data-page="atmosphere" data-search="fog &amp; post fog and post process volumetric fog, exposure, bloom, vignette, and post-process targets. 06" href="fog-post.html"><b>06</b> Fog &amp; Post</a>
+        <a class="navLink" data-page="materials" data-search="materials materials lane wood, concrete, metal, grime, decals, and material instances. 07" href="materials.html"><b>07</b> Materials</a>
+        <a class="navLink" data-page="dressing" data-search="set dressing set dressing props, dressing zones, readability, and horror bowling alley detail. 08" href="set-dressing.html"><b>08</b> Set Dressing</a>
+        <a class="navLink" data-page="screens" data-search="ue5 screens ue5 screenshot aids screenshot checklist and visual references for important editor states. 09" href="ue5-screens.html"><b>09</b> UE5 Screens</a>
+        <a class="navLink" data-page="reuse" data-search="reuse system reuse system level instances, reusable chunks, templates, and future lane variants. 10" href="reuse-system.html"><b>10</b> Reuse System</a>
+        <a class="navLink active" aria-current="page" data-page="checklist" data-search="checklist interactive checklist guided build checklist with local progress tracking and phase filters. 11" href="checklist.html"><b>11</b> Checklist</a>
+        <a class="navLink" data-page="resources" data-search="resources resources ue5 locations, shortcuts, troubleshooting, and final ownership notice. 12" href="resources.html"><b>12</b> Resources</a>
+      </nav>
+
+      <div class="sideActions">
+        <a class="btn primary" href="checklist.html">Continue Build</a>
+        <button class="btn ghost checklistOnly" id="collapseDone" type="button">Hide completed tasks</button>
+        <button class="btn ghost" id="printBtn" type="button">Print / save PDF</button>
+        <button class="btn danger" id="resetProgress" type="button">Reset progress</button>
+      </div>
+    </aside>
+    <button class="navScrim" id="navScrim" type="button" aria-label="Close navigation"></button>
+
+    <main id="main">
+      <section class="card searchable" id="checklist" data-title="checklist walkthrough todo progress milestones build phase filter story gameplay art polish tasks done">
+        <div class="sectionHead"><div class="sectionNum">11</div><div class="sectionTitle"><h2>Interactive build checklist</h2><p>Tick these off as you work. Your progress is saved in this browser with local storage, so the page becomes your mini production board.</p></div><div class="tagRow"><span class="tag good">Saves locally</span><span class="tag">Milestone based</span></div></div>
+        <div class="sectionBody">
+          <div class="walkthroughBoard" aria-label="Guided walkthrough controls">
+            <div class="nextTaskPanel">
+              <small>Next walkthrough step</small>
+              <h3 id="nextTaskTitle">Loading checklist...</h3>
+              <p id="nextTaskDetail">Progress will appear here after the checklist loads.</p>
+              <div class="nextTaskMeta"><span id="nextTaskPhase">All phases</span><span id="nextTaskCount">0 of 0 done</span></div>
+              <button class="btn primary" id="jumpNextTask" type="button">Jump to next task</button>
+            </div>
+            <div class="phasePanel">
+              <small>Build phase filter</small>
+              <div class="phaseButtons" id="phaseButtons" aria-label="Checklist phase filter">
+                <button class="active" type="button" data-phase="all">All</button>
+                <button type="button" data-phase="foundation">Foundation</button>
+                <button type="button" data-phase="blockout">Blockout</button>
+                <button type="button" data-phase="gameplay">Gameplay</button>
+                <button type="button" data-phase="art">Art pass</button>
+                <button type="button" data-phase="polish">Polish</button>
+              </div>
+              <div class="phaseProgress" aria-hidden="true"><span id="phaseProgressFill"></span></div>
+              <p class="phaseSummary" id="phaseSummary">Showing every task.</p>
+            </div>
+          </div>
+          <div class="mission" id="missionList">
+            <label class="step" data-phase="foundation"><span class="stepNum">ED</span><span><h3>Orient yourself in the Unreal Editor</h3><p>Restore the default layout if needed, open Outliner, Details, Place Actors, and Content Drawer, then practice selecting an actor and viewing its Transform in Details.</p></span><input type="checkbox" data-task="editororientation"></label>
+            <label class="step" data-phase="foundation"><span class="stepNum">01</span><span><h3>Create the folder structure</h3><p>Use the Content Drawer for project folders and the Outliner for level folders; create both structures before importing props or placing blockout actors.</p></span><input type="checkbox" data-task="folders"></label>
+            <label class="step" data-phase="foundation"><span class="stepNum">02</span><span><h3>Create and save the template map</h3><p>Use File &gt; New Level, save into <code>Maps</code> as <code>L_BowlingAlley_Template</code>, then use Save All so the map and folders are committed.</p></span><input type="checkbox" data-task="map"></label>
+            <label class="step" data-phase="foundation"><span class="stepNum">03</span><span><h3>Lock the Lane 13 story beats</h3><p>Keep the story spine visible while working: scoreboard hook, safe ball-return anchor, cursed pinsetter goal, and final boss-frame payoff.</p></span><input type="checkbox" data-task="storyspine"></label>
+            <label class="step" data-phase="blockout"><span class="stepNum">04</span><span><h3>Block out approach, lane, gutters, rails, walls, ceiling, and back wall</h3><p>Place cube actors from Place Actors &gt; Shapes, rename them in Outliner, then type exact Location and Scale values in Details.</p></span><input type="checkbox" data-task="blockout"></label>
+            <label class="step" data-phase="gameplay"><span class="stepNum">05</span><span><h3>Add pin target points</h3><p>Place Target Point actors from Place Actors &gt; Basic, name them <code>TP_Pin_01</code> through <code>TP_Pin_10</code>, and enter the pin rack coordinates in Details.</p></span><input type="checkbox" data-task="pins"></label>
+            <label class="step" data-phase="gameplay"><span class="stepNum">06</span><span><h3>Add gameplay markers and tags</h3><p>Add ball spawn, player view, camera, foul-line, zombie spawn, scare, scoreboard, and machine markers; use Actor Tags in Details for future code lookup.</p></span><input type="checkbox" data-task="markers"></label>
+            <label class="step" data-phase="gameplay"><span class="stepNum">07</span><span><h3>Define the mouse-only throw state machine</h3><p>Create the Positioning, Charging, Aiming, Launch, Steering, and Result states before wiring the throw implementation in Blueprint or C++.</p></span><input type="checkbox" data-task="controlstates"></label>
+            <label class="step" data-phase="gameplay"><span class="stepNum">08</span><span><h3>Prototype drag power, aim yaw, launch, and steering</h3><p>Test in Play In Editor: mouse X moves lane-space Y, drag up sets power, drag X sets aim, release launches, and post-release mouse X lightly steers.</p></span><input type="checkbox" data-task="mousecontrols"></label>
+            <label class="step" data-phase="gameplay"><span class="stepNum">09</span><span><h3>Define camera staging and click-to-play return</h3><p>Create the <code>ANOLPCameraDirector</code> plan, player-view, ball-follow, result, reset, and return states; include <code>CLICK ANYWHERE TO PLAY</code> before input re-enables.</p></span><input type="checkbox" data-task="cameradirector"></label>
+            <label class="step" data-phase="gameplay"><span class="stepNum">10</span><span><h3>Add collision and trigger volumes</h3><p>Use Place Actors &gt; Volumes for blocking, gutter, pit, approach, foul-line, and back-machine triggers; resize them in Details and keep gameplay collision simple.</p></span><input type="checkbox" data-task="collision"></label>
+            <label class="step" data-phase="gameplay"><span class="stepNum">11</span><span><h3>Add temporary ball and pin placeholders</h3><p>Place a physics sphere and simple cylinder or capsule pins, enable the needed physics settings in Details, then test a full throw-to-result-to-return loop.</p></span><input type="checkbox" data-task="placeholders"></label>
+            <label class="step" data-phase="art"><span class="stepNum">12</span><span><h3>Do the first lighting pass</h3><p>Add Rect Lights and the back-machine Spot Light from Place Actors &gt; Lights, then tune intensity, color, and source size in Details.</p></span><input type="checkbox" data-task="lighting"></label>
+            <label class="step" data-phase="art"><span class="stepNum">13</span><span><h3>Add fog and post process</h3><p>Add Exponential Height Fog and Post Process Volume from Visual Effects; enable Volumetric Fog and Infinite Extent, then lock exposure and readability.</p></span><input type="checkbox" data-task="fogpost"></label>
+            <label class="step" data-phase="art"><span class="stepNum">14</span><span><h3>Add base materials and material instances</h3><p>Create <code>M_</code> materials and <code>MI_</code> instances in the Content Drawer, then assign them through each selected actor's Details panel.</p></span><input type="checkbox" data-task="materials"></label>
+            <label class="step" data-phase="art"><span class="stepNum">15</span><span><h3>Add controlled decals</h3><p>Place Decal actors from Visual Effects, assign decal materials in Details, and keep high-contrast stains away from the clean aim path.</p></span><input type="checkbox" data-task="decals"></label>
+            <label class="step" data-phase="art"><span class="stepNum">16</span><span><h3>Build the back-machine focal point</h3><p>Use the Outliner to group broken pinsetter pieces, cables, glow, steam, warning bulbs, audio, and the cursed boss-frame silhouette.</p></span><input type="checkbox" data-task="backmachine"></label>
+            <label class="step" data-phase="art"><span class="stepNum">17</span><span><h3>Dress the approach and side walls</h3><p>Drag props from the Content Drawer or Fab, organize them into dressing folders, and hide/reveal folders in Outliner while checking gameplay readability.</p></span><input type="checkbox" data-task="dressing"></label>
+            <label class="step" data-phase="polish"><span class="stepNum">18</span><span><h3>Tune cinematic camera moments and review screenshots</h3><p>Frame the approach, ball-follow, pin-deck, last-pin, gutter, strike, spare, result, and reset views, then capture screenshots from the important states.</p></span><input type="checkbox" data-task="cameras"></label>
+            <label class="step" data-phase="polish"><span class="stepNum">19</span><span><h3>Convert reusable chunks</h3><p>Select clean actor groups in the Outliner and convert stable lane, shell, marker, camera, and dressing groups into reusable chunks for future variants.</p></span><input type="checkbox" data-task="reuse"></label>
+          </div>
+        </div>
+      </section>
+      <nav class="pagePager" aria-label="Guide page navigation">
+        <a class="prev" href="reuse-system.html"><small>Previous page</small><strong>Reuse System</strong></a>
+        <div class="pageCurrent" aria-label="Current page"><b>11</b><small>Current page</small><strong>Checklist</strong><span class="routeHint">Guided build checklist with local progress tracking and phase filters.</span></div>
+        <a class="next" href="resources.html"><small>Next page</small><strong>Resources</strong></a>
+      </nav>    </main>
+  </div>
+  <button class="topBtn" id="topBtn" type="button" aria-label="Back to top">&uarr; Top</button>
+  <div class="diagramLightbox" id="diagramLightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Diagram viewer">
+    <div class="lightboxTop">
+      <strong id="diagramLightboxTitle">Diagram</strong>
+      <div class="lightboxControls" aria-label="Diagram zoom controls">
+        <button id="diagramZoomOut" type="button" aria-label="Zoom out">-</button>
+        <button id="diagramZoomIn" type="button" aria-label="Zoom in">+</button>
+        <span class="zoomLabel" id="diagramZoomLabel">100%</span>
+        <button id="diagramZoomReset" type="button">Reset</button>
+        <button id="diagramLightboxClose" type="button">Close</button>
+      </div>
+    </div>
+    <div class="lightboxStage" id="diagramLightboxStage">
+      <img id="diagramLightboxImg" alt="" />
+    </div>
+  </div>
+</body>
+</html>

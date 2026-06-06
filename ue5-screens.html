@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Screenshot checklist and visual references for important editor states." />
+  <meta name="theme-color" content="#14070b" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Living Pins" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+  <title>UE5 Screenshot Aids - Night of the Living Pins</title>
+</head>
+<body data-page="screens">
+  <div class="noise"></div><div class="fog"></div>
+  <a class="skip-link" href="#main">Skip to guide</a>
+  <div class="app">
+    <div class="mobilebar">
+      <button class="hamburger" id="openNav" type="button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false"><span><i></i><i></i><i></i></span> Guide Menu</button>
+      <button class="iconbtn" id="mobilePrint" type="button" title="Print guide">Print</button>
+    </div>
+
+    <aside id="sidebar" aria-label="Guide navigation">
+      <button class="navBack" id="closeNav" type="button" aria-label="Close navigation">Back to guide</button>
+      <div class="brand">
+        <div class="emblem" aria-hidden="true"></div>
+        <div><h1>Night of the Living Pins</h1><p>UE5 Level Build Bible</p></div>
+      </div>
+
+      <div class="progressBox">
+        <div class="progressTop"><span>Build progress</span><strong id="progressLabel">0%</strong></div>
+        <div class="progressBar"><div class="progressFill" id="progressFill"></div></div>
+        <div class="miniStats">
+          <div><strong id="doneCount">0</strong><span>Done</span></div>
+          <div><strong id="totalCount">0</strong><span>Tasks</span></div>
+          <div><strong>UE5</strong><span>Ready</span></div>
+        </div>
+      </div>
+
+      <div class="searchWrap">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m21 21-4.3-4.3m2.3-5.2a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="guideSearch" type="search" placeholder="Search guide pages..." />
+        <div class="searchStatus" id="searchStatus" role="status" aria-live="polite"></div>
+      </div>
+
+      <nav id="toc">
+        <a class="navLink" data-page="overview" data-search="vision vision playable, spooky, reusable ue5 level template. 00" href="index.html"><b>00</b> Vision</a>
+        <a class="navLink" data-page="artref" data-search="artwork ref artwork reference visual north star, palette, art hierarchy, and local image references. ar" href="artwork-reference.html"><b>AR</b> Artwork Ref</a>
+        <a class="navLink" data-page="story" data-search="story loop story loop arcade story spine, player goal, threat escalation, rewards, and boss frame. st" href="story-loop.html"><b>ST</b> Story Loop</a>
+        <a class="navLink" data-page="editor" data-search="editor basics unreal editor basics viewport, outliner, details, content drawer, actor workflow, and recovery notes. ed" href="editor-basics.html"><b>ED</b> Editor Basics</a>
+        <a class="navLink" data-page="setup" data-search="project setup project setup folder structure, map setup, naming, and level organization. 01" href="project-setup.html"><b>01</b> Project Setup</a>
+        <a class="navLink" data-page="scale" data-search="scale plan scale plan lane dimensions, coordinates, axes, and top-down ue5 plan. 02" href="scale-plan.html"><b>02</b> Scale Plan</a>
+        <a class="navLink" data-page="blockout" data-search="blockout blockout approach, lane, gutters, walls, ceiling, back wall, and construction values. 03" href="blockout.html"><b>03</b> Blockout</a>
+        <a class="navLink" data-page="markers" data-search="gameplay markers gameplay markers target points, triggers, spawn markers, collision volumes, and tags. 04" href="gameplay-markers.html"><b>04</b> Gameplay Markers</a>
+        <a class="navLink" data-page="controls" data-search="mouse controls mouse controls mouse-only throw, charge, aim, release, steering, and input states. in" href="mouse-controls.html"><b>IN</b> Mouse Controls</a>
+        <a class="navLink" data-page="camera" data-search="camera director camera director camera states, readable results, reset flow, and click-to-play return. cm" href="camera-director.html"><b>CM</b> Camera Director</a>
+        <a class="navLink" data-page="lighting" data-search="lighting lighting lumen setup, practical lights, horror accents, and readable lane lighting. 05" href="lighting.html"><b>05</b> Lighting</a>
+        <a class="navLink" data-page="atmosphere" data-search="fog &amp; post fog and post process volumetric fog, exposure, bloom, vignette, and post-process targets. 06" href="fog-post.html"><b>06</b> Fog &amp; Post</a>
+        <a class="navLink" data-page="materials" data-search="materials materials lane wood, concrete, metal, grime, decals, and material instances. 07" href="materials.html"><b>07</b> Materials</a>
+        <a class="navLink" data-page="dressing" data-search="set dressing set dressing props, dressing zones, readability, and horror bowling alley detail. 08" href="set-dressing.html"><b>08</b> Set Dressing</a>
+        <a class="navLink active" aria-current="page" data-page="screens" data-search="ue5 screens ue5 screenshot aids screenshot checklist and visual references for important editor states. 09" href="ue5-screens.html"><b>09</b> UE5 Screens</a>
+        <a class="navLink" data-page="reuse" data-search="reuse system reuse system level instances, reusable chunks, templates, and future lane variants. 10" href="reuse-system.html"><b>10</b> Reuse System</a>
+        <a class="navLink" data-page="checklist" data-search="checklist interactive checklist guided build checklist with local progress tracking and phase filters. 11" href="checklist.html"><b>11</b> Checklist</a>
+        <a class="navLink" data-page="resources" data-search="resources resources ue5 locations, shortcuts, troubleshooting, and final ownership notice. 12" href="resources.html"><b>12</b> Resources</a>
+      </nav>
+
+      <div class="sideActions">
+        <a class="btn primary" href="checklist.html">Continue Build</a>
+        <button class="btn ghost checklistOnly" id="collapseDone" type="button">Hide completed tasks</button>
+        <button class="btn ghost" id="printBtn" type="button">Print / save PDF</button>
+        <button class="btn danger" id="resetProgress" type="button">Reset progress</button>
+      </div>
+    </aside>
+    <button class="navScrim" id="navScrim" type="button" aria-label="Close navigation"></button>
+
+    <main id="main">
+      <section class="card searchable" id="screens" data-title="screenshots online ue5 documentation editor interface viewport outliner details fab lumen fog level instance">
+        <div class="sectionHead"><div class="sectionNum">09</div><div class="sectionTitle"><h2>UE5 visual teaching aids and official screenshot references</h2><p>These cards link to official Unreal Engine documentation pages and use documentation screenshots where available. Use them when you need to find a panel, confirm a setting location, or remind yourself what a tool looks like.</p></div><div class="tagRow"><span class="tag good">Official docs</span><span class="tag">Online images</span></div></div>
+        <div class="sectionBody grid three">
+          <article class="imageCard"><div class="imageFrame"><img loading="lazy" src="https://dev.epicgames.com/community/api/documentation/image/669481b3-c96f-4e63-9c89-2f8025e8210f?resizing_type=fit" alt="Unreal Editor interface overview screenshot" onerror="this.parentElement.innerHTML='<div class=fallback>Image blocked â€” open source link below.</div>'"></div><div class="imageContent"><h3>Editor interface map</h3><p>Shows the menu bar, viewport, Outliner, Details panel, Content Drawer, and toolbars.</p><a target="_blank" rel="noreferrer" href="https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-editor-interface">Open official guide â†’</a></div></article>
+          <article class="imageCard"><div class="imageFrame"><img loading="lazy" src="https://dev.epicgames.com/community/api/documentation/image/329c4635-a25b-4f38-81e6-9a7f88b78c1d?height=335&resizing_type=fill&width=1920" alt="Viewport controls header image" onerror="this.parentElement.innerHTML='<div class=fallback>Image blocked â€” open source link below.</div>'"></div><div class="imageContent"><h3>Viewport controls</h3><p>Reference for moving around the scene, selecting actors, and understanding viewport navigation.</p><a target="_blank" rel="noreferrer" href="https://dev.epicgames.com/documentation/en-us/unreal-engine/viewport-controls-in-unreal-engine">Open official guide â†’</a></div></article>
+          <article class="imageCard"><div class="imageFrame"><img loading="lazy" src="https://dev.epicgames.com/community/api/documentation/image/46e3571a-9cb5-423f-84a6-6a904a743209?resizing_type=fit" alt="Unreal Outliner screenshot" onerror="this.parentElement.innerHTML='<div class=fallback>Image blocked â€” open source link below.</div>'"></div><div class="imageContent"><h3>Outliner organisation</h3><p>Use this to remember where level actors and folders live while keeping the map clean.</p><a target="_blank" rel="noreferrer" href="https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-editor-interface#outliner">Open official guide â†’</a></div></article>
+          <article class="imageCard"><div class="imageFrame"><img loading="lazy" src="https://dev.epicgames.com/community/api/documentation/image/491f8e6d-38cd-4973-8661-13dd3d5fe7bf?resizing_type=fit" alt="Unreal Details panel screenshot" onerror="this.parentElement.innerHTML='<div class=fallback>Image blocked â€” open source link below.</div>'"></div><div class="imageContent"><h3>Details panel</h3><p>Where transforms, materials, physics, collision, lighting, and component settings are edited.</p><a target="_blank" rel="noreferrer" href="https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-editor-interface#details-panel">Open official guide â†’</a></div></article>
+          <article class="imageCard"><div class="imageFrame"><img loading="lazy" src="https://dev.epicgames.com/community/api/documentation/image/c4646fee-7b86-43fb-b4fd-037b10fafff8?resizing_type=fit" alt="Lumen project settings screenshot" onerror="this.parentElement.innerHTML='<div class=fallback>Image blocked â€” open source link below.</div>'"></div><div class="imageContent"><h3>Lumen settings</h3><p>Use when checking Dynamic Global Illumination and Reflection Method settings.</p><a target="_blank" rel="noreferrer" href="https://dev.epicgames.com/documentation/en-us/unreal-engine/lumen-global-illumination-and-reflections-in-unreal-engine">Open official guide â†’</a></div></article>
+          <article class="imageCard"><div class="imageFrame"><img loading="lazy" src="https://dev.epicgames.com/community/api/documentation/image/873ad485-040d-41af-893b-985646d89299?resizing_type=fit" alt="Volumetric Fog details settings screenshot" onerror="this.parentElement.innerHTML='<div class=fallback>Image blocked â€” open source link below.</div>'"></div><div class="imageContent"><h3>Volumetric Fog controls</h3><p>Shows the Details panel area for enabling and tuning fog on the Exponential Height Fog actor.</p><a target="_blank" rel="noreferrer" href="https://dev.epicgames.com/documentation/en-us/unreal-engine/volumetric-fog-in-unreal-engine">Open official guide â†’</a></div></article>
+          <article class="imageCard"><div class="imageFrame"><img loading="lazy" src="https://dev.epicgames.com/community/api/documentation/image/0d3b4c7d-68fd-416d-a9cf-5972dacf76dd?resizing_type=fit" alt="Fab option in Unreal Window menu screenshot" onerror="this.parentElement.innerHTML='<div class=fallback>Image blocked â€” open source link below.</div>'"></div><div class="imageContent"><h3>Fab window</h3><p>Useful for finding abandoned interior props, grime decals, rusty metal, and environment assets.</p><a target="_blank" rel="noreferrer" href="https://dev.epicgames.com/documentation/en-us/unreal-engine/fab-window-in-unreal-engine">Open official guide â†’</a></div></article>
+          <article class="imageCard"><div class="imageFrame"><img loading="lazy" src="https://dev.epicgames.com/community/api/documentation/image/7076ff89-2c04-4c58-8fca-c4858d5a869c?height=335&resizing_type=fill&width=1920" alt="Level Instancing documentation header image" onerror="this.parentElement.innerHTML='<div class=fallback>Image blocked â€” open source link below.</div>'"></div><div class="imageContent"><h3>Level Instancing</h3><p>Use this when turning the lane core, back machine, and approach dressing into reusable chunks.</p><a target="_blank" rel="noreferrer" href="https://dev.epicgames.com/documentation/en-us/unreal-engine/level-instancing-in-unreal-engine">Open official guide â†’</a></div></article>
+          <article class="imageCard"><div class="imageFrame"><img loading="lazy" src="https://dev.epicgames.com/community/api/documentation/image/96d4b7e3-0822-4752-b8e4-1eedf68053a1?resizing_type=fit" alt="Unreal main toolbar screenshot" onerror="this.parentElement.innerHTML='<div class=fallback>Image blocked â€” open source link below.</div>'"></div><div class="imageContent"><h3>Main toolbar</h3><p>Save, play, mode switching, content shortcuts, and build/testing controls.</p><a target="_blank" rel="noreferrer" href="https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-editor-interface#main-toolbar">Open official guide â†’</a></div></article>
+        </div>
+      </section>
+      <nav class="pagePager" aria-label="Guide page navigation">
+        <a class="prev" href="set-dressing.html"><small>Previous page</small><strong>Set Dressing</strong></a>
+        <div class="pageCurrent" aria-label="Current page"><b>09</b><small>Current page</small><strong>UE5 Screens</strong><span class="routeHint">Screenshot checklist and visual references for important editor states.</span></div>
+        <a class="next" href="reuse-system.html"><small>Next page</small><strong>Reuse System</strong></a>
+      </nav>    </main>
+  </div>
+  <button class="topBtn" id="topBtn" type="button" aria-label="Back to top">&uarr; Top</button>
+  <div class="diagramLightbox" id="diagramLightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Diagram viewer">
+    <div class="lightboxTop">
+      <strong id="diagramLightboxTitle">Diagram</strong>
+      <div class="lightboxControls" aria-label="Diagram zoom controls">
+        <button id="diagramZoomOut" type="button" aria-label="Zoom out">-</button>
+        <button id="diagramZoomIn" type="button" aria-label="Zoom in">+</button>
+        <span class="zoomLabel" id="diagramZoomLabel">100%</span>
+        <button id="diagramZoomReset" type="button">Reset</button>
+        <button id="diagramLightboxClose" type="button">Close</button>
+      </div>
+    </div>
+    <div class="lightboxStage" id="diagramLightboxStage">
+      <img id="diagramLightboxImg" alt="" />
+    </div>
+  </div>
+</body>
+</html>

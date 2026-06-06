@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Volumetric fog, exposure, bloom, vignette, and post-process targets." />
+  <meta name="theme-color" content="#14070b" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Living Pins" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+  <title>Fog and Post Process - Night of the Living Pins</title>
+</head>
+<body data-page="atmosphere">
+  <div class="noise"></div><div class="fog"></div>
+  <a class="skip-link" href="#main">Skip to guide</a>
+  <div class="app">
+    <div class="mobilebar">
+      <button class="hamburger" id="openNav" type="button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false"><span><i></i><i></i><i></i></span> Guide Menu</button>
+      <button class="iconbtn" id="mobilePrint" type="button" title="Print guide">Print</button>
+    </div>
+
+    <aside id="sidebar" aria-label="Guide navigation">
+      <button class="navBack" id="closeNav" type="button" aria-label="Close navigation">Back to guide</button>
+      <div class="brand">
+        <div class="emblem" aria-hidden="true"></div>
+        <div><h1>Night of the Living Pins</h1><p>UE5 Level Build Bible</p></div>
+      </div>
+
+      <div class="progressBox">
+        <div class="progressTop"><span>Build progress</span><strong id="progressLabel">0%</strong></div>
+        <div class="progressBar"><div class="progressFill" id="progressFill"></div></div>
+        <div class="miniStats">
+          <div><strong id="doneCount">0</strong><span>Done</span></div>
+          <div><strong id="totalCount">0</strong><span>Tasks</span></div>
+          <div><strong>UE5</strong><span>Ready</span></div>
+        </div>
+      </div>
+
+      <div class="searchWrap">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m21 21-4.3-4.3m2.3-5.2a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="guideSearch" type="search" placeholder="Search guide pages..." />
+        <div class="searchStatus" id="searchStatus" role="status" aria-live="polite"></div>
+      </div>
+
+      <nav id="toc">
+        <a class="navLink" data-page="overview" data-search="vision vision playable, spooky, reusable ue5 level template. 00" href="index.html"><b>00</b> Vision</a>
+        <a class="navLink" data-page="artref" data-search="artwork ref artwork reference visual north star, palette, art hierarchy, and local image references. ar" href="artwork-reference.html"><b>AR</b> Artwork Ref</a>
+        <a class="navLink" data-page="story" data-search="story loop story loop arcade story spine, player goal, threat escalation, rewards, and boss frame. st" href="story-loop.html"><b>ST</b> Story Loop</a>
+        <a class="navLink" data-page="editor" data-search="editor basics unreal editor basics viewport, outliner, details, content drawer, actor workflow, and recovery notes. ed" href="editor-basics.html"><b>ED</b> Editor Basics</a>
+        <a class="navLink" data-page="setup" data-search="project setup project setup folder structure, map setup, naming, and level organization. 01" href="project-setup.html"><b>01</b> Project Setup</a>
+        <a class="navLink" data-page="scale" data-search="scale plan scale plan lane dimensions, coordinates, axes, and top-down ue5 plan. 02" href="scale-plan.html"><b>02</b> Scale Plan</a>
+        <a class="navLink" data-page="blockout" data-search="blockout blockout approach, lane, gutters, walls, ceiling, back wall, and construction values. 03" href="blockout.html"><b>03</b> Blockout</a>
+        <a class="navLink" data-page="markers" data-search="gameplay markers gameplay markers target points, triggers, spawn markers, collision volumes, and tags. 04" href="gameplay-markers.html"><b>04</b> Gameplay Markers</a>
+        <a class="navLink" data-page="controls" data-search="mouse controls mouse controls mouse-only throw, charge, aim, release, steering, and input states. in" href="mouse-controls.html"><b>IN</b> Mouse Controls</a>
+        <a class="navLink" data-page="camera" data-search="camera director camera director camera states, readable results, reset flow, and click-to-play return. cm" href="camera-director.html"><b>CM</b> Camera Director</a>
+        <a class="navLink" data-page="lighting" data-search="lighting lighting lumen setup, practical lights, horror accents, and readable lane lighting. 05" href="lighting.html"><b>05</b> Lighting</a>
+        <a class="navLink active" aria-current="page" data-page="atmosphere" data-search="fog &amp; post fog and post process volumetric fog, exposure, bloom, vignette, and post-process targets. 06" href="fog-post.html"><b>06</b> Fog &amp; Post</a>
+        <a class="navLink" data-page="materials" data-search="materials materials lane wood, concrete, metal, grime, decals, and material instances. 07" href="materials.html"><b>07</b> Materials</a>
+        <a class="navLink" data-page="dressing" data-search="set dressing set dressing props, dressing zones, readability, and horror bowling alley detail. 08" href="set-dressing.html"><b>08</b> Set Dressing</a>
+        <a class="navLink" data-page="screens" data-search="ue5 screens ue5 screenshot aids screenshot checklist and visual references for important editor states. 09" href="ue5-screens.html"><b>09</b> UE5 Screens</a>
+        <a class="navLink" data-page="reuse" data-search="reuse system reuse system level instances, reusable chunks, templates, and future lane variants. 10" href="reuse-system.html"><b>10</b> Reuse System</a>
+        <a class="navLink" data-page="checklist" data-search="checklist interactive checklist guided build checklist with local progress tracking and phase filters. 11" href="checklist.html"><b>11</b> Checklist</a>
+        <a class="navLink" data-page="resources" data-search="resources resources ue5 locations, shortcuts, troubleshooting, and final ownership notice. 12" href="resources.html"><b>12</b> Resources</a>
+      </nav>
+
+      <div class="sideActions">
+        <a class="btn primary" href="checklist.html">Continue Build</a>
+        <button class="btn ghost checklistOnly" id="collapseDone" type="button">Hide completed tasks</button>
+        <button class="btn ghost" id="printBtn" type="button">Print / save PDF</button>
+        <button class="btn danger" id="resetProgress" type="button">Reset progress</button>
+      </div>
+    </aside>
+    <button class="navScrim" id="navScrim" type="button" aria-label="Close navigation"></button>
+
+    <main id="main">
+      <section class="card searchable" id="atmosphere" data-title="volumetric fog post process exposure bloom vignette color grading atmosphere">
+        <div class="sectionHead"><div class="sectionNum">06</div><div class="sectionTitle"><h2>Fog and post process: cinematic, not muddy</h2><p>Atmosphere sells the abandoned horror feeling, but too much fog kills readability. Use fog as depth and beams, not as a grey blanket over the whole lane.</p></div><div class="tagRow"><span class="tag">Exponential Height Fog</span><span class="tag good">Post Process Volume</span></div></div>
+        <div class="sectionBody grid two">
+          <div class="tile"><h3>Fog starting values</h3><ul><li>Add <strong>Exponential Height Fog</strong>.</li><li>Enable <strong>Volumetric Fog</strong>.</li><li>Fog Density: <code>0.015â€“0.04</code>.</li><li>Height Falloff: <code>0.2â€“0.5</code>.</li><li>Keep low fog around the pin deck.</li></ul></div>
+          <div class="tile"><h3>Post Process starting values</h3><ul><li>Add a <strong>Post Process Volume</strong>.</li><li>Enable <strong>Infinite Extent</strong>.</li><li>Use controlled/manual exposure.</li><li>Vignette: <code>0.25â€“0.45</code>.</li><li>Subtle Bloom and Film Grain.</li></ul></div>
+          <div class="tile"><h3>Where fog settings live</h3><ol><li>Open <strong>Place Actors &gt; Visual Effects</strong>.</li><li>Drag <strong>Exponential Height Fog</strong> into the level.</li><li>Select it and use Details to enable <strong>Volumetric Fog</strong>.</li><li>Tune Fog Density and Height Falloff in Details while viewing the lane from the gameplay camera.</li></ol></div>
+          <div class="tile"><h3>Where post process settings live</h3><ol><li>Open <strong>Place Actors &gt; Visual Effects</strong>.</li><li>Drag <strong>Post Process Volume</strong> into the level.</li><li>Select it and enable <strong>Infinite Extent</strong> in Details so it affects the whole scene.</li><li>Set Exposure, Bloom, Vignette, and Film Grain in Details before judging final mood.</li></ol></div>
+          <div class="callout warning"><strong>Beginner trap:</strong> auto exposure can brighten the whole scene and destroy the horror mood. Tame exposure early so your lighting decisions actually stay visible.</div>
+          <div class="callout"><strong>Style target:</strong> shadows lean blue/green, lane wood stays dirty amber, back-machine danger uses red sparingly, and highlights feel like old fluorescent tubes.</div>
+          <div class="diagramWrap" style="grid-column:1/-1">
+            <div class="diagramTitle"><div><strong>Fog and post-process stack</strong><span>Depth without muddy gameplay</span></div><p class="diagramNote">Treat atmosphere as layered visibility control. The highest contrast stays on the playable lane and pin rack; heavier fog belongs at the back machine, floor edges, and distant wall openings.</p></div>
+            <figure class="diagramImageFrame"><img src="assets/diagram-fog-post-process.png" alt="Fog and post-process stack diagram showing clean lane visibility, low floor fog, back-machine haze, wall pocket fog, and grading pass layers." loading="eager" decoding="async" /></figure>
+            <div class="precisionDiagram diagramSource" aria-hidden="true">
+              <div class="layerRows">
+                <div class="layerRow"><b>Manual exposure</b><div class="layerTrack dim"></div><span>lock mood before judging lights</span></div>
+                <div class="layerRow"><b>Window beams</b><div class="layerTrack"></div><span>thin blue shafts, angled across top space</span></div>
+                <div class="layerRow"><b>Low floor fog</b><div class="layerTrack"></div><span>stronger near pin deck, lighter over centre lane</span></div>
+                <div class="layerRow"><b>Bloom targets</b><div class="layerTrack hot"></div><span>eyes, neon, sparks, warning bulbs only</span></div>
+                <div class="layerRow"><b>Vignette/grain</b><div class="layerTrack dim"></div><span>frame the lane, never hide gutter feedback</span></div>
+              </div>
+              <div class="axisStrip"><span><strong>Pass:</strong> ball, arrows, and head pin readable.</span><span><strong>Fail:</strong> lane becomes flat grey.</span><span><strong>Fix:</strong> move density behind pins.</span><span><strong>Goal:</strong> cinematic depth, not muddy gameplay.</span></div>
+            </div>
+            <div class="diagramGrid">
+              <svg viewBox="0 0 820 520" role="img" aria-label="Fog layer cross-section diagram">
+                <defs>
+                  <linearGradient id="fogFloor" x1="0" x2="1"><stop offset="0" stop-color="rgba(157,255,187,.04)"/><stop offset=".72" stop-color="rgba(157,255,187,.22)"/><stop offset="1" stop-color="rgba(157,255,187,.40)"/></linearGradient>
+                  <linearGradient id="fogHigh" x1="0" x2="1"><stop offset="0" stop-color="rgba(120,215,255,.20)"/><stop offset="1" stop-color="rgba(120,215,255,.04)"/></linearGradient>
+                </defs>
+                <rect x="18" y="22" width="784" height="476" rx="24" fill="#070b12" stroke="rgba(255,255,255,.14)"/>
+                <rect x="72" y="334" width="612" height="54" rx="10" fill="rgba(255,211,125,.12)" stroke="rgba(255,211,125,.28)"/>
+                <rect x="72" y="388" width="612" height="28" rx="8" fill="rgba(0,0,0,.36)" stroke="rgba(255,255,255,.10)"/>
+                <rect x="684" y="298" width="82" height="114" rx="12" fill="rgba(255,94,118,.10)" stroke="rgba(255,94,118,.28)"/>
+                <path d="M72 298 C220 270 406 286 684 278 L684 344 C424 360 248 360 72 342 Z" fill="url(#fogFloor)" stroke="rgba(157,255,187,.24)"/>
+                <path d="M84 130 C238 170 410 142 660 172 L660 220 C420 194 270 214 84 188 Z" fill="url(#fogHigh)" stroke="rgba(120,215,255,.22)"/>
+                <path d="M144 122 L360 330" stroke="#78d7ff" stroke-width="4" stroke-dasharray="10 8"/>
+                <path d="M242 118 L466 330" stroke="#78d7ff" stroke-width="4" stroke-dasharray="10 8"/>
+                <path d="M708 214 C646 250 622 288 620 344" stroke="#ff5e76" stroke-width="4" stroke-dasharray="8 8"/>
+                <text x="380" y="74" fill="#edf5ff" text-anchor="middle" font-size="17" font-weight="950">Side visibility pass</text>
+                <text x="232" y="246" fill="#78d7ff" font-size="13" font-weight="900">window beams: visible, thin, angled</text>
+                <text x="384" y="318" fill="#9dffbb" font-size="13" font-weight="900">low fog: strongest near pin deck and floor edges</text>
+                <text x="724" y="286" fill="#ffd7df" text-anchor="middle" font-size="13" font-weight="900">back glow</text>
+                <text x="370" y="438" fill="#ffd37d" text-anchor="middle" font-size="13" font-weight="900">lane contrast stays readable; do not blanket this area</text>
+                <g fill="#eaf5ed" stroke="#ff5e76" stroke-width="2">
+                  <circle cx="692" cy="322" r="7"/><circle cx="708" cy="310" r="7"/><circle cx="708" cy="334" r="7"/><circle cx="724" cy="298" r="7"/><circle cx="724" cy="322" r="7"/><circle cx="724" cy="346" r="7"/>
+                </g>
+              </svg>
+              <div class="diagramStack">
+                <div class="stackLayer"><div class="miniBar cold"></div><span><strong>Exposure:</strong> set Manual or carefully clamped Auto Exposure before judging any light value.</span></div>
+                <div class="stackLayer"><div class="miniBar"></div><span><strong>Volumetric fog:</strong> start subtle, then thicken only behind the pins and near floor/wall intersections.</span></div>
+                <div class="stackLayer"><div class="miniBar red"></div><span><strong>Bloom:</strong> reserve strong bloom for neon, eye glow, ball energy, and back-machine warning bulbs.</span></div>
+                <div class="stackLayer"><div class="miniBar dark"></div><span><strong>Vignette/grain:</strong> use enough to frame the lane, but not enough to hide gutter or pin feedback.</span></div>
+                <div class="blueprintPanel">
+                  <div class="diagramTitle"><div><strong>Fog placement rule</strong><span>Simple pass/fail test</span></div></div>
+                  <ul class="diagramChecklist">
+                    <li><strong>Pass:</strong> ball, arrows, foul line, gutters, and head pin are readable in a gameplay screenshot.</li>
+                    <li><strong>Fail:</strong> fog makes the lane flat grey or hides where the ball crossed into the gutter.</li>
+                    <li><strong>Fix:</strong> reduce density over the lane, keep fog denser behind the pins, and increase edge light contrast.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <nav class="pagePager" aria-label="Guide page navigation">
+        <a class="prev" href="lighting.html"><small>Previous page</small><strong>Lighting</strong></a>
+        <div class="pageCurrent" aria-label="Current page"><b>06</b><small>Current page</small><strong>Fog &amp; Post</strong><span class="routeHint">Volumetric fog, exposure, bloom, vignette, and post-process targets.</span></div>
+        <a class="next" href="materials.html"><small>Next page</small><strong>Materials</strong></a>
+      </nav>    </main>
+  </div>
+  <button class="topBtn" id="topBtn" type="button" aria-label="Back to top">&uarr; Top</button>
+  <div class="diagramLightbox" id="diagramLightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Diagram viewer">
+    <div class="lightboxTop">
+      <strong id="diagramLightboxTitle">Diagram</strong>
+      <div class="lightboxControls" aria-label="Diagram zoom controls">
+        <button id="diagramZoomOut" type="button" aria-label="Zoom out">-</button>
+        <button id="diagramZoomIn" type="button" aria-label="Zoom in">+</button>
+        <span class="zoomLabel" id="diagramZoomLabel">100%</span>
+        <button id="diagramZoomReset" type="button">Reset</button>
+        <button id="diagramLightboxClose" type="button">Close</button>
+      </div>
+    </div>
+    <div class="lightboxStage" id="diagramLightboxStage">
+      <img id="diagramLightboxImg" alt="" />
+    </div>
+  </div>
+</body>
+</html>

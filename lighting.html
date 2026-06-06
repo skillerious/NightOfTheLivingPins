@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Lumen setup, practical lights, horror accents, and readable lane lighting." />
+  <meta name="theme-color" content="#14070b" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Living Pins" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+  <title>Lighting - Night of the Living Pins</title>
+</head>
+<body data-page="lighting">
+  <div class="noise"></div><div class="fog"></div>
+  <a class="skip-link" href="#main">Skip to guide</a>
+  <div class="app">
+    <div class="mobilebar">
+      <button class="hamburger" id="openNav" type="button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false"><span><i></i><i></i><i></i></span> Guide Menu</button>
+      <button class="iconbtn" id="mobilePrint" type="button" title="Print guide">Print</button>
+    </div>
+
+    <aside id="sidebar" aria-label="Guide navigation">
+      <button class="navBack" id="closeNav" type="button" aria-label="Close navigation">Back to guide</button>
+      <div class="brand">
+        <div class="emblem" aria-hidden="true"></div>
+        <div><h1>Night of the Living Pins</h1><p>UE5 Level Build Bible</p></div>
+      </div>
+
+      <div class="progressBox">
+        <div class="progressTop"><span>Build progress</span><strong id="progressLabel">0%</strong></div>
+        <div class="progressBar"><div class="progressFill" id="progressFill"></div></div>
+        <div class="miniStats">
+          <div><strong id="doneCount">0</strong><span>Done</span></div>
+          <div><strong id="totalCount">0</strong><span>Tasks</span></div>
+          <div><strong>UE5</strong><span>Ready</span></div>
+        </div>
+      </div>
+
+      <div class="searchWrap">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m21 21-4.3-4.3m2.3-5.2a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="guideSearch" type="search" placeholder="Search guide pages..." />
+        <div class="searchStatus" id="searchStatus" role="status" aria-live="polite"></div>
+      </div>
+
+      <nav id="toc">
+        <a class="navLink" data-page="overview" data-search="vision vision playable, spooky, reusable ue5 level template. 00" href="index.html"><b>00</b> Vision</a>
+        <a class="navLink" data-page="artref" data-search="artwork ref artwork reference visual north star, palette, art hierarchy, and local image references. ar" href="artwork-reference.html"><b>AR</b> Artwork Ref</a>
+        <a class="navLink" data-page="story" data-search="story loop story loop arcade story spine, player goal, threat escalation, rewards, and boss frame. st" href="story-loop.html"><b>ST</b> Story Loop</a>
+        <a class="navLink" data-page="editor" data-search="editor basics unreal editor basics viewport, outliner, details, content drawer, actor workflow, and recovery notes. ed" href="editor-basics.html"><b>ED</b> Editor Basics</a>
+        <a class="navLink" data-page="setup" data-search="project setup project setup folder structure, map setup, naming, and level organization. 01" href="project-setup.html"><b>01</b> Project Setup</a>
+        <a class="navLink" data-page="scale" data-search="scale plan scale plan lane dimensions, coordinates, axes, and top-down ue5 plan. 02" href="scale-plan.html"><b>02</b> Scale Plan</a>
+        <a class="navLink" data-page="blockout" data-search="blockout blockout approach, lane, gutters, walls, ceiling, back wall, and construction values. 03" href="blockout.html"><b>03</b> Blockout</a>
+        <a class="navLink" data-page="markers" data-search="gameplay markers gameplay markers target points, triggers, spawn markers, collision volumes, and tags. 04" href="gameplay-markers.html"><b>04</b> Gameplay Markers</a>
+        <a class="navLink" data-page="controls" data-search="mouse controls mouse controls mouse-only throw, charge, aim, release, steering, and input states. in" href="mouse-controls.html"><b>IN</b> Mouse Controls</a>
+        <a class="navLink" data-page="camera" data-search="camera director camera director camera states, readable results, reset flow, and click-to-play return. cm" href="camera-director.html"><b>CM</b> Camera Director</a>
+        <a class="navLink active" aria-current="page" data-page="lighting" data-search="lighting lighting lumen setup, practical lights, horror accents, and readable lane lighting. 05" href="lighting.html"><b>05</b> Lighting</a>
+        <a class="navLink" data-page="atmosphere" data-search="fog &amp; post fog and post process volumetric fog, exposure, bloom, vignette, and post-process targets. 06" href="fog-post.html"><b>06</b> Fog &amp; Post</a>
+        <a class="navLink" data-page="materials" data-search="materials materials lane wood, concrete, metal, grime, decals, and material instances. 07" href="materials.html"><b>07</b> Materials</a>
+        <a class="navLink" data-page="dressing" data-search="set dressing set dressing props, dressing zones, readability, and horror bowling alley detail. 08" href="set-dressing.html"><b>08</b> Set Dressing</a>
+        <a class="navLink" data-page="screens" data-search="ue5 screens ue5 screenshot aids screenshot checklist and visual references for important editor states. 09" href="ue5-screens.html"><b>09</b> UE5 Screens</a>
+        <a class="navLink" data-page="reuse" data-search="reuse system reuse system level instances, reusable chunks, templates, and future lane variants. 10" href="reuse-system.html"><b>10</b> Reuse System</a>
+        <a class="navLink" data-page="checklist" data-search="checklist interactive checklist guided build checklist with local progress tracking and phase filters. 11" href="checklist.html"><b>11</b> Checklist</a>
+        <a class="navLink" data-page="resources" data-search="resources resources ue5 locations, shortcuts, troubleshooting, and final ownership notice. 12" href="resources.html"><b>12</b> Resources</a>
+      </nav>
+
+      <div class="sideActions">
+        <a class="btn primary" href="checklist.html">Continue Build</a>
+        <button class="btn ghost checklistOnly" id="collapseDone" type="button">Hide completed tasks</button>
+        <button class="btn ghost" id="printBtn" type="button">Print / save PDF</button>
+        <button class="btn danger" id="resetProgress" type="button">Reset progress</button>
+      </div>
+    </aside>
+    <button class="navScrim" id="navScrim" type="button" aria-label="Close navigation"></button>
+
+    <main id="main">
+      <section class="card searchable" id="lighting" data-title="lighting lumen rect lights spot lights point lights horror flicker exposure emissive">
+        <div class="sectionHead"><div class="sectionNum">05</div><div class="sectionTitle"><h2>Make the lane spooky without making it unreadable</h2><p>The lighting target is a readable golden-brown lane surrounded by cold darkness, with dirty green and red accents around the pin deck. The player should always know where to aim.</p></div><div class="tagRow"><span class="tag good">Lumen ready</span><span class="tag">Rect lights</span></div></div>
+        <div class="sectionBody">
+          <div class="recipe">
+            <div class="tile"><h3>Primary lane recipe</h3><div class="swatch cold"></div><ul><li>Use 4â€“6 Rect Lights along the ceiling.</li><li>Keep them mostly cold white or slightly green.</li><li>Break one or two by lowering intensity or adding flicker.</li><li>Keep the lane reflection visible.</li></ul></div>
+            <div class="tile"><h3>Back-machine recipe</h3><div class="swatch red"></div><ul><li>Add a Spot Light behind the pins aimed forward.</li><li>Use red/green contrast, not pure red everywhere.</li><li>Let the pins silhouette against fog and machinery.</li><li>This is your horror focal point.</li></ul></div>
+          </div>
+          <div class="grid three" style="margin-top:16px">
+            <div class="tile"><h3>RectLight_Lane_01</h3><p><strong>Location:</strong> X=100, Y=0, Z=270<br><strong>Intensity:</strong> 150â€“400<br><strong>Width:</strong> 250<br><strong>Height:</strong> 20</p></div>
+            <div class="tile"><h3>Duplicate down-lane</h3><p>Place copies at X=450, 800, 1150, 1500, and 1850. Vary intensity so the lighting feels broken instead of perfectly even.</p></div>
+            <div class="tile"><h3>Pin deck light</h3><p><strong>SpotLight_BackMachine</strong><br>X=2080, Y=0, Z=180<br>Intensity 800â€“1500. Aim toward the pins.</p></div>
+          </div>
+          <div class="grid three" style="margin-top:16px">
+            <div class="tile"><h3>How to add lights</h3><ol><li>Open <strong>Place Actors &gt; Lights</strong>.</li><li>Drag <strong>Rect Light</strong> or <strong>Spot Light</strong> into the viewport.</li><li>Rename it in the Outliner, then move it into <code>03_LIGHTING</code>.</li><li>Type Location, Rotation, Intensity, Source Width, and Source Height in Details.</li></ol></div>
+            <div class="tile"><h3>How to aim the spotlight</h3><p>Select <code>SpotLight_BackMachine</code>, press <span class="kbd">E</span> for Rotate, and aim the cone toward the pin rack. For accuracy, type Rotation values in Details after rough aiming in the viewport.</p></div>
+            <div class="tile"><h3>How to judge the pass</h3><p>Switch the viewport to <strong>Lit</strong>, press <span class="kbd">G</span> for Game View, and take a screenshot from the approach. If the ball path or head pin disappears, reduce fog/bloom or raise lane key light.</p></div>
+          </div>
+          <div class="diagramWrap" style="margin-top:16px">
+            <div class="diagramTitle"><div><strong>Lighting rig diagram</strong><span>Readable lane, scary edges</span></div><p class="diagramNote">The lane surface gets a controllable light rhythm. Horror accents sit off-centre and behind the pins so the player can still aim while the environment feels hostile.</p></div>
+            <figure class="diagramImageFrame"><img src="assets/diagram-lighting-rig.png" alt="Lighting rig diagram showing gameplay lane light, pin deck spotlight, side flicker practicals, back machine rim light, and fog catch light layers." loading="eager" decoding="async" /></figure>
+            <div class="precisionDiagram diagramSource" aria-hidden="true">
+              <div class="planGrid">
+                <div class="planCell sideTop"><strong>Cold window shafts</strong><small>blue moonlight through damaged side wall openings</small></div>
+                <div class="planCell approachCell"><strong>Soft approach key</strong><small>enough light for player/ball silhouette</small></div>
+                <div class="planCell gutterTop"><strong>Blue edge strip</strong><small>subtle gutter readability</small></div>
+                <div class="planCell laneCell"><div class="centreLine"></div><strong>Lane rect-light rhythm</strong><small>Rect 01 -> Rect 05, varied intensity, arrows visible</small><div class="aimArrows"><i></i><i></i><i></i></div></div>
+                <div class="planCell gutterBottom"><strong>Neon bounce</strong><small>orange signs, low intensity</small></div>
+                <div class="planCell pinDeckCell"><strong>Green pin glow</strong><small>eyes, slime, fog, readable head pin</small><div class="pinRackMini"><span class="pinDot"></span><span class="rackGap"></span><span class="rackGap"></span><span class="rackGap"></span><span class="pinDot"></span><span class="pinDot"></span><span class="rackGap"></span><span class="rackGap"></span><span class="pinDot"></span><span class="pinDot"></span><span class="pinDot"></span><span class="rackGap"></span><span class="pinDot"></span><span class="pinDot"></span><span class="pinDot"></span><span class="pinDot"></span></div></div>
+                <div class="planCell machineCell"><strong>Red rim danger</strong><small>SpotLight_BackMachine aimed forward</small></div>
+                <div class="planCell sideBottom"><strong>Exposure rule</strong><small>ball, arrows, gutters, and head pin stay readable after fog and bloom</small></div>
+              </div>
+              <div class="axisStrip"><span><strong>Cold:</strong> moon/window shafts.</span><span><strong>Green:</strong> supernatural pin deck.</span><span><strong>Orange:</strong> neon sign bounce.</span><span><strong>Red:</strong> back-machine danger only.</span></div>
+            </div>
+            <svg viewBox="0 0 1180 650" role="img" aria-label="Lighting placement diagram for haunted bowling lane">
+              <defs>
+                <radialGradient id="lightGlowGreen"><stop offset="0" stop-color="rgba(157,255,187,.72)"/><stop offset=".42" stop-color="rgba(157,255,187,.22)"/><stop offset="1" stop-color="rgba(157,255,187,0)"/></radialGradient>
+                <radialGradient id="lightGlowRed"><stop offset="0" stop-color="rgba(255,94,118,.65)"/><stop offset=".45" stop-color="rgba(255,94,118,.20)"/><stop offset="1" stop-color="rgba(255,94,118,0)"/></radialGradient>
+                <radialGradient id="lightGlowBlue"><stop offset="0" stop-color="rgba(120,215,255,.55)"/><stop offset=".48" stop-color="rgba(120,215,255,.16)"/><stop offset="1" stop-color="rgba(120,215,255,0)"/></radialGradient>
+              </defs>
+              <rect x="22" y="24" width="1136" height="598" rx="26" fill="#070b12" stroke="rgba(255,255,255,.14)"/>
+              <text x="590" y="62" fill="#edf5ff" text-anchor="middle" font-size="18" font-weight="950">Top-down lighting plan</text>
+              <rect x="126" y="242" width="816" height="184" rx="16" fill="rgba(255,211,125,.10)" stroke="rgba(255,211,125,.28)"/>
+              <rect x="126" y="202" width="816" height="36" rx="10" fill="rgba(0,0,0,.26)" stroke="rgba(255,255,255,.10)"/>
+              <rect x="126" y="430" width="816" height="36" rx="10" fill="rgba(0,0,0,.26)" stroke="rgba(255,255,255,.10)"/>
+              <rect x="942" y="220" width="112" height="244" rx="16" fill="rgba(157,255,187,.08)" stroke="rgba(157,255,187,.28)"/>
+              <rect x="1054" y="164" width="62" height="356" rx="16" fill="rgba(255,94,118,.09)" stroke="rgba(255,94,118,.30)"/>
+              <g>
+                <ellipse cx="220" cy="334" rx="120" ry="72" fill="url(#lightGlowBlue)"/>
+                <ellipse cx="360" cy="334" rx="120" ry="72" fill="url(#lightGlowGreen)"/>
+                <ellipse cx="500" cy="334" rx="120" ry="72" fill="url(#lightGlowBlue)"/>
+                <ellipse cx="640" cy="334" rx="120" ry="72" fill="url(#lightGlowGreen)"/>
+                <ellipse cx="780" cy="334" rx="120" ry="72" fill="url(#lightGlowBlue)"/>
+              </g>
+              <g fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.35)">
+                <rect x="168" y="160" width="108" height="24" rx="7"/><rect x="308" y="160" width="108" height="24" rx="7"/><rect x="448" y="160" width="108" height="24" rx="7"/><rect x="588" y="160" width="108" height="24" rx="7"/><rect x="728" y="160" width="108" height="24" rx="7"/>
+              </g>
+              <g fill="#a9b7c9" font-size="12" text-anchor="middle">
+                <text x="222" y="150">Rect 01</text><text x="362" y="150">Rect 02</text><text x="502" y="150">Rect 03</text><text x="642" y="150">Rect 04</text><text x="782" y="150">Rect 05</text>
+              </g>
+              <ellipse cx="1010" cy="334" rx="150" ry="156" fill="url(#lightGlowRed)"/>
+              <ellipse cx="960" cy="334" rx="122" ry="132" fill="url(#lightGlowGreen)"/>
+              <g fill="#eaf5ed" stroke="#ff5e76" stroke-width="3">
+                <circle cx="964" cy="334" r="8"/><circle cx="982" cy="316" r="8"/><circle cx="982" cy="352" r="8"/><circle cx="1000" cy="298" r="8"/><circle cx="1000" cy="334" r="8"/><circle cx="1000" cy="370" r="8"/>
+              </g>
+              <text x="1012" y="544" fill="#ffd7df" text-anchor="middle" font-size="14" font-weight="900">SpotLight_BackMachine red rim + green pin glow</text>
+              <path d="M56 176 C198 226 286 242 392 260" fill="none" stroke="#78d7ff" stroke-width="5" stroke-dasharray="10 10"/>
+              <path d="M56 496 C198 446 286 430 392 412" fill="none" stroke="#78d7ff" stroke-width="5" stroke-dasharray="10 10"/>
+              <text x="180" y="122" fill="#78d7ff" font-size="13" font-weight="900">Cold window shafts from left wall</text>
+              <text x="246" y="516" fill="#78d7ff" font-size="13" font-weight="900">Blue edge light catches wet boards</text>
+              <rect x="536" y="486" width="264" height="42" rx="12" fill="rgba(255,157,98,.12)" stroke="rgba(255,157,98,.34)"/>
+              <text x="668" y="512" fill="#ffbd91" text-anchor="middle" font-size="13" font-weight="900">Neon sign bounce: orange, low intensity</text>
+              <g transform="translate(76 548)">
+                <rect x="0" y="0" width="880" height="52" rx="16" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.11)"/>
+                <text x="18" y="22" fill="#edf5ff" font-size="13" font-weight="900">Exposure target</text>
+                <text x="18" y="40" fill="#a9b7c9" font-size="12">The lane arrows, ball silhouette, and head pin must stay readable after fog and bloom are enabled.</text>
+              </g>
+            </svg>
+            <div class="legend"><span><i class="dot blue"></i>Cold window/edge light</span><span><i class="dot"></i>Green supernatural glow</span><span><i class="dot red"></i>Danger backlight</span><span><i class="dot amber"></i>Neon bounce</span></div>
+          </div>
+          <div class="tabs" style="margin-top:16px">
+            <div class="tabButtons"><button class="active">Mood</button><button>Readability</button><button>Performance</button></div>
+            <div class="tabPanel active"><h3>Make it feel abandoned</h3><p>Use long shadow shapes, dead corners, low ceiling pools of light, and one strong back glow. The best horror lighting leaves some parts unseen, but never hides the gameplay lane itself.</p></div>
+            <div class="tabPanel"><h3>Keep the gameplay readable</h3><p>The ball path needs to read immediately. Use the foul line, target arrows, rails, and a subtle lane reflection to guide the eye toward the pins.</p></div>
+            <div class="tabPanel"><h3>Do not overdo dynamic lights</h3><p>Use dynamic lighting where it matters: flicker lights, emissive monitors, scare moments, and the pin machine. Keep unnecessary small lights out of the prototype until the gameplay is proven.</p></div>
+          </div>
+        </div>
+      </section>
+      <nav class="pagePager" aria-label="Guide page navigation">
+        <a class="prev" href="camera-director.html"><small>Previous page</small><strong>Camera Director</strong></a>
+        <div class="pageCurrent" aria-label="Current page"><b>05</b><small>Current page</small><strong>Lighting</strong><span class="routeHint">Lumen setup, practical lights, horror accents, and readable lane lighting.</span></div>
+        <a class="next" href="fog-post.html"><small>Next page</small><strong>Fog &amp; Post</strong></a>
+      </nav>    </main>
+  </div>
+  <button class="topBtn" id="topBtn" type="button" aria-label="Back to top">&uarr; Top</button>
+  <div class="diagramLightbox" id="diagramLightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Diagram viewer">
+    <div class="lightboxTop">
+      <strong id="diagramLightboxTitle">Diagram</strong>
+      <div class="lightboxControls" aria-label="Diagram zoom controls">
+        <button id="diagramZoomOut" type="button" aria-label="Zoom out">-</button>
+        <button id="diagramZoomIn" type="button" aria-label="Zoom in">+</button>
+        <span class="zoomLabel" id="diagramZoomLabel">100%</span>
+        <button id="diagramZoomReset" type="button">Reset</button>
+        <button id="diagramLightboxClose" type="button">Close</button>
+      </div>
+    </div>
+    <div class="lightboxStage" id="diagramLightboxStage">
+      <img id="diagramLightboxImg" alt="" />
+    </div>
+  </div>
+</body>
+</html>

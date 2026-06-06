@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Approach, lane, gutters, walls, ceiling, back wall, and construction values." />
+  <meta name="theme-color" content="#14070b" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Living Pins" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+  <title>Blockout - Night of the Living Pins</title>
+</head>
+<body data-page="blockout">
+  <div class="noise"></div><div class="fog"></div>
+  <a class="skip-link" href="#main">Skip to guide</a>
+  <div class="app">
+    <div class="mobilebar">
+      <button class="hamburger" id="openNav" type="button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false"><span><i></i><i></i><i></i></span> Guide Menu</button>
+      <button class="iconbtn" id="mobilePrint" type="button" title="Print guide">Print</button>
+    </div>
+
+    <aside id="sidebar" aria-label="Guide navigation">
+      <button class="navBack" id="closeNav" type="button" aria-label="Close navigation">Back to guide</button>
+      <div class="brand">
+        <div class="emblem" aria-hidden="true"></div>
+        <div><h1>Night of the Living Pins</h1><p>UE5 Level Build Bible</p></div>
+      </div>
+
+      <div class="progressBox">
+        <div class="progressTop"><span>Build progress</span><strong id="progressLabel">0%</strong></div>
+        <div class="progressBar"><div class="progressFill" id="progressFill"></div></div>
+        <div class="miniStats">
+          <div><strong id="doneCount">0</strong><span>Done</span></div>
+          <div><strong id="totalCount">0</strong><span>Tasks</span></div>
+          <div><strong>UE5</strong><span>Ready</span></div>
+        </div>
+      </div>
+
+      <div class="searchWrap">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m21 21-4.3-4.3m2.3-5.2a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="guideSearch" type="search" placeholder="Search guide pages..." />
+        <div class="searchStatus" id="searchStatus" role="status" aria-live="polite"></div>
+      </div>
+
+      <nav id="toc">
+        <a class="navLink" data-page="overview" data-search="vision vision playable, spooky, reusable ue5 level template. 00" href="index.html"><b>00</b> Vision</a>
+        <a class="navLink" data-page="artref" data-search="artwork ref artwork reference visual north star, palette, art hierarchy, and local image references. ar" href="artwork-reference.html"><b>AR</b> Artwork Ref</a>
+        <a class="navLink" data-page="story" data-search="story loop story loop arcade story spine, player goal, threat escalation, rewards, and boss frame. st" href="story-loop.html"><b>ST</b> Story Loop</a>
+        <a class="navLink" data-page="editor" data-search="editor basics unreal editor basics viewport, outliner, details, content drawer, actor workflow, and recovery notes. ed" href="editor-basics.html"><b>ED</b> Editor Basics</a>
+        <a class="navLink" data-page="setup" data-search="project setup project setup folder structure, map setup, naming, and level organization. 01" href="project-setup.html"><b>01</b> Project Setup</a>
+        <a class="navLink" data-page="scale" data-search="scale plan scale plan lane dimensions, coordinates, axes, and top-down ue5 plan. 02" href="scale-plan.html"><b>02</b> Scale Plan</a>
+        <a class="navLink active" aria-current="page" data-page="blockout" data-search="blockout blockout approach, lane, gutters, walls, ceiling, back wall, and construction values. 03" href="blockout.html"><b>03</b> Blockout</a>
+        <a class="navLink" data-page="markers" data-search="gameplay markers gameplay markers target points, triggers, spawn markers, collision volumes, and tags. 04" href="gameplay-markers.html"><b>04</b> Gameplay Markers</a>
+        <a class="navLink" data-page="controls" data-search="mouse controls mouse controls mouse-only throw, charge, aim, release, steering, and input states. in" href="mouse-controls.html"><b>IN</b> Mouse Controls</a>
+        <a class="navLink" data-page="camera" data-search="camera director camera director camera states, readable results, reset flow, and click-to-play return. cm" href="camera-director.html"><b>CM</b> Camera Director</a>
+        <a class="navLink" data-page="lighting" data-search="lighting lighting lumen setup, practical lights, horror accents, and readable lane lighting. 05" href="lighting.html"><b>05</b> Lighting</a>
+        <a class="navLink" data-page="atmosphere" data-search="fog &amp; post fog and post process volumetric fog, exposure, bloom, vignette, and post-process targets. 06" href="fog-post.html"><b>06</b> Fog &amp; Post</a>
+        <a class="navLink" data-page="materials" data-search="materials materials lane wood, concrete, metal, grime, decals, and material instances. 07" href="materials.html"><b>07</b> Materials</a>
+        <a class="navLink" data-page="dressing" data-search="set dressing set dressing props, dressing zones, readability, and horror bowling alley detail. 08" href="set-dressing.html"><b>08</b> Set Dressing</a>
+        <a class="navLink" data-page="screens" data-search="ue5 screens ue5 screenshot aids screenshot checklist and visual references for important editor states. 09" href="ue5-screens.html"><b>09</b> UE5 Screens</a>
+        <a class="navLink" data-page="reuse" data-search="reuse system reuse system level instances, reusable chunks, templates, and future lane variants. 10" href="reuse-system.html"><b>10</b> Reuse System</a>
+        <a class="navLink" data-page="checklist" data-search="checklist interactive checklist guided build checklist with local progress tracking and phase filters. 11" href="checklist.html"><b>11</b> Checklist</a>
+        <a class="navLink" data-page="resources" data-search="resources resources ue5 locations, shortcuts, troubleshooting, and final ownership notice. 12" href="resources.html"><b>12</b> Resources</a>
+      </nav>
+
+      <div class="sideActions">
+        <a class="btn primary" href="checklist.html">Continue Build</a>
+        <button class="btn ghost checklistOnly" id="collapseDone" type="button">Hide completed tasks</button>
+        <button class="btn ghost" id="printBtn" type="button">Print / save PDF</button>
+        <button class="btn danger" id="resetProgress" type="button">Reset progress</button>
+      </div>
+    </aside>
+    <button class="navScrim" id="navScrim" type="button" aria-label="Close navigation"></button>
+
+    <main id="main">
+      <section class="card searchable" id="blockout" data-title="blockout cubes transforms walls ceiling gutters rails approach pin deck back wall">
+        <div class="sectionHead"><div class="sectionNum">03</div><div class="sectionTitle"><h2>Block out the full lane with exact transforms</h2><p>Use cubes first. Do not worry about final meshes yet. The important thing is to make the scene playable, understandable, and easy to iterate.</p></div><div class="tagRow"><span class="tag good">Place Actors â†’ Shapes â†’ Cube</span><span class="tag warn">Save often</span></div></div>
+        <div class="sectionBody">
+          <div class="tableWrap">
+            <table>
+              <thead><tr><th>Actor name</th><th>Location X/Y/Z</th><th>Scale X/Y/Z</th><th>Purpose</th></tr></thead>
+              <tbody>
+                <tr><td><code>SM_Blockout_Approach</code></td><td>-225 / 0 / 0</td><td>4.5 / 3.5 / 0.08</td><td>Player launch area before the foul line.</td></tr>
+                <tr><td><code>SM_Blockout_LaneSurface</code></td><td>914.5 / 0 / 0</td><td>18.29 / 1.06 / 0.06</td><td>Main playable bowling lane.</td></tr>
+                <tr><td><code>SM_Blockout_Gutter_L</code></td><td>914.5 / -65 / -4</td><td>18.29 / 0.24 / 0.06</td><td>Left gutter, slightly lowered.</td></tr>
+                <tr><td><code>SM_Blockout_Gutter_R</code></td><td>914.5 / 65 / -4</td><td>18.29 / 0.24 / 0.06</td><td>Right gutter, slightly lowered.</td></tr>
+                <tr><td><code>SM_Blockout_Rail_L</code></td><td>914.5 / -84 / 8</td><td>18.29 / 0.12 / 0.14</td><td>Left capping rail.</td></tr>
+                <tr><td><code>SM_Blockout_Rail_R</code></td><td>914.5 / 84 / 8</td><td>18.29 / 0.12 / 0.14</td><td>Right capping rail.</td></tr>
+                <tr><td><code>SM_Blockout_PinDeck</code></td><td>1935 / 0 / 0</td><td>2.1 / 1.8 / 0.08</td><td>Pin and boss-threat area.</td></tr>
+                <tr><td><code>SM_Blockout_BackWall</code></td><td>2150 / 0 / 150</td><td>0.25 / 6.5 / 3.0</td><td>Back wall / pinsetter backdrop.</td></tr>
+                <tr><td><code>SM_Blockout_Wall_L</code></td><td>850 / -300 / 140</td><td>27.0 / 0.20 / 2.8</td><td>Left environment boundary.</td></tr>
+                <tr><td><code>SM_Blockout_Wall_R</code></td><td>850 / 300 / 140</td><td>27.0 / 0.20 / 2.8</td><td>Right environment boundary.</td></tr>
+                <tr><td><code>SM_Blockout_Ceiling</code></td><td>850 / 0 / 300</td><td>27.0 / 6.5 / 0.15</td><td>Low oppressive ceiling.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="grid two" style="margin-top:16px">
+            <div class="tile"><h3>Step-by-step cube placement</h3><ol><li>Open <strong>Window &gt; Place Actors</strong>.</li><li>Choose <strong>Shapes</strong> and drag <strong>Cube</strong> into the viewport.</li><li>With the cube selected, rename it in the Outliner or at the top of Details.</li><li>In Details, type the Location and Scale from the table.</li><li>Drag the actor into <code>00_BLOCKOUT</code> or the more specific Outliner folder.</li><li>Press <span class="kbd">Ctrl</span> + <span class="kbd">W</span> to duplicate similar pieces, then rename and update the numbers.</li></ol></div>
+            <div class="tile"><h3>Viewport checks while blocking out</h3><ul><li>Use <strong>Top</strong> orthographic view to check lane width, gutters, rails, and pin deck alignment.</li><li>Use <strong>Right</strong> or <strong>Front</strong> orthographic view to check ceiling height and back-wall scale.</li><li>Use <strong>Lit</strong> for rough readability and <strong>Wireframe</strong> when shapes overlap.</li><li>Press <span class="kbd">F</span> on a selected actor when you get lost in the scene.</li></ul></div>
+          </div>
+          <div class="diagramWrap" style="margin-top:16px">
+            <div class="diagramTitle"><div><strong>Blockout volume diagram</strong><span>Side elevation plus play-space bands</span></div><p class="diagramNote">Use this to check the greybox before dressing. The lane can stay physically accurate while the room around it becomes wider, taller, and more theatrical for horror readability.</p></div>
+            <figure class="diagramImageFrame"><img src="assets/diagram-blockout-volumes.png" alt="Blockout volume diagram showing approach, lane surface, pin deck, back wall, ceiling, walls, camera rail, lighting, fog, and danger bands." loading="eager" decoding="async" /></figure>
+            <div class="precisionDiagram diagramSource" aria-hidden="true">
+              <div class="layerRows">
+                <div class="layerRow"><b>Ceiling band</b><div class="layerTrack dim"></div><span>Z=300, lights and wires</span></div>
+                <div class="layerRow"><b>Camera volume</b><div class="layerTrack"></div><span>clear view down lane</span></div>
+                <div class="layerRow"><b>Side walls</b><div class="layerTrack dim"></div><span>wide enough for horror props</span></div>
+                <div class="layerRow"><b>Lane surface</b><div class="layerTrack"></div><span>18.29m core gameplay path</span></div>
+                <div class="layerRow"><b>Gutters/collision</b><div class="layerTrack hot"></div><span>lowered, simple trigger volumes</span></div>
+              </div>
+              <div class="planGrid" style="margin-top:14px">
+                <div class="planCell sideTop"><strong>Ceiling fixtures</strong><small>rect lights, missing tiles, cables</small></div>
+                <div class="planCell approachCell"><strong>Approach block</strong><small>SM_Blockout_Approach</small></div>
+                <div class="planCell gutterTop"><strong>Gutter L</strong><small>lower Z, simple collision</small></div>
+                <div class="planCell laneCell"><div class="centreLine"></div><strong>Lane surface block</strong><small>single clean physics test path</small></div>
+                <div class="planCell gutterBottom"><strong>Gutter R</strong><small>trigger, not messy mesh collision</small></div>
+                <div class="planCell pinDeckCell"><strong>Pin deck block</strong><small>pin rack and pit trigger</small></div>
+                <div class="planCell machineCell"><strong>Back wall</strong><small>pinsetter silhouette</small></div>
+                <div class="planCell sideBottom"><strong>Floor/wall boundary</strong><small>room scale can be theatrical; lane scale stays accurate</small></div>
+              </div>
+            </div>
+            <svg viewBox="0 0 1180 560" role="img" aria-label="Detailed blockout side elevation diagram">
+              <defs>
+                <linearGradient id="woodBand" x1="0" x2="1"><stop offset="0" stop-color="#6b3f21"/><stop offset=".5" stop-color="#c28a45"/><stop offset="1" stop-color="#4b2b1a"/></linearGradient>
+                <linearGradient id="wallBand" x1="0" x2="1"><stop offset="0" stop-color="#182130"/><stop offset="1" stop-color="#0a0f18"/></linearGradient>
+              </defs>
+              <rect x="24" y="24" width="1132" height="512" rx="24" fill="#070b12" stroke="rgba(255,255,255,.14)"/>
+              <rect x="92" y="92" width="1016" height="272" rx="18" fill="url(#wallBand)" stroke="rgba(125,169,255,.18)"/>
+              <rect x="92" y="82" width="1016" height="34" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.12)"/>
+              <text x="600" y="74" fill="#a9b7c9" text-anchor="middle" font-size="15" font-weight="800">SM_Blockout_Ceiling  |  Z=300  |  low, oppressive, good for flicker lights</text>
+              <rect x="92" y="350" width="1016" height="44" rx="8" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.14)"/>
+              <rect x="225" y="340" width="690" height="30" rx="6" fill="url(#woodBand)" stroke="rgba(255,211,125,.34)"/>
+              <rect x="225" y="371" width="690" height="20" rx="4" fill="rgba(0,0,0,.34)" stroke="rgba(255,255,255,.10)"/>
+              <rect x="93" y="340" width="132" height="34" rx="7" fill="rgba(125,169,255,.16)" stroke="rgba(125,169,255,.34)"/>
+              <rect x="915" y="332" width="110" height="48" rx="7" fill="rgba(157,255,187,.12)" stroke="rgba(157,255,187,.34)"/>
+              <rect x="1025" y="236" width="74" height="146" rx="10" fill="rgba(255,94,118,.12)" stroke="rgba(255,94,118,.34)"/>
+              <line x1="225" y1="322" x2="225" y2="406" stroke="#ff5e76" stroke-width="3" stroke-dasharray="8 8"/>
+              <line x1="915" y1="314" x2="915" y2="410" stroke="#9dffbb" stroke-width="3" stroke-dasharray="8 8"/>
+              <line x1="225" y1="438" x2="915" y2="438" stroke="#ffd37d" stroke-width="3"/>
+              <path d="M225 438 l12 -8 M225 438 l12 8 M915 438 l-12 -8 M915 438 l-12 8" stroke="#ffd37d" stroke-width="3" fill="none"/>
+              <text x="570" y="430" fill="#ffd37d" text-anchor="middle" font-size="15" font-weight="900">18.29m playable lane core</text>
+              <text x="158" y="416" fill="#7da9ff" text-anchor="middle" font-size="14" font-weight="900">Approach</text>
+              <text x="158" y="436" fill="#a9b7c9" text-anchor="middle" font-size="12">launch + aim</text>
+              <text x="570" y="318" fill="#ffd37d" text-anchor="middle" font-size="14" font-weight="900">SM_Blockout_LaneSurface</text>
+              <text x="970" y="414" fill="#9dffbb" text-anchor="middle" font-size="14" font-weight="900">Pin deck</text>
+              <text x="1062" y="222" fill="#ffd7df" text-anchor="middle" font-size="14" font-weight="900">Back machine</text>
+              <g stroke="rgba(255,255,255,.18)" stroke-dasharray="4 8">
+                <line x1="92" y1="164" x2="1108" y2="164"/>
+                <line x1="92" y1="236" x2="1108" y2="236"/>
+                <line x1="92" y1="300" x2="1108" y2="300"/>
+              </g>
+              <g fill="rgba(157,255,187,.12)" stroke="rgba(157,255,187,.28)">
+                <rect x="290" y="142" width="76" height="24" rx="7"/><rect x="462" y="142" width="76" height="24" rx="7"/><rect x="634" y="142" width="76" height="24" rx="7"/><rect x="806" y="142" width="76" height="24" rx="7"/>
+              </g>
+              <text x="548" y="134" fill="#9dffbb" text-anchor="middle" font-size="13" font-weight="900">Rect lights hang in ceiling band, not in player path</text>
+              <circle cx="170" cy="306" r="18" fill="#111823" stroke="#78d7ff" stroke-width="3"/>
+              <text x="170" y="312" fill="#78d7ff" text-anchor="middle" font-size="16" font-weight="950">B</text>
+              <path d="M188 304 C370 276 552 274 868 304" fill="none" stroke="#78d7ff" stroke-width="3" stroke-dasharray="8 8"/>
+              <text x="500" y="268" fill="#78d7ff" text-anchor="middle" font-size="13" font-weight="900">Temporary physics ball test path</text>
+              <g fill="#eaf5ed" stroke="#ff5e76" stroke-width="2">
+                <circle cx="915" cy="316" r="7"/><circle cx="931" cy="307" r="7"/><circle cx="931" cy="325" r="7"/><circle cx="947" cy="298" r="7"/><circle cx="947" cy="316" r="7"/><circle cx="947" cy="334" r="7"/>
+              </g>
+              <text x="98" y="482" fill="#a9b7c9" font-size="13">Greybox pass checks: no props on centre path, gutters lower than lane, pin deck visible, camera clears ceiling, back machine framed behind pins.</text>
+            </svg>
+            <div class="legend"><span><i class="dot blue"></i>Ball path</span><span><i class="dot amber"></i>Playable lane</span><span><i class="dot"></i>Light band</span><span><i class="dot red"></i>Danger focal point</span></div>
+          </div>
+          <div class="grid two" style="margin-top:16px">
+            <div class="callout"><strong>Art direction note:</strong> keep the lane clear in the middle. Make the horror live beside the lane, above the lane, behind the pins, and around the approach.</div>
+            <div class="callout warning"><strong>Collision note:</strong> do not rely on messy art meshes for collision while prototyping. Add simple Blocking Volumes and Trigger Volumes so gameplay stays predictable.</div>
+          </div>
+        </div>
+      </section>
+      <nav class="pagePager" aria-label="Guide page navigation">
+        <a class="prev" href="scale-plan.html"><small>Previous page</small><strong>Scale Plan</strong></a>
+        <div class="pageCurrent" aria-label="Current page"><b>03</b><small>Current page</small><strong>Blockout</strong><span class="routeHint">Approach, lane, gutters, walls, ceiling, back wall, and construction values.</span></div>
+        <a class="next" href="gameplay-markers.html"><small>Next page</small><strong>Gameplay Markers</strong></a>
+      </nav>    </main>
+  </div>
+  <button class="topBtn" id="topBtn" type="button" aria-label="Back to top">&uarr; Top</button>
+  <div class="diagramLightbox" id="diagramLightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Diagram viewer">
+    <div class="lightboxTop">
+      <strong id="diagramLightboxTitle">Diagram</strong>
+      <div class="lightboxControls" aria-label="Diagram zoom controls">
+        <button id="diagramZoomOut" type="button" aria-label="Zoom out">-</button>
+        <button id="diagramZoomIn" type="button" aria-label="Zoom in">+</button>
+        <span class="zoomLabel" id="diagramZoomLabel">100%</span>
+        <button id="diagramZoomReset" type="button">Reset</button>
+        <button id="diagramLightboxClose" type="button">Close</button>
+      </div>
+    </div>
+    <div class="lightboxStage" id="diagramLightboxStage">
+      <img id="diagramLightboxImg" alt="" />
+    </div>
+  </div>
+</body>
+</html>

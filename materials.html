@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Lane wood, concrete, metal, grime, decals, and material instances." />
+  <meta name="theme-color" content="#14070b" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Living Pins" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+  <title>Materials - Night of the Living Pins</title>
+</head>
+<body data-page="materials">
+  <div class="noise"></div><div class="fog"></div>
+  <a class="skip-link" href="#main">Skip to guide</a>
+  <div class="app">
+    <div class="mobilebar">
+      <button class="hamburger" id="openNav" type="button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false"><span><i></i><i></i><i></i></span> Guide Menu</button>
+      <button class="iconbtn" id="mobilePrint" type="button" title="Print guide">Print</button>
+    </div>
+
+    <aside id="sidebar" aria-label="Guide navigation">
+      <button class="navBack" id="closeNav" type="button" aria-label="Close navigation">Back to guide</button>
+      <div class="brand">
+        <div class="emblem" aria-hidden="true"></div>
+        <div><h1>Night of the Living Pins</h1><p>UE5 Level Build Bible</p></div>
+      </div>
+
+      <div class="progressBox">
+        <div class="progressTop"><span>Build progress</span><strong id="progressLabel">0%</strong></div>
+        <div class="progressBar"><div class="progressFill" id="progressFill"></div></div>
+        <div class="miniStats">
+          <div><strong id="doneCount">0</strong><span>Done</span></div>
+          <div><strong id="totalCount">0</strong><span>Tasks</span></div>
+          <div><strong>UE5</strong><span>Ready</span></div>
+        </div>
+      </div>
+
+      <div class="searchWrap">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m21 21-4.3-4.3m2.3-5.2a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="guideSearch" type="search" placeholder="Search guide pages..." />
+        <div class="searchStatus" id="searchStatus" role="status" aria-live="polite"></div>
+      </div>
+
+      <nav id="toc">
+        <a class="navLink" data-page="overview" data-search="vision vision playable, spooky, reusable ue5 level template. 00" href="index.html"><b>00</b> Vision</a>
+        <a class="navLink" data-page="artref" data-search="artwork ref artwork reference visual north star, palette, art hierarchy, and local image references. ar" href="artwork-reference.html"><b>AR</b> Artwork Ref</a>
+        <a class="navLink" data-page="story" data-search="story loop story loop arcade story spine, player goal, threat escalation, rewards, and boss frame. st" href="story-loop.html"><b>ST</b> Story Loop</a>
+        <a class="navLink" data-page="editor" data-search="editor basics unreal editor basics viewport, outliner, details, content drawer, actor workflow, and recovery notes. ed" href="editor-basics.html"><b>ED</b> Editor Basics</a>
+        <a class="navLink" data-page="setup" data-search="project setup project setup folder structure, map setup, naming, and level organization. 01" href="project-setup.html"><b>01</b> Project Setup</a>
+        <a class="navLink" data-page="scale" data-search="scale plan scale plan lane dimensions, coordinates, axes, and top-down ue5 plan. 02" href="scale-plan.html"><b>02</b> Scale Plan</a>
+        <a class="navLink" data-page="blockout" data-search="blockout blockout approach, lane, gutters, walls, ceiling, back wall, and construction values. 03" href="blockout.html"><b>03</b> Blockout</a>
+        <a class="navLink" data-page="markers" data-search="gameplay markers gameplay markers target points, triggers, spawn markers, collision volumes, and tags. 04" href="gameplay-markers.html"><b>04</b> Gameplay Markers</a>
+        <a class="navLink" data-page="controls" data-search="mouse controls mouse controls mouse-only throw, charge, aim, release, steering, and input states. in" href="mouse-controls.html"><b>IN</b> Mouse Controls</a>
+        <a class="navLink" data-page="camera" data-search="camera director camera director camera states, readable results, reset flow, and click-to-play return. cm" href="camera-director.html"><b>CM</b> Camera Director</a>
+        <a class="navLink" data-page="lighting" data-search="lighting lighting lumen setup, practical lights, horror accents, and readable lane lighting. 05" href="lighting.html"><b>05</b> Lighting</a>
+        <a class="navLink" data-page="atmosphere" data-search="fog &amp; post fog and post process volumetric fog, exposure, bloom, vignette, and post-process targets. 06" href="fog-post.html"><b>06</b> Fog &amp; Post</a>
+        <a class="navLink active" aria-current="page" data-page="materials" data-search="materials materials lane wood, concrete, metal, grime, decals, and material instances. 07" href="materials.html"><b>07</b> Materials</a>
+        <a class="navLink" data-page="dressing" data-search="set dressing set dressing props, dressing zones, readability, and horror bowling alley detail. 08" href="set-dressing.html"><b>08</b> Set Dressing</a>
+        <a class="navLink" data-page="screens" data-search="ue5 screens ue5 screenshot aids screenshot checklist and visual references for important editor states. 09" href="ue5-screens.html"><b>09</b> UE5 Screens</a>
+        <a class="navLink" data-page="reuse" data-search="reuse system reuse system level instances, reusable chunks, templates, and future lane variants. 10" href="reuse-system.html"><b>10</b> Reuse System</a>
+        <a class="navLink" data-page="checklist" data-search="checklist interactive checklist guided build checklist with local progress tracking and phase filters. 11" href="checklist.html"><b>11</b> Checklist</a>
+        <a class="navLink" data-page="resources" data-search="resources resources ue5 locations, shortcuts, troubleshooting, and final ownership notice. 12" href="resources.html"><b>12</b> Resources</a>
+      </nav>
+
+      <div class="sideActions">
+        <a class="btn primary" href="checklist.html">Continue Build</a>
+        <button class="btn ghost checklistOnly" id="collapseDone" type="button">Hide completed tasks</button>
+        <button class="btn ghost" id="printBtn" type="button">Print / save PDF</button>
+        <button class="btn danger" id="resetProgress" type="button">Reset progress</button>
+      </div>
+    </aside>
+    <button class="navScrim" id="navScrim" type="button" aria-label="Close navigation"></button>
+
+    <main id="main">
+      <section class="card searchable" id="materials" data-title="materials decals grime wood concrete metal rust blood dirty lane surface material instances">
+        <div class="sectionHead"><div class="sectionNum">07</div><div class="sectionTitle"><h2>Materials and decals that make the blockout look professional</h2><p>Use base materials for structure and decals for storytelling. Decals let you add grime, cracks, stains, and damage without building everything into the mesh.</p></div><div class="tagRow"><span class="tag good">Material instances</span><span class="tag">Decals</span></div></div>
+        <div class="sectionBody grid two">
+          <div class="tile"><h3>Base materials</h3><div class="codeBlock"><div class="codeTop"><span>Material list</span><button class="copyBtn">Copy</button></div><pre><code>M_Lane_RottenWood
+M_Gutter_DarkMetal
+M_Wall_StainedConcrete
+M_Ceiling_DirtyTiles
+M_Rail_RustyMetal
+M_FoulLine_DirtyPaint
+M_Emissive_SicklyGreen
+M_Emissive_RedExit
+M_Decal_Grime
+M_Decal_BloodSmear
+M_Decal_WaterDamage</code></pre></div></div>
+          <div class="tile"><h3>Material instance plan</h3><div class="codeBlock"><div class="codeTop"><span>Instances</span><button class="copyBtn">Copy</button></div><pre><code>MI_Lane_RottenWood_01
+MI_Lane_RottenWood_Wet
+MI_Concrete_GreenTint
+MI_Concrete_Moldy
+MI_Rust_Dark
+MI_ExitSign_Red
+MI_Monitor_GlitchGreen</code></pre></div></div>
+          <div class="tile"><h3>Where to use decals</h3><ul><li>Shoe scuffs near the approach.</li><li>Oil streaks and wear down the lane edges.</li><li>Water leaks on side walls and ceiling.</li><li>Blood drag marks near the back machine.</li><li>Handprints on ball return and scoring monitor.</li></ul></div>
+          <div class="tile"><h3>Where not to use decals</h3><ul><li>Do not cover the whole lane in blood.</li><li>Do not place high-contrast stains over aiming arrows.</li><li>Do not make all surfaces equally noisy.</li><li>Leave visual rest areas so the important props stand out.</li></ul></div>
+          <div class="tile"><h3>Material editor workflow</h3><ol><li>Open the Content Drawer and go to <code>Materials</code>.</li><li>Right-click and create a <strong>Material</strong>, then name it with the <code>M_</code> prefix.</li><li>Double-click it to open the Material Editor.</li><li>Create Material Instances in <code>Materials/Instances</code> so you can tune color, roughness, wetness, and grime without rebuilding the base material.</li><li>Select a mesh actor and assign the instance in Details &gt; Materials.</li></ol></div>
+          <div class="tile"><h3>Decal placement workflow</h3><ol><li>Open <strong>Place Actors &gt; Visual Effects</strong> and drag a <strong>Decal</strong> into the level.</li><li>Select it, then use Details to assign the decal material.</li><li>Use Location, Rotation, and Scale to project it onto the wall, floor, lane edge, or back machine.</li><li>Move decal actors into <code>04_PROPS_DRESSING</code> or a dedicated decal folder so they stay manageable.</li></ol></div>
+          <div class="diagramWrap" style="grid-column:1/-1">
+            <div class="diagramTitle"><div><strong>Material and decal layering diagram</strong><span>Build detail in readable passes</span></div><p class="diagramNote">The strongest detail goes at the edges and focal points. The centre of the lane gets controlled wear so the ball path, arrows, and pins remain legible.</p></div>
+            <figure class="diagramImageFrame"><img src="assets/diagram-material-decals.png" alt="Material and decal layering diagram showing base wood, controlled wear, gutter grime, blood decals, glowing arrows, pin deck scratches, and zombie pin material notes." loading="eager" decoding="async" /></figure>
+            <div class="precisionDiagram diagramSource" aria-hidden="true">
+              <div class="planGrid">
+                <div class="planCell sideTop"><strong>Heavy side-wall decals</strong><small>mold, leaks, handprints, torn posters</small></div>
+                <div class="planCell approachCell"><strong>Approach wear</strong><small>shoe scuffs, dirty foul line, carpet grime</small></div>
+                <div class="planCell gutterTop"><strong>Edge grime</strong><small>oil, slime, chipped wood, water stains</small></div>
+                <div class="planCell laneCell"><div class="centreLine"></div><strong>Quiet centre path</strong><small>controlled boards, subtle oil sheen, arrows protected</small><div class="aimArrows"><i></i><i></i><i></i></div></div>
+                <div class="planCell gutterBottom"><strong>Edge damage</strong><small>cracks and debris stay outside aim line</small></div>
+                <div class="planCell pinDeckCell"><strong>Pin deck stains</strong><small>impact marks, slime, ceramic chips</small><div class="pinRackMini"><span class="pinDot"></span><span class="rackGap"></span><span class="rackGap"></span><span class="rackGap"></span><span class="pinDot"></span><span class="pinDot"></span><span class="rackGap"></span><span class="rackGap"></span><span class="pinDot"></span><span class="pinDot"></span><span class="pinDot"></span><span class="rackGap"></span><span class="pinDot"></span><span class="pinDot"></span><span class="pinDot"></span><span class="pinDot"></span></div></div>
+                <div class="planCell machineCell"><strong>High contrast damage</strong><small>blood, red paint, rust, sparks, warning stripes</small></div>
+                <div class="planCell sideBottom"><strong>Density rule</strong><small>quiet centre, medium lane edges, heavy back-machine storytelling</small></div>
+              </div>
+              <div class="axisStrip"><span><strong>Base:</strong> broad materials.</span><span><strong>Variation:</strong> roughness and dirt masks.</span><span><strong>Story:</strong> decals and stains.</span><span><strong>Impact:</strong> damage near the back.</span></div>
+            </div>
+            <div class="diagramGrid">
+              <svg viewBox="0 0 820 560" role="img" aria-label="Material and decal placement diagram">
+                <defs>
+                  <linearGradient id="matLane" x1="0" x2="1"><stop offset="0" stop-color="#4b2a17"/><stop offset=".22" stop-color="#9a6530"/><stop offset=".5" stop-color="#d39a50"/><stop offset=".78" stop-color="#8a5329"/><stop offset="1" stop-color="#3a2115"/></linearGradient>
+                  <pattern id="boardLines" width="44" height="12" patternUnits="userSpaceOnUse"><path d="M0 0 H44" stroke="rgba(255,255,255,.10)" stroke-width="1"/><path d="M0 0 V12" stroke="rgba(0,0,0,.18)" stroke-width="1"/></pattern>
+                </defs>
+                <rect x="18" y="22" width="784" height="514" rx="24" fill="#070b12" stroke="rgba(255,255,255,.14)"/>
+                <rect x="104" y="118" width="612" height="310" rx="16" fill="rgba(0,0,0,.36)" stroke="rgba(255,255,255,.12)"/>
+                <rect x="134" y="166" width="552" height="214" rx="10" fill="url(#matLane)" stroke="rgba(255,211,125,.34)"/>
+                <rect x="134" y="166" width="552" height="214" rx="10" fill="url(#boardLines)" opacity=".55"/>
+                <rect x="134" y="140" width="552" height="24" rx="7" fill="rgba(8,10,13,.80)" stroke="rgba(255,255,255,.12)"/>
+                <rect x="134" y="382" width="552" height="24" rx="7" fill="rgba(8,10,13,.80)" stroke="rgba(255,255,255,.12)"/>
+                <line x1="134" y1="273" x2="686" y2="273" stroke="rgba(157,255,187,.36)" stroke-width="2" stroke-dasharray="6 8"/>
+                <text x="410" y="94" fill="#edf5ff" text-anchor="middle" font-size="17" font-weight="950">Top-down decal density plan</text>
+                <text x="410" y="458" fill="#ffd37d" text-anchor="middle" font-size="13" font-weight="900">Centre path: subtle boards, oil sheen, faint scuffs only</text>
+                <g fill="rgba(255,94,118,.24)" stroke="rgba(255,94,118,.46)">
+                  <path d="M612 152 C644 144 660 164 672 188 C636 190 618 180 612 152Z"/>
+                  <path d="M610 390 C642 402 656 388 676 366 C640 360 618 366 610 390Z"/>
+                  <path d="M560 138 C570 118 596 118 612 132 C598 148 578 154 560 138Z"/>
+                </g>
+                <g stroke="#9dffbb" stroke-width="4" stroke-linecap="round">
+                  <path d="M642 202 C606 214 574 236 548 266"/>
+                  <path d="M646 320 C606 310 574 296 544 274"/>
+                </g>
+                <g fill="rgba(120,215,255,.18)" stroke="rgba(120,215,255,.38)">
+                  <rect x="108" y="138" width="54" height="272" rx="12"/>
+                  <rect x="658" y="138" width="54" height="272" rx="12"/>
+                </g>
+                <g fill="#ffd37d">
+                  <polygon points="300,273 318,264 318,282"/><polygon points="344,273 362,264 362,282"/><polygon points="388,273 406,264 406,282"/><polygon points="432,273 450,264 450,282"/>
+                </g>
+                <text x="134" y="126" fill="#78d7ff" font-size="12" font-weight="900">gutter grime allowed</text>
+                <text x="624" y="126" fill="#ffb2be" font-size="12" font-weight="900">heavy stains near danger</text>
+                <text x="404" y="252" fill="#a9b7c9" font-size="12" text-anchor="middle">aim arrows stay clean</text>
+                <g transform="translate(76 482)">
+                  <rect x="0" y="0" width="664" height="44" rx="14" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.11)"/>
+                  <text x="18" y="20" fill="#edf5ff" font-size="13" font-weight="900">Density rule</text>
+                  <text x="112" y="20" fill="#a9b7c9" font-size="12">quiet centre path, medium lane edges, heavy back-machine storytelling, noisy side walls.</text>
+                </g>
+              </svg>
+              <div class="diagramStack">
+                <div class="stackLayer"><div class="miniBar dark"></div><span><strong>Base material:</strong> rotten wood, concrete, metal, ceramic, rubber, and old plastic. Keep broad values simple.</span></div>
+                <div class="stackLayer"><div class="miniBar cold"></div><span><strong>Surface variation:</strong> roughness masks, wet strips, cracked boards, chipped paint, rust gradients.</span></div>
+                <div class="stackLayer"><div class="miniBar"></div><span><strong>Story decals:</strong> slime drips, handprints, shoe scuffs, oil streaks, wall leaks, pin deck stains.</span></div>
+                <div class="stackLayer"><div class="miniBar red"></div><span><strong>Impact decals:</strong> blood, splinters, scrape marks, burst stains, and danger signage near the back machine.</span></div>
+                <div class="blueprintPanel">
+                  <div class="diagramTitle"><div><strong>Zombie pin material notes</strong><span>From supplied pin art</span></div></div>
+                  <ul class="diagramChecklist">
+                    <li><strong>Ceramic shell:</strong> off-white, cracked, chipped, dirty, and slightly glossy at worn edges.</li>
+                    <li><strong>Red band:</strong> faded paint with breaks and blood crossing the stripe.</li>
+                    <li><strong>Face cut-in:</strong> skull planes and glowing eyes need strong contrast against the pin body.</li>
+                    <li><strong>Slime:</strong> green/yellow translucent drips should catch light but not cover the silhouette.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <nav class="pagePager" aria-label="Guide page navigation">
+        <a class="prev" href="fog-post.html"><small>Previous page</small><strong>Fog &amp; Post</strong></a>
+        <div class="pageCurrent" aria-label="Current page"><b>07</b><small>Current page</small><strong>Materials</strong><span class="routeHint">Lane wood, concrete, metal, grime, decals, and material instances.</span></div>
+        <a class="next" href="set-dressing.html"><small>Next page</small><strong>Set Dressing</strong></a>
+      </nav>    </main>
+  </div>
+  <button class="topBtn" id="topBtn" type="button" aria-label="Back to top">&uarr; Top</button>
+  <div class="diagramLightbox" id="diagramLightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Diagram viewer">
+    <div class="lightboxTop">
+      <strong id="diagramLightboxTitle">Diagram</strong>
+      <div class="lightboxControls" aria-label="Diagram zoom controls">
+        <button id="diagramZoomOut" type="button" aria-label="Zoom out">-</button>
+        <button id="diagramZoomIn" type="button" aria-label="Zoom in">+</button>
+        <span class="zoomLabel" id="diagramZoomLabel">100%</span>
+        <button id="diagramZoomReset" type="button">Reset</button>
+        <button id="diagramLightboxClose" type="button">Close</button>
+      </div>
+    </div>
+    <div class="lightboxStage" id="diagramLightboxStage">
+      <img id="diagramLightboxImg" alt="" />
+    </div>
+  </div>
+</body>
+</html>

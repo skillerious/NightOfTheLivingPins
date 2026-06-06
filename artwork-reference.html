@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Visual north star, palette, art hierarchy, and local image references." />
+  <meta name="theme-color" content="#14070b" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Living Pins" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+  <title>Artwork Reference - Night of the Living Pins</title>
+</head>
+<body data-page="artref">
+  <div class="noise"></div><div class="fog"></div>
+  <a class="skip-link" href="#main">Skip to guide</a>
+  <div class="app">
+    <div class="mobilebar">
+      <button class="hamburger" id="openNav" type="button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false"><span><i></i><i></i><i></i></span> Guide Menu</button>
+      <button class="iconbtn" id="mobilePrint" type="button" title="Print guide">Print</button>
+    </div>
+
+    <aside id="sidebar" aria-label="Guide navigation">
+      <button class="navBack" id="closeNav" type="button" aria-label="Close navigation">Back to guide</button>
+      <div class="brand">
+        <div class="emblem" aria-hidden="true"></div>
+        <div><h1>Night of the Living Pins</h1><p>UE5 Level Build Bible</p></div>
+      </div>
+
+      <div class="progressBox">
+        <div class="progressTop"><span>Build progress</span><strong id="progressLabel">0%</strong></div>
+        <div class="progressBar"><div class="progressFill" id="progressFill"></div></div>
+        <div class="miniStats">
+          <div><strong id="doneCount">0</strong><span>Done</span></div>
+          <div><strong id="totalCount">0</strong><span>Tasks</span></div>
+          <div><strong>UE5</strong><span>Ready</span></div>
+        </div>
+      </div>
+
+      <div class="searchWrap">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m21 21-4.3-4.3m2.3-5.2a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="guideSearch" type="search" placeholder="Search guide pages..." />
+        <div class="searchStatus" id="searchStatus" role="status" aria-live="polite"></div>
+      </div>
+
+      <nav id="toc">
+        <a class="navLink" data-page="overview" data-search="vision vision playable, spooky, reusable ue5 level template. 00" href="index.html"><b>00</b> Vision</a>
+        <a class="navLink active" aria-current="page" data-page="artref" data-search="artwork ref artwork reference visual north star, palette, art hierarchy, and local image references. ar" href="artwork-reference.html"><b>AR</b> Artwork Ref</a>
+        <a class="navLink" data-page="story" data-search="story loop story loop arcade story spine, player goal, threat escalation, rewards, and boss frame. st" href="story-loop.html"><b>ST</b> Story Loop</a>
+        <a class="navLink" data-page="editor" data-search="editor basics unreal editor basics viewport, outliner, details, content drawer, actor workflow, and recovery notes. ed" href="editor-basics.html"><b>ED</b> Editor Basics</a>
+        <a class="navLink" data-page="setup" data-search="project setup project setup folder structure, map setup, naming, and level organization. 01" href="project-setup.html"><b>01</b> Project Setup</a>
+        <a class="navLink" data-page="scale" data-search="scale plan scale plan lane dimensions, coordinates, axes, and top-down ue5 plan. 02" href="scale-plan.html"><b>02</b> Scale Plan</a>
+        <a class="navLink" data-page="blockout" data-search="blockout blockout approach, lane, gutters, walls, ceiling, back wall, and construction values. 03" href="blockout.html"><b>03</b> Blockout</a>
+        <a class="navLink" data-page="markers" data-search="gameplay markers gameplay markers target points, triggers, spawn markers, collision volumes, and tags. 04" href="gameplay-markers.html"><b>04</b> Gameplay Markers</a>
+        <a class="navLink" data-page="controls" data-search="mouse controls mouse controls mouse-only throw, charge, aim, release, steering, and input states. in" href="mouse-controls.html"><b>IN</b> Mouse Controls</a>
+        <a class="navLink" data-page="camera" data-search="camera director camera director camera states, readable results, reset flow, and click-to-play return. cm" href="camera-director.html"><b>CM</b> Camera Director</a>
+        <a class="navLink" data-page="lighting" data-search="lighting lighting lumen setup, practical lights, horror accents, and readable lane lighting. 05" href="lighting.html"><b>05</b> Lighting</a>
+        <a class="navLink" data-page="atmosphere" data-search="fog &amp; post fog and post process volumetric fog, exposure, bloom, vignette, and post-process targets. 06" href="fog-post.html"><b>06</b> Fog &amp; Post</a>
+        <a class="navLink" data-page="materials" data-search="materials materials lane wood, concrete, metal, grime, decals, and material instances. 07" href="materials.html"><b>07</b> Materials</a>
+        <a class="navLink" data-page="dressing" data-search="set dressing set dressing props, dressing zones, readability, and horror bowling alley detail. 08" href="set-dressing.html"><b>08</b> Set Dressing</a>
+        <a class="navLink" data-page="screens" data-search="ue5 screens ue5 screenshot aids screenshot checklist and visual references for important editor states. 09" href="ue5-screens.html"><b>09</b> UE5 Screens</a>
+        <a class="navLink" data-page="reuse" data-search="reuse system reuse system level instances, reusable chunks, templates, and future lane variants. 10" href="reuse-system.html"><b>10</b> Reuse System</a>
+        <a class="navLink" data-page="checklist" data-search="checklist interactive checklist guided build checklist with local progress tracking and phase filters. 11" href="checklist.html"><b>11</b> Checklist</a>
+        <a class="navLink" data-page="resources" data-search="resources resources ue5 locations, shortcuts, troubleshooting, and final ownership notice. 12" href="resources.html"><b>12</b> Resources</a>
+      </nav>
+
+      <div class="sideActions">
+        <a class="btn primary" href="checklist.html">Continue Build</a>
+        <button class="btn ghost checklistOnly" id="collapseDone" type="button">Hide completed tasks</button>
+        <button class="btn ghost" id="printBtn" type="button">Print / save PDF</button>
+        <button class="btn danger" id="resetProgress" type="button">Reset progress</button>
+      </div>
+    </aside>
+    <button class="navScrim" id="navScrim" type="button" aria-label="Close navigation"></button>
+
+    <main id="main">
+      <section class="card searchable" id="artref" data-title="artwork reference zombie pins loading screen palette focal points logo horror bowling lane character art">
+        <div class="sectionHead"><div class="sectionNum">AR</div><div class="sectionTitle"><h2>Artwork reference: what the level should feel like</h2><p>Use the supplied artwork as the visual north star. The level should read as a playable bowling lane first, then as a crowded arcade-horror scene with undead staff, cracked living pins, green ectoplasm, orange neon, moonlit blue shadows, and a dangerous back-machine focal point.</p></div><div class="tagRow"><span class="tag good">Local assets</span><span class="tag">Art bible</span></div></div>
+        <div class="sectionBody">
+          <div class="diagramGrid">
+            <div class="assetBoard" aria-label="Annotated artwork reference board">
+              <img src="assets/loading3.png" alt="Night of the Living Pins loading artwork with zombie bowling lane scene" loading="lazy" />
+              <div class="assetLabel left" style="left:24px;top:28px"><b>Cold exterior moon</b><span>Use blue light through broken windows so the alley feels connected to the graveyard outside.</span></div>
+              <div class="assetLabel right" style="right:26px;top:82px"><b>Neon signage layer</b><span>Orange and green signs create readable silhouettes without turning the whole scene one color.</span></div>
+              <div class="assetLabel left" style="left:34px;bottom:96px"><b>Clear lane read</b><span>Keep a central ball path visible even when the sides are busy with props, fog, and enemies.</span></div>
+              <div class="assetLabel right" style="right:36px;bottom:112px"><b>Hero pin threat</b><span>The living pins are the identity of the game. Backlight them, give them eye glow, and keep their faces readable.</span></div>
+            </div>
+            <div class="diagramStack">
+              <div class="blueprintPanel">
+                <div class="diagramTitle"><div><strong>Visual priority order</strong><span>From gameplay to dressing</span></div></div>
+                <ol class="diagramChecklist">
+                  <li><strong>1. Ball path:</strong> approach, foul line, lane boards, arrows, gutters, and pin rack must read in one glance.</li>
+                  <li><strong>2. Pin deck:</strong> zombie pins, back machine, green fog, and red danger light form the horror target.</li>
+                  <li><strong>3. Side story:</strong> arcade cabinets, scoreboards, staff zombies, posters, shoes, and broken signs sit outside the clean play path.</li>
+                  <li><strong>4. Ceiling depth:</strong> hanging cables, missing panels, flickering tubes, and fan shadows create height without blocking aim.</li>
+                  <li><strong>5. FX polish:</strong> sparks, slime, dust, steam, and debris should support impact moments, not hide the ball.</li>
+                </ol>
+              </div>
+              <div class="blueprintPanel">
+                <div class="diagramTitle"><div><strong>Palette split</strong><span>Use as lighting targets</span></div></div>
+                <div class="stackLayer"><div class="miniBar cold"></div><span><strong>Moon/shadow range</strong> blue-black shadows, window shafts, exterior graveyard silhouettes.</span></div>
+                <div class="stackLayer"><div class="miniBar"></div><span><strong>Ectoplasm range</strong> sickly green eyes, fog, ball energy, slime streaks, and pin glow.</span></div>
+                <div class="stackLayer"><div class="miniBar red"></div><span><strong>Neon/danger range</strong> orange signs, red warning bulbs, sparks, and hot back-machine accents.</span></div>
+                <div class="stackLayer"><div class="miniBar dark"></div><span><strong>Material range</strong> wet wood, stained concrete, rusty steel, cracked ceramic, dirty white pin paint.</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="artThumbs" style="margin-top:16px">
+            <article class="artThumb"><img src="assets/loading1.png" alt="Wide key art with logo, bowling lane, zombies, and living pin" loading="lazy"><div><h3>Key art: lane chase</h3><p>Use for hero composition, ball impact energy, lane reflections, logo treatment, and foreground threat scale.</p></div></article>
+            <article class="artThumb"><img src="assets/loading2.png" alt="Wide loading art with ball strike and zombie pins" loading="lazy"><div><h3>Impact art: strike burst</h3><p>Use for VFX timing, debris arcs, green energy, crowd pressure, and pin collapse silhouettes.</p></div></article>
+            <article class="artThumb pin"><img src="assets/pin-example.png" alt="Zombie bowling pin character reference" loading="lazy"><div><h3>Zombie pin model target</h3><p>Cracked ceramic, red band, exposed skull face, glowing eyes, slime, chipped base, and asymmetrical damage.</p></div></article>
+          </div>
+        </div>
+      </section>
+      <nav class="pagePager" aria-label="Guide page navigation">
+        <a class="prev" href="index.html"><small>Previous page</small><strong>Vision</strong></a>
+        <div class="pageCurrent" aria-label="Current page"><b>AR</b><small>Current page</small><strong>Artwork Ref</strong><span class="routeHint">Visual north star, palette, art hierarchy, and local image references.</span></div>
+        <a class="next" href="story-loop.html"><small>Next page</small><strong>Story Loop</strong></a>
+      </nav>    </main>
+  </div>
+  <button class="topBtn" id="topBtn" type="button" aria-label="Back to top">&uarr; Top</button>
+  <div class="diagramLightbox" id="diagramLightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Diagram viewer">
+    <div class="lightboxTop">
+      <strong id="diagramLightboxTitle">Diagram</strong>
+      <div class="lightboxControls" aria-label="Diagram zoom controls">
+        <button id="diagramZoomOut" type="button" aria-label="Zoom out">-</button>
+        <button id="diagramZoomIn" type="button" aria-label="Zoom in">+</button>
+        <span class="zoomLabel" id="diagramZoomLabel">100%</span>
+        <button id="diagramZoomReset" type="button">Reset</button>
+        <button id="diagramLightboxClose" type="button">Close</button>
+      </div>
+    </div>
+    <div class="lightboxStage" id="diagramLightboxStage">
+      <img id="diagramLightboxImg" alt="" />
+    </div>
+  </div>
+</body>
+</html>

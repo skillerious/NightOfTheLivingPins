@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Viewport, Outliner, Details, Content Drawer, actor workflow, and recovery notes." />
+  <meta name="theme-color" content="#14070b" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Living Pins" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+  <title>Unreal Editor Basics - Night of the Living Pins</title>
+</head>
+<body data-page="editor">
+  <div class="noise"></div><div class="fog"></div>
+  <a class="skip-link" href="#main">Skip to guide</a>
+  <div class="app">
+    <div class="mobilebar">
+      <button class="hamburger" id="openNav" type="button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false"><span><i></i><i></i><i></i></span> Guide Menu</button>
+      <button class="iconbtn" id="mobilePrint" type="button" title="Print guide">Print</button>
+    </div>
+
+    <aside id="sidebar" aria-label="Guide navigation">
+      <button class="navBack" id="closeNav" type="button" aria-label="Close navigation">Back to guide</button>
+      <div class="brand">
+        <div class="emblem" aria-hidden="true"></div>
+        <div><h1>Night of the Living Pins</h1><p>UE5 Level Build Bible</p></div>
+      </div>
+
+      <div class="progressBox">
+        <div class="progressTop"><span>Build progress</span><strong id="progressLabel">0%</strong></div>
+        <div class="progressBar"><div class="progressFill" id="progressFill"></div></div>
+        <div class="miniStats">
+          <div><strong id="doneCount">0</strong><span>Done</span></div>
+          <div><strong id="totalCount">0</strong><span>Tasks</span></div>
+          <div><strong>UE5</strong><span>Ready</span></div>
+        </div>
+      </div>
+
+      <div class="searchWrap">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m21 21-4.3-4.3m2.3-5.2a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="guideSearch" type="search" placeholder="Search guide pages..." />
+        <div class="searchStatus" id="searchStatus" role="status" aria-live="polite"></div>
+      </div>
+
+      <nav id="toc">
+        <a class="navLink" data-page="overview" data-search="vision vision playable, spooky, reusable ue5 level template. 00" href="index.html"><b>00</b> Vision</a>
+        <a class="navLink" data-page="artref" data-search="artwork ref artwork reference visual north star, palette, art hierarchy, and local image references. ar" href="artwork-reference.html"><b>AR</b> Artwork Ref</a>
+        <a class="navLink" data-page="story" data-search="story loop story loop arcade story spine, player goal, threat escalation, rewards, and boss frame. st" href="story-loop.html"><b>ST</b> Story Loop</a>
+        <a class="navLink active" aria-current="page" data-page="editor" data-search="editor basics unreal editor basics viewport, outliner, details, content drawer, actor workflow, and recovery notes. ed" href="editor-basics.html"><b>ED</b> Editor Basics</a>
+        <a class="navLink" data-page="setup" data-search="project setup project setup folder structure, map setup, naming, and level organization. 01" href="project-setup.html"><b>01</b> Project Setup</a>
+        <a class="navLink" data-page="scale" data-search="scale plan scale plan lane dimensions, coordinates, axes, and top-down ue5 plan. 02" href="scale-plan.html"><b>02</b> Scale Plan</a>
+        <a class="navLink" data-page="blockout" data-search="blockout blockout approach, lane, gutters, walls, ceiling, back wall, and construction values. 03" href="blockout.html"><b>03</b> Blockout</a>
+        <a class="navLink" data-page="markers" data-search="gameplay markers gameplay markers target points, triggers, spawn markers, collision volumes, and tags. 04" href="gameplay-markers.html"><b>04</b> Gameplay Markers</a>
+        <a class="navLink" data-page="controls" data-search="mouse controls mouse controls mouse-only throw, charge, aim, release, steering, and input states. in" href="mouse-controls.html"><b>IN</b> Mouse Controls</a>
+        <a class="navLink" data-page="camera" data-search="camera director camera director camera states, readable results, reset flow, and click-to-play return. cm" href="camera-director.html"><b>CM</b> Camera Director</a>
+        <a class="navLink" data-page="lighting" data-search="lighting lighting lumen setup, practical lights, horror accents, and readable lane lighting. 05" href="lighting.html"><b>05</b> Lighting</a>
+        <a class="navLink" data-page="atmosphere" data-search="fog &amp; post fog and post process volumetric fog, exposure, bloom, vignette, and post-process targets. 06" href="fog-post.html"><b>06</b> Fog &amp; Post</a>
+        <a class="navLink" data-page="materials" data-search="materials materials lane wood, concrete, metal, grime, decals, and material instances. 07" href="materials.html"><b>07</b> Materials</a>
+        <a class="navLink" data-page="dressing" data-search="set dressing set dressing props, dressing zones, readability, and horror bowling alley detail. 08" href="set-dressing.html"><b>08</b> Set Dressing</a>
+        <a class="navLink" data-page="screens" data-search="ue5 screens ue5 screenshot aids screenshot checklist and visual references for important editor states. 09" href="ue5-screens.html"><b>09</b> UE5 Screens</a>
+        <a class="navLink" data-page="reuse" data-search="reuse system reuse system level instances, reusable chunks, templates, and future lane variants. 10" href="reuse-system.html"><b>10</b> Reuse System</a>
+        <a class="navLink" data-page="checklist" data-search="checklist interactive checklist guided build checklist with local progress tracking and phase filters. 11" href="checklist.html"><b>11</b> Checklist</a>
+        <a class="navLink" data-page="resources" data-search="resources resources ue5 locations, shortcuts, troubleshooting, and final ownership notice. 12" href="resources.html"><b>12</b> Resources</a>
+      </nav>
+
+      <div class="sideActions">
+        <a class="btn primary" href="checklist.html">Continue Build</a>
+        <button class="btn ghost checklistOnly" id="collapseDone" type="button">Hide completed tasks</button>
+        <button class="btn ghost" id="printBtn" type="button">Print / save PDF</button>
+        <button class="btn danger" id="resetProgress" type="button">Reset progress</button>
+      </div>
+    </aside>
+    <button class="navScrim" id="navScrim" type="button" aria-label="Close navigation"></button>
+
+    <main id="main">
+      <section class="card searchable" id="editor" data-title="unreal editor interface walkthrough viewport outliner details content drawer place actors toolbar transform gizmo beginner">
+        <div class="sectionHead"><div class="sectionNum">ED</div><div class="sectionTitle"><h2>Get comfortable with the Unreal Editor interface first</h2><p>Before building Lane 13, learn the few panels you will touch constantly. Most level work follows the same loop: place an Actor, select it, rename it, set its transform in Details, organize it in the Outliner, then save the level.</p></div><div class="tagRow"><span class="tag good">Beginner friendly</span><span class="tag">Editor map</span></div></div>
+        <div class="sectionBody">
+          <div class="editorShell">
+            <div class="diagramWrap">
+              <div class="diagramTitle"><div><strong>Unreal Editor working layout</strong><span>The panels used by this guide</span></div><p class="diagramNote">If your editor does not look like this, use <strong>Window &gt; Load Layout &gt; Default Editor Layout</strong>, then reopen any missing panel from the <strong>Window</strong> menu.</p></div>
+              <div class="editorLayout" aria-label="Unreal Editor interface map">
+                <div class="editorZone"><strong>Menu Bar</strong><span>Top-left menus such as File, Edit, Window, Tools, and Help. Use this for new levels, project settings, opening panels, and restoring layouts.</span></div>
+                <div class="editorZone"><strong>Main Toolbar</strong><span>Top toolbar for Save, mode selection, content shortcuts, Blueprints, Cinematics, and Play In Editor.</span></div>
+                <div class="editorZone"><strong>Outliner</strong><span>Upper-right list of everything in the current level. Use it to find, select, rename, hide, and folder your level actors.</span></div>
+                <div class="editorZone viewport"><strong>Level Viewport</strong><span>The large 3D view where you place and move actors. Left-click selects. Hold Right Mouse Button and use W/A/S/D to fly around. Press F to frame the selected actor.</span></div>
+                <div class="editorZone details"><strong>Details Panel</strong><span>Right-side properties for the selected actor. This is where you type exact Location, Rotation, Scale, Material, Physics, Collision, Light, Tags, and Mobility values.</span></div>
+                <div class="editorZone bottom"><strong>Content Drawer / Content Browser</strong><span>Bottom-left asset browser. Press <span class="kbd">Ctrl</span> + <span class="kbd">Space</span> to open it, then dock it if you want it to stay open while you make folders and assets.</span></div>
+              </div>
+              <div class="legend"><span><i class="dot blue"></i>Viewport work</span><span><i class="dot"></i>Actor organization</span><span><i class="dot amber"></i>Exact Details values</span><span><i class="dot red"></i>Save and play controls</span></div>
+            </div>
+
+            <div class="editorWorkflow">
+              <div class="tile"><h3>The actor workflow</h3><ol><li>Open <strong>Place Actors</strong> from <strong>Window &gt; Place Actors</strong>.</li><li>Drag the actor type into the Level Viewport.</li><li>Select it in the viewport or Outliner.</li><li>Rename it at the top of the Details panel or in the Outliner.</li><li>Type exact Location, Rotation, and Scale values in Details.</li><li>Move it into the correct Outliner folder.</li><li>Save the level with <span class="kbd">Ctrl</span> + <span class="kbd">S</span>.</li></ol></div>
+              <div class="tile"><h3>Recover missing panels</h3><ul><li><strong>Outliner:</strong> Window &gt; Outliner.</li><li><strong>Details:</strong> Window &gt; Details.</li><li><strong>Place Actors:</strong> Window &gt; Place Actors.</li><li><strong>Content Drawer:</strong> bottom-left button or <span class="kbd">Ctrl</span> + <span class="kbd">Space</span>.</li><li><strong>Default layout:</strong> Window &gt; Load Layout &gt; Default Editor Layout.</li></ul></div>
+            </div>
+          </div>
+
+          <div class="grid three" style="margin-top:16px">
+            <div class="tile"><h3>Viewport movement basics</h3><ul><li>Hold <strong>Right Mouse Button</strong> and use <span class="kbd">W</span><span class="kbd">A</span><span class="kbd">S</span><span class="kbd">D</span> to fly.</li><li>Use <span class="kbd">Q</span> and <span class="kbd">E</span> while holding Right Mouse Button to move down and up.</li><li>Mouse wheel changes distance; Right Mouse Button plus wheel changes camera speed.</li><li>Select an actor and press <span class="kbd">F</span> to focus the camera on it.</li></ul></div>
+            <div class="tile"><h3>Transform tool basics</h3><ul><li><span class="kbd">Q</span> selects without a gizmo.</li><li><span class="kbd">W</span> moves the selected actor.</li><li><span class="kbd">E</span> rotates the selected actor.</li><li><span class="kbd">R</span> scales the selected actor.</li><li><span class="kbd">Space</span> cycles move, rotate, and scale.</li><li>Use Details for exact values; use the viewport gizmo for rough positioning.</li></ul></div>
+            <div class="tile"><h3>View and test basics</h3><ul><li>Use the viewport's <strong>Perspective</strong> menu for top/front/side orthographic views.</li><li>Use <strong>Lit</strong>, <strong>Unlit</strong>, and <strong>Wireframe</strong> to diagnose lighting or blockout shape.</li><li>Press <span class="kbd">G</span> for Game View when you want to hide editor icons.</li><li>Use the Main Toolbar <strong>Play</strong> button to test inside the editor.</li></ul></div>
+          </div>
+
+          <div class="tableWrap" style="margin-top:16px">
+            <table>
+              <thead><tr><th>When this guide says...</th><th>Do this in the editor</th><th>Check before moving on</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Create a Content folder</strong></td><td>Open Content Drawer, right-click inside <code>Content</code> or your project folder, choose <strong>New Folder</strong>, then name it exactly.</td><td>The folder appears under <code>Content/NightOfTheLivingPins</code>, not loose in a random plugin or engine folder.</td></tr>
+                <tr><td><strong>Create an Outliner folder</strong></td><td>In the Outliner, use the folder button or right-click empty space and create a folder. Drag selected actors into it.</td><td>Actors are grouped by purpose: blockout, lighting, props, gameplay markers, triggers, FX, audio, cameras.</td></tr>
+                <tr><td><strong>Place a cube</strong></td><td>Open Place Actors, choose <strong>Shapes</strong>, drag <strong>Cube</strong> into the viewport, then set exact transform values in Details.</td><td>The actor name, Location, and Scale match the table before you duplicate it.</td></tr>
+                <tr><td><strong>Add a Target Point</strong></td><td>Open Place Actors, choose <strong>Basic</strong>, drag <strong>Target Point</strong> into the viewport, rename it, then type its Location in Details.</td><td>Target Points sit where future code expects ball, pin, camera, enemy, and scare positions.</td></tr>
+                <tr><td><strong>Add a Trigger Volume</strong></td><td>Open Place Actors, choose <strong>Volumes</strong>, drag a Trigger Volume or Box Trigger, then resize it in Details.</td><td>It covers the gameplay area cleanly without relying on messy art mesh collision.</td></tr>
+                <tr><td><strong>Assign a material</strong></td><td>Select the mesh actor, open Details, find the <strong>Materials</strong> section, and choose the material or material instance slot.</td><td>The lane center remains readable after applying grime, roughness, wetness, or decals.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="grid two" style="margin-top:16px">
+            <div class="callout"><strong>Important mental model:</strong> an Actor is something placed in the level. The Outliner tells you what actors exist. The Details panel tells you what the selected actor is doing. The Content Drawer stores reusable assets that can be placed as actors.</div>
+            <div class="callout warning"><strong>Beginner safety rule:</strong> do not eyeball transforms for the core lane. Use the viewport to get close, then type exact numbers into Details so the bowling scale, pin rack, gutter triggers, and camera markers stay reliable.</div>
+          </div>
+        </div>
+      </section>
+      <nav class="pagePager" aria-label="Guide page navigation">
+        <a class="prev" href="story-loop.html"><small>Previous page</small><strong>Story Loop</strong></a>
+        <div class="pageCurrent" aria-label="Current page"><b>ED</b><small>Current page</small><strong>Editor Basics</strong><span class="routeHint">Viewport, Outliner, Details, Content Drawer, actor workflow, and recovery notes.</span></div>
+        <a class="next" href="project-setup.html"><small>Next page</small><strong>Project Setup</strong></a>
+      </nav>    </main>
+  </div>
+  <button class="topBtn" id="topBtn" type="button" aria-label="Back to top">&uarr; Top</button>
+  <div class="diagramLightbox" id="diagramLightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Diagram viewer">
+    <div class="lightboxTop">
+      <strong id="diagramLightboxTitle">Diagram</strong>
+      <div class="lightboxControls" aria-label="Diagram zoom controls">
+        <button id="diagramZoomOut" type="button" aria-label="Zoom out">-</button>
+        <button id="diagramZoomIn" type="button" aria-label="Zoom in">+</button>
+        <span class="zoomLabel" id="diagramZoomLabel">100%</span>
+        <button id="diagramZoomReset" type="button">Reset</button>
+        <button id="diagramLightboxClose" type="button">Close</button>
+      </div>
+    </div>
+    <div class="lightboxStage" id="diagramLightboxStage">
+      <img id="diagramLightboxImg" alt="" />
+    </div>
+  </div>
+</body>
+</html>

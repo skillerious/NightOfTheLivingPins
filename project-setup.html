@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Folder structure, map setup, naming, and level organization." />
+  <meta name="theme-color" content="#14070b" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Living Pins" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+  <title>Project Setup - Night of the Living Pins</title>
+</head>
+<body data-page="setup">
+  <div class="noise"></div><div class="fog"></div>
+  <a class="skip-link" href="#main">Skip to guide</a>
+  <div class="app">
+    <div class="mobilebar">
+      <button class="hamburger" id="openNav" type="button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false"><span><i></i><i></i><i></i></span> Guide Menu</button>
+      <button class="iconbtn" id="mobilePrint" type="button" title="Print guide">Print</button>
+    </div>
+
+    <aside id="sidebar" aria-label="Guide navigation">
+      <button class="navBack" id="closeNav" type="button" aria-label="Close navigation">Back to guide</button>
+      <div class="brand">
+        <div class="emblem" aria-hidden="true"></div>
+        <div><h1>Night of the Living Pins</h1><p>UE5 Level Build Bible</p></div>
+      </div>
+
+      <div class="progressBox">
+        <div class="progressTop"><span>Build progress</span><strong id="progressLabel">0%</strong></div>
+        <div class="progressBar"><div class="progressFill" id="progressFill"></div></div>
+        <div class="miniStats">
+          <div><strong id="doneCount">0</strong><span>Done</span></div>
+          <div><strong id="totalCount">0</strong><span>Tasks</span></div>
+          <div><strong>UE5</strong><span>Ready</span></div>
+        </div>
+      </div>
+
+      <div class="searchWrap">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m21 21-4.3-4.3m2.3-5.2a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="guideSearch" type="search" placeholder="Search guide pages..." />
+        <div class="searchStatus" id="searchStatus" role="status" aria-live="polite"></div>
+      </div>
+
+      <nav id="toc">
+        <a class="navLink" data-page="overview" data-search="vision vision playable, spooky, reusable ue5 level template. 00" href="index.html"><b>00</b> Vision</a>
+        <a class="navLink" data-page="artref" data-search="artwork ref artwork reference visual north star, palette, art hierarchy, and local image references. ar" href="artwork-reference.html"><b>AR</b> Artwork Ref</a>
+        <a class="navLink" data-page="story" data-search="story loop story loop arcade story spine, player goal, threat escalation, rewards, and boss frame. st" href="story-loop.html"><b>ST</b> Story Loop</a>
+        <a class="navLink" data-page="editor" data-search="editor basics unreal editor basics viewport, outliner, details, content drawer, actor workflow, and recovery notes. ed" href="editor-basics.html"><b>ED</b> Editor Basics</a>
+        <a class="navLink active" aria-current="page" data-page="setup" data-search="project setup project setup folder structure, map setup, naming, and level organization. 01" href="project-setup.html"><b>01</b> Project Setup</a>
+        <a class="navLink" data-page="scale" data-search="scale plan scale plan lane dimensions, coordinates, axes, and top-down ue5 plan. 02" href="scale-plan.html"><b>02</b> Scale Plan</a>
+        <a class="navLink" data-page="blockout" data-search="blockout blockout approach, lane, gutters, walls, ceiling, back wall, and construction values. 03" href="blockout.html"><b>03</b> Blockout</a>
+        <a class="navLink" data-page="markers" data-search="gameplay markers gameplay markers target points, triggers, spawn markers, collision volumes, and tags. 04" href="gameplay-markers.html"><b>04</b> Gameplay Markers</a>
+        <a class="navLink" data-page="controls" data-search="mouse controls mouse controls mouse-only throw, charge, aim, release, steering, and input states. in" href="mouse-controls.html"><b>IN</b> Mouse Controls</a>
+        <a class="navLink" data-page="camera" data-search="camera director camera director camera states, readable results, reset flow, and click-to-play return. cm" href="camera-director.html"><b>CM</b> Camera Director</a>
+        <a class="navLink" data-page="lighting" data-search="lighting lighting lumen setup, practical lights, horror accents, and readable lane lighting. 05" href="lighting.html"><b>05</b> Lighting</a>
+        <a class="navLink" data-page="atmosphere" data-search="fog &amp; post fog and post process volumetric fog, exposure, bloom, vignette, and post-process targets. 06" href="fog-post.html"><b>06</b> Fog &amp; Post</a>
+        <a class="navLink" data-page="materials" data-search="materials materials lane wood, concrete, metal, grime, decals, and material instances. 07" href="materials.html"><b>07</b> Materials</a>
+        <a class="navLink" data-page="dressing" data-search="set dressing set dressing props, dressing zones, readability, and horror bowling alley detail. 08" href="set-dressing.html"><b>08</b> Set Dressing</a>
+        <a class="navLink" data-page="screens" data-search="ue5 screens ue5 screenshot aids screenshot checklist and visual references for important editor states. 09" href="ue5-screens.html"><b>09</b> UE5 Screens</a>
+        <a class="navLink" data-page="reuse" data-search="reuse system reuse system level instances, reusable chunks, templates, and future lane variants. 10" href="reuse-system.html"><b>10</b> Reuse System</a>
+        <a class="navLink" data-page="checklist" data-search="checklist interactive checklist guided build checklist with local progress tracking and phase filters. 11" href="checklist.html"><b>11</b> Checklist</a>
+        <a class="navLink" data-page="resources" data-search="resources resources ue5 locations, shortcuts, troubleshooting, and final ownership notice. 12" href="resources.html"><b>12</b> Resources</a>
+      </nav>
+
+      <div class="sideActions">
+        <a class="btn primary" href="checklist.html">Continue Build</a>
+        <button class="btn ghost checklistOnly" id="collapseDone" type="button">Hide completed tasks</button>
+        <button class="btn ghost" id="printBtn" type="button">Print / save PDF</button>
+        <button class="btn danger" id="resetProgress" type="button">Reset progress</button>
+      </div>
+    </aside>
+    <button class="navScrim" id="navScrim" type="button" aria-label="Close navigation"></button>
+
+    <main id="main">
+      <section class="card searchable" id="setup" data-title="project setup folders map editor outliner content browser">
+        <div class="sectionHead"><div class="sectionNum">01</div><div class="sectionTitle"><h2>Set the project up like a real game from day one</h2><p>A tidy level is easier to art-direct, easier to hook up to C++, and much easier to duplicate for future stages. This folder structure gives you a clean base before you place a single cube.</p></div><div class="tagRow"><span class="tag good">C++ friendly</span><span class="tag">UE5 blank project</span></div></div>
+        <div class="sectionBody grid two">
+          <div class="tile"><h3>Content Browser folders</h3><p>Create this structure under <strong>Content</strong>. Do it now, before your test assets pile up.</p><div class="codeBlock"><div class="codeTop"><span>Content folder layout</span><button class="copyBtn">Copy</button></div><pre><code>Content/
+  NightOfTheLivingPins/
+    Maps/
+    Blueprints/
+    CppHelpers/
+    Materials/
+      Instances/
+      Decals/
+    Meshes/
+      Blockout/
+      Environment/
+      Gameplay/
+    Props/
+    Lighting/
+    FX/
+    Audio/
+    UI/
+    Dev/
+      Screenshots/
+      Notes/</code></pre></div></div>
+          <div class="tile"><h3>Level and Outliner folders</h3><p>Create the map as <code>L_BowlingAlley_Template</code>. In the Outliner, create folders that match the way you will think while building.</p><div class="codeBlock"><div class="codeTop"><span>Outliner folders</span><button class="copyBtn">Copy</button></div><pre><code>00_BLOCKOUT
+01_LANE_CORE
+02_WALLS_CEILING
+03_LIGHTING
+04_PROPS_DRESSING
+05_GAMEPLAY_MARKERS
+06_COLLISION_TRIGGERS
+07_FX
+08_AUDIO
+09_CAMERAS</code></pre></div></div>
+          <div class="tile"><h3>Exact editor setup clicks</h3><ol><li>Open the <strong>Content Drawer</strong> with <span class="kbd">Ctrl</span> + <span class="kbd">Space</span>.</li><li>Right-click inside <code>Content</code> and create <code>NightOfTheLivingPins</code>.</li><li>Open that folder and create the child folders from the list.</li><li>Use <strong>File &gt; New Level</strong>, choose an empty level, then save it into <code>Maps</code> as <code>L_BowlingAlley_Template</code>.</li><li>Use <strong>File &gt; Save All</strong> once the folder structure and map exist.</li></ol></div>
+          <div class="tile"><h3>Outliner folder workflow</h3><ol><li>Open <strong>Window &gt; Outliner</strong> if the Outliner is missing.</li><li>Create each numbered folder in the Outliner before adding actors.</li><li>After placing any actor, drag it into the matching folder immediately.</li><li>Use the Outliner search box to find actors by prefix: <code>SM_</code>, <code>TP_</code>, <code>TV_</code>, <code>RectLight_</code>, or <code>BP_</code>.</li></ol></div>
+          <div class="callout"><strong>Beginner rule:</strong> every actor you add should go into a folder immediately. If you keep the Outliner tidy now, future Robin will thank you when C++ spawners, triggers, cameras, and VFX start arriving.</div>
+          <div class="callout warning"><strong>Save habit:</strong> save the level after each major pass. Use names like <code>L_BowlingAlley_Template</code>, then duplicate later to <code>L_Lane13_Prototype</code> so the clean template is never damaged.</div>
+          <div class="diagramWrap" style="grid-column:1/-1">
+            <div class="diagramTitle"><div><strong>Project structure pipeline</strong><span>How the folders support gameplay</span></div><p class="diagramNote">Build the level as a chain of clean containers. Each stage feeds the next one, so art, collision, markers, and code hooks do not become tangled.</p></div>
+            <figure class="diagramImageFrame"><img src="assets/diagram-setup-pipeline.png" alt="Project structure pipeline diagram showing content folders, template map, outliner folders, named actors, and C++ access." loading="eager" decoding="async" /></figure>
+            <div class="flowDiagram diagramSource" aria-hidden="true">
+              <div class="flowNode"><b>Content folders</b><span>Maps, Blueprints, Materials, Meshes, FX, Audio, UI, and Dev notes stay separated.</span></div>
+              <div class="flowNode"><b>Template map</b><span><code>L_BowlingAlley_Template</code> stores the clean reusable shell before one-off gameplay is added.</span></div>
+              <div class="flowNode"><b>Outliner folders</b><span>Blockout, lighting, props, triggers, markers, cameras, FX, and audio are grouped in-scene.</span></div>
+              <div class="flowNode"><b>Named actors</b><span>Every important object gets a stable prefix: <code>SM_</code>, <code>BP_</code>, <code>TP_</code>, <code>TV_</code>, <code>LI_</code>.</span></div>
+              <div class="flowNode"><b>C++ access</b><span>Spawner and manager classes can find tagged actors without hard-coded mystery coordinates.</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <nav class="pagePager" aria-label="Guide page navigation">
+        <a class="prev" href="editor-basics.html"><small>Previous page</small><strong>Editor Basics</strong></a>
+        <div class="pageCurrent" aria-label="Current page"><b>01</b><small>Current page</small><strong>Project Setup</strong><span class="routeHint">Folder structure, map setup, naming, and level organization.</span></div>
+        <a class="next" href="scale-plan.html"><small>Next page</small><strong>Scale Plan</strong></a>
+      </nav>    </main>
+  </div>
+  <button class="topBtn" id="topBtn" type="button" aria-label="Back to top">&uarr; Top</button>
+  <div class="diagramLightbox" id="diagramLightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Diagram viewer">
+    <div class="lightboxTop">
+      <strong id="diagramLightboxTitle">Diagram</strong>
+      <div class="lightboxControls" aria-label="Diagram zoom controls">
+        <button id="diagramZoomOut" type="button" aria-label="Zoom out">-</button>
+        <button id="diagramZoomIn" type="button" aria-label="Zoom in">+</button>
+        <span class="zoomLabel" id="diagramZoomLabel">100%</span>
+        <button id="diagramZoomReset" type="button">Reset</button>
+        <button id="diagramLightboxClose" type="button">Close</button>
+      </div>
+    </div>
+    <div class="lightboxStage" id="diagramLightboxStage">
+      <img id="diagramLightboxImg" alt="" />
+    </div>
+  </div>
+</body>
+</html>

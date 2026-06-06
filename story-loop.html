@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Arcade story spine, player goal, threat escalation, rewards, and boss frame." />
+  <meta name="theme-color" content="#14070b" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Living Pins" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+  <title>Story Loop - Night of the Living Pins</title>
+</head>
+<body data-page="story">
+  <div class="noise"></div><div class="fog"></div>
+  <a class="skip-link" href="#main">Skip to guide</a>
+  <div class="app">
+    <div class="mobilebar">
+      <button class="hamburger" id="openNav" type="button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false"><span><i></i><i></i><i></i></span> Guide Menu</button>
+      <button class="iconbtn" id="mobilePrint" type="button" title="Print guide">Print</button>
+    </div>
+
+    <aside id="sidebar" aria-label="Guide navigation">
+      <button class="navBack" id="closeNav" type="button" aria-label="Close navigation">Back to guide</button>
+      <div class="brand">
+        <div class="emblem" aria-hidden="true"></div>
+        <div><h1>Night of the Living Pins</h1><p>UE5 Level Build Bible</p></div>
+      </div>
+
+      <div class="progressBox">
+        <div class="progressTop"><span>Build progress</span><strong id="progressLabel">0%</strong></div>
+        <div class="progressBar"><div class="progressFill" id="progressFill"></div></div>
+        <div class="miniStats">
+          <div><strong id="doneCount">0</strong><span>Done</span></div>
+          <div><strong id="totalCount">0</strong><span>Tasks</span></div>
+          <div><strong>UE5</strong><span>Ready</span></div>
+        </div>
+      </div>
+
+      <div class="searchWrap">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m21 21-4.3-4.3m2.3-5.2a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="guideSearch" type="search" placeholder="Search guide pages..." />
+        <div class="searchStatus" id="searchStatus" role="status" aria-live="polite"></div>
+      </div>
+
+      <nav id="toc">
+        <a class="navLink" data-page="overview" data-search="vision vision playable, spooky, reusable ue5 level template. 00" href="index.html"><b>00</b> Vision</a>
+        <a class="navLink" data-page="artref" data-search="artwork ref artwork reference visual north star, palette, art hierarchy, and local image references. ar" href="artwork-reference.html"><b>AR</b> Artwork Ref</a>
+        <a class="navLink active" aria-current="page" data-page="story" data-search="story loop story loop arcade story spine, player goal, threat escalation, rewards, and boss frame. st" href="story-loop.html"><b>ST</b> Story Loop</a>
+        <a class="navLink" data-page="editor" data-search="editor basics unreal editor basics viewport, outliner, details, content drawer, actor workflow, and recovery notes. ed" href="editor-basics.html"><b>ED</b> Editor Basics</a>
+        <a class="navLink" data-page="setup" data-search="project setup project setup folder structure, map setup, naming, and level organization. 01" href="project-setup.html"><b>01</b> Project Setup</a>
+        <a class="navLink" data-page="scale" data-search="scale plan scale plan lane dimensions, coordinates, axes, and top-down ue5 plan. 02" href="scale-plan.html"><b>02</b> Scale Plan</a>
+        <a class="navLink" data-page="blockout" data-search="blockout blockout approach, lane, gutters, walls, ceiling, back wall, and construction values. 03" href="blockout.html"><b>03</b> Blockout</a>
+        <a class="navLink" data-page="markers" data-search="gameplay markers gameplay markers target points, triggers, spawn markers, collision volumes, and tags. 04" href="gameplay-markers.html"><b>04</b> Gameplay Markers</a>
+        <a class="navLink" data-page="controls" data-search="mouse controls mouse controls mouse-only throw, charge, aim, release, steering, and input states. in" href="mouse-controls.html"><b>IN</b> Mouse Controls</a>
+        <a class="navLink" data-page="camera" data-search="camera director camera director camera states, readable results, reset flow, and click-to-play return. cm" href="camera-director.html"><b>CM</b> Camera Director</a>
+        <a class="navLink" data-page="lighting" data-search="lighting lighting lumen setup, practical lights, horror accents, and readable lane lighting. 05" href="lighting.html"><b>05</b> Lighting</a>
+        <a class="navLink" data-page="atmosphere" data-search="fog &amp; post fog and post process volumetric fog, exposure, bloom, vignette, and post-process targets. 06" href="fog-post.html"><b>06</b> Fog &amp; Post</a>
+        <a class="navLink" data-page="materials" data-search="materials materials lane wood, concrete, metal, grime, decals, and material instances. 07" href="materials.html"><b>07</b> Materials</a>
+        <a class="navLink" data-page="dressing" data-search="set dressing set dressing props, dressing zones, readability, and horror bowling alley detail. 08" href="set-dressing.html"><b>08</b> Set Dressing</a>
+        <a class="navLink" data-page="screens" data-search="ue5 screens ue5 screenshot aids screenshot checklist and visual references for important editor states. 09" href="ue5-screens.html"><b>09</b> UE5 Screens</a>
+        <a class="navLink" data-page="reuse" data-search="reuse system reuse system level instances, reusable chunks, templates, and future lane variants. 10" href="reuse-system.html"><b>10</b> Reuse System</a>
+        <a class="navLink" data-page="checklist" data-search="checklist interactive checklist guided build checklist with local progress tracking and phase filters. 11" href="checklist.html"><b>11</b> Checklist</a>
+        <a class="navLink" data-page="resources" data-search="resources resources ue5 locations, shortcuts, troubleshooting, and final ownership notice. 12" href="resources.html"><b>12</b> Resources</a>
+      </nav>
+
+      <div class="sideActions">
+        <a class="btn primary" href="checklist.html">Continue Build</a>
+        <button class="btn ghost checklistOnly" id="collapseDone" type="button">Hide completed tasks</button>
+        <button class="btn ghost" id="printBtn" type="button">Print / save PDF</button>
+        <button class="btn danger" id="resetProgress" type="button">Reset progress</button>
+      </div>
+    </aside>
+    <button class="navScrim" id="navScrim" type="button" aria-label="Close navigation"></button>
+
+    <main id="main">
+      <section class="card searchable" id="story" data-title="story arcade game premise player goal lane 13 cursed pinsetter play loop frames tickets score arcade horror walkthrough">
+        <div class="sectionHead"><div class="sectionNum">ST</div><div class="sectionTitle"><h2>Add a story spine for the arcade game</h2><p>The game needs a reason for the player to keep throwing. Keep it simple, readable, and arcade-first: every frame is another attempt to break the cursed machine before the living pins rebuild themselves.</p></div><div class="tagRow"><span class="tag good">Arcade story</span><span class="tag">Play loop</span></div></div>
+        <div class="sectionBody">
+          <div class="storyHero">
+            <img src="assets/loading2.png" alt="Night of the Living Pins strike artwork with zombie pins and arcade horror lighting" loading="lazy" />
+            <div class="storyOverlay">
+              <span class="storyKicker">Lane 13 incident</span>
+              <h3>One last frame before the pins take the alley.</h3>
+              <p>You play the late-shift arcade mechanic trapped inside Bowl-O-Rama after the cursed Lane 13 pinsetter wakes up. The doors lock, the scoreboards bleed green light, and every living pin knocked down drains power from the back machine. Clear enough frames, rescue the trapped staff ghosts, and shut the lane down before sunrise.</p>
+            </div>
+          </div>
+
+          <div class="grid three storyBeatGrid">
+            <article class="storyBeat"><b>01</b><h3>Attract Mode Hook</h3><p>The scoreboard flashes FREE GAME after closing. A single ball rolls back by itself, already glowing with ectoplasm.</p></article>
+            <article class="storyBeat"><b>02</b><h3>Player Goal</h3><p>Smash cursed pins, bank tickets, and drain the pinsetter's soul meter before the machine reaches full power.</p></article>
+            <article class="storyBeat"><b>03</b><h3>Threat</h3><p>The pins are not passive targets. Missed shots let them rebuild, taunt the player, and spawn lane hazards.</p></article>
+            <article class="storyBeat"><b>04</b><h3>Escalation</h3><p>Each frame adds pressure: flickering lights, moving gutters, slime patches, staff zombies, and faster pin recovery.</p></article>
+            <article class="storyBeat"><b>05</b><h3>Reward</h3><p>Strikes pay out cursed tickets for ball upgrades, lane cleanses, extra steering, and emergency rerolls.</p></article>
+            <article class="storyBeat"><b>06</b><h3>Boss Frame</h3><p>The final frame turns the pinsetter into the boss target. The player must bowl through chaos and hit the heart of the machine.</p></article>
+          </div>
+
+          <div class="loopStrip" aria-label="Core arcade play loop">
+            <div class="loopStep"><strong>Choose lane position</strong><span>Move across the approach and read the danger state before charging.</span></div>
+            <div class="loopStep"><strong>Charge and aim</strong><span>Drag for power and angle while the lane telegraphs hazards.</span></div>
+            <div class="loopStep"><strong>Launch and steer</strong><span>Release the ball, then use subtle mouse steering to chase openings.</span></div>
+            <div class="loopStep"><strong>Resolve impact</strong><span>Pins scatter, score pops, ghosts react, and the back machine loses power.</span></div>
+            <div class="loopStep"><strong>Upgrade or survive</strong><span>Spend tickets, trigger a scare, then start the next haunted frame.</span></div>
+          </div>
+
+          <div class="grid two" style="margin-top:16px">
+            <div class="callout"><strong>Level storytelling rule:</strong> every side prop should support the story loop. Scoreboards show the curse status, cabinets imply the arcade setting, the ball return is the player's safe anchor, and the back machine is the source of the threat.</div>
+            <div class="callout warning"><strong>Gameplay rule:</strong> story must never hide the throw. Put lore, staff ghosts, posters, cabinets, and scare moments around the clean lane path, not on top of the aiming arrows or ball read.</div>
+          </div>
+        </div>
+      </section>
+      <nav class="pagePager" aria-label="Guide page navigation">
+        <a class="prev" href="artwork-reference.html"><small>Previous page</small><strong>Artwork Ref</strong></a>
+        <div class="pageCurrent" aria-label="Current page"><b>ST</b><small>Current page</small><strong>Story Loop</strong><span class="routeHint">Arcade story spine, player goal, threat escalation, rewards, and boss frame.</span></div>
+        <a class="next" href="editor-basics.html"><small>Next page</small><strong>Editor Basics</strong></a>
+      </nav>    </main>
+  </div>
+  <button class="topBtn" id="topBtn" type="button" aria-label="Back to top">&uarr; Top</button>
+  <div class="diagramLightbox" id="diagramLightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Diagram viewer">
+    <div class="lightboxTop">
+      <strong id="diagramLightboxTitle">Diagram</strong>
+      <div class="lightboxControls" aria-label="Diagram zoom controls">
+        <button id="diagramZoomOut" type="button" aria-label="Zoom out">-</button>
+        <button id="diagramZoomIn" type="button" aria-label="Zoom in">+</button>
+        <span class="zoomLabel" id="diagramZoomLabel">100%</span>
+        <button id="diagramZoomReset" type="button">Reset</button>
+        <button id="diagramLightboxClose" type="button">Close</button>
+      </div>
+    </div>
+    <div class="lightboxStage" id="diagramLightboxStage">
+      <img id="diagramLightboxImg" alt="" />
+    </div>
+  </div>
+</body>
+</html>

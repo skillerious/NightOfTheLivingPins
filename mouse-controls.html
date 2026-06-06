@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mouse-only throw, charge, aim, release, steering, and input states." />
+  <meta name="theme-color" content="#14070b" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Living Pins" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+  <title>Mouse Controls - Night of the Living Pins</title>
+</head>
+<body data-page="controls">
+  <div class="noise"></div><div class="fog"></div>
+  <a class="skip-link" href="#main">Skip to guide</a>
+  <div class="app">
+    <div class="mobilebar">
+      <button class="hamburger" id="openNav" type="button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false"><span><i></i><i></i><i></i></span> Guide Menu</button>
+      <button class="iconbtn" id="mobilePrint" type="button" title="Print guide">Print</button>
+    </div>
+
+    <aside id="sidebar" aria-label="Guide navigation">
+      <button class="navBack" id="closeNav" type="button" aria-label="Close navigation">Back to guide</button>
+      <div class="brand">
+        <div class="emblem" aria-hidden="true"></div>
+        <div><h1>Night of the Living Pins</h1><p>UE5 Level Build Bible</p></div>
+      </div>
+
+      <div class="progressBox">
+        <div class="progressTop"><span>Build progress</span><strong id="progressLabel">0%</strong></div>
+        <div class="progressBar"><div class="progressFill" id="progressFill"></div></div>
+        <div class="miniStats">
+          <div><strong id="doneCount">0</strong><span>Done</span></div>
+          <div><strong id="totalCount">0</strong><span>Tasks</span></div>
+          <div><strong>UE5</strong><span>Ready</span></div>
+        </div>
+      </div>
+
+      <div class="searchWrap">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m21 21-4.3-4.3m2.3-5.2a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="guideSearch" type="search" placeholder="Search guide pages..." />
+        <div class="searchStatus" id="searchStatus" role="status" aria-live="polite"></div>
+      </div>
+
+      <nav id="toc">
+        <a class="navLink" data-page="overview" data-search="vision vision playable, spooky, reusable ue5 level template. 00" href="index.html"><b>00</b> Vision</a>
+        <a class="navLink" data-page="artref" data-search="artwork ref artwork reference visual north star, palette, art hierarchy, and local image references. ar" href="artwork-reference.html"><b>AR</b> Artwork Ref</a>
+        <a class="navLink" data-page="story" data-search="story loop story loop arcade story spine, player goal, threat escalation, rewards, and boss frame. st" href="story-loop.html"><b>ST</b> Story Loop</a>
+        <a class="navLink" data-page="editor" data-search="editor basics unreal editor basics viewport, outliner, details, content drawer, actor workflow, and recovery notes. ed" href="editor-basics.html"><b>ED</b> Editor Basics</a>
+        <a class="navLink" data-page="setup" data-search="project setup project setup folder structure, map setup, naming, and level organization. 01" href="project-setup.html"><b>01</b> Project Setup</a>
+        <a class="navLink" data-page="scale" data-search="scale plan scale plan lane dimensions, coordinates, axes, and top-down ue5 plan. 02" href="scale-plan.html"><b>02</b> Scale Plan</a>
+        <a class="navLink" data-page="blockout" data-search="blockout blockout approach, lane, gutters, walls, ceiling, back wall, and construction values. 03" href="blockout.html"><b>03</b> Blockout</a>
+        <a class="navLink" data-page="markers" data-search="gameplay markers gameplay markers target points, triggers, spawn markers, collision volumes, and tags. 04" href="gameplay-markers.html"><b>04</b> Gameplay Markers</a>
+        <a class="navLink active" aria-current="page" data-page="controls" data-search="mouse controls mouse controls mouse-only throw, charge, aim, release, steering, and input states. in" href="mouse-controls.html"><b>IN</b> Mouse Controls</a>
+        <a class="navLink" data-page="camera" data-search="camera director camera director camera states, readable results, reset flow, and click-to-play return. cm" href="camera-director.html"><b>CM</b> Camera Director</a>
+        <a class="navLink" data-page="lighting" data-search="lighting lighting lumen setup, practical lights, horror accents, and readable lane lighting. 05" href="lighting.html"><b>05</b> Lighting</a>
+        <a class="navLink" data-page="atmosphere" data-search="fog &amp; post fog and post process volumetric fog, exposure, bloom, vignette, and post-process targets. 06" href="fog-post.html"><b>06</b> Fog &amp; Post</a>
+        <a class="navLink" data-page="materials" data-search="materials materials lane wood, concrete, metal, grime, decals, and material instances. 07" href="materials.html"><b>07</b> Materials</a>
+        <a class="navLink" data-page="dressing" data-search="set dressing set dressing props, dressing zones, readability, and horror bowling alley detail. 08" href="set-dressing.html"><b>08</b> Set Dressing</a>
+        <a class="navLink" data-page="screens" data-search="ue5 screens ue5 screenshot aids screenshot checklist and visual references for important editor states. 09" href="ue5-screens.html"><b>09</b> UE5 Screens</a>
+        <a class="navLink" data-page="reuse" data-search="reuse system reuse system level instances, reusable chunks, templates, and future lane variants. 10" href="reuse-system.html"><b>10</b> Reuse System</a>
+        <a class="navLink" data-page="checklist" data-search="checklist interactive checklist guided build checklist with local progress tracking and phase filters. 11" href="checklist.html"><b>11</b> Checklist</a>
+        <a class="navLink" data-page="resources" data-search="resources resources ue5 locations, shortcuts, troubleshooting, and final ownership notice. 12" href="resources.html"><b>12</b> Resources</a>
+      </nav>
+
+      <div class="sideActions">
+        <a class="btn primary" href="checklist.html">Continue Build</a>
+        <button class="btn ghost checklistOnly" id="collapseDone" type="button">Hide completed tasks</button>
+        <button class="btn ghost" id="printBtn" type="button">Print / save PDF</button>
+        <button class="btn danger" id="resetProgress" type="button">Reset progress</button>
+      </div>
+    </aside>
+    <button class="navScrim" id="navScrim" type="button" aria-label="Close navigation"></button>
+
+    <main id="main">
+      <section class="card searchable" id="controls" data-title="mouse controls input state machine drag power aim yaw steer post release ue5 blueprint c++ enhanced input">
+        <div class="sectionHead"><div class="sectionNum">IN</div><div class="sectionTitle"><h2>Mouse-only control design, with the right technical language</h2><p>The whole game can be controlled with the mouse. The player slides left and right before the throw, holds the left mouse button to enter an aiming/charging gesture, drags upward for power, drags left or right for direction, releases to launch, then lightly steers the ball with mouse movement while it travels down the lane.</p></div><div class="tagRow"><span class="tag good">Mouse only</span><span class="tag">UE5 input lingo</span><span class="tag">Future ChatGPT ready</span></div></div>
+        <div class="sectionBody">
+          <div class="diagramWrap">
+            <div class="diagramTitle"><div><strong>Mouse gesture diagram</strong><span>Position, charge, aim, release, steer</span></div><p class="diagramNote">Think of the controls as a small input state machine. Before the throw, mouse X controls the player lane position. While the left button is held, the drag vector controls power and aim yaw. After release, mouse X becomes a light steering input.</p></div>
+            <figure class="diagramImageFrame"><img src="assets/diagram-mouse-gesture.png" alt="Mouse-only control gesture diagram showing pre-throw positioning, hold and drag power, aim yaw, release launch, and post-release steering." loading="eager" decoding="async" /></figure>
+            <div class="precisionDiagram controlGesture diagramSource" aria-hidden="true">
+              <div class="gestureLane">
+                <div class="centreLine"></div>
+                <div class="aimArrows" style="position:absolute;left:0;right:0;top:43%"><i></i><i></i><i></i></div>
+                <div class="steerRibbon"></div>
+                <div class="dragVector"></div>
+                <div class="playerPuck" aria-hidden="true"></div>
+                <div class="gestureNote" style="left:18px;bottom:26px"><strong>Positioning</strong>Mouse left/right maps to lane-space Y before the throw.</div>
+                <div class="gestureNote" style="right:18px;bottom:110px"><strong>Hold + drag</strong>Up sets power. Left/right sets throw direction.</div>
+                <div class="gestureNote" style="left:18px;top:26px"><strong>Release</strong>Ball launches with selected power and yaw.</div>
+                <div class="gestureNote" style="right:18px;top:58px"><strong>Steering</strong>After launch, mouse X applies a small lateral force.</div>
+              </div>
+              <div class="inputSpec">
+                <div><strong>Pre-throw movement</strong><code>MouseDeltaX -> DesiredLaneY</code><br>Move the player/ball spawn left and right across a clamped lane range.</div>
+                <div><strong>Power gesture</strong><code>Power01 = Clamp(DragUpPixels / MaxPowerDragPixels, 0, 1)</code><br>Dragging upward farther gives more launch speed.</div>
+                <div><strong>Aim direction</strong><code>AimYawDegrees = Clamp(DragRightPixels / MaxAimDragPixels, -MaxYaw, MaxYaw)</code><br>Left/right while held creates the slash direction: <code>\</code> or <code>/</code>.</div>
+                <div><strong>Launch</strong><code>ForwardVector.RotateYaw(AimYaw) * LaunchSpeed</code><br>Release left mouse to apply impulse or set velocity.</div>
+                <div><strong>Post-release steering</strong><code>SteerInput = Clamp(MouseDeltaX / SteerSensitivity, -1, 1)</code><br>Apply a weak lateral force/torque, much weaker than the launch impulse.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid two" style="margin-top:16px">
+            <div class="tile"><h3>Plain English control loop</h3><ol><li>Move the mouse left or right to choose where the player stands on the approach.</li><li>Press and hold the left mouse button to start the throw gesture.</li><li>Drag upward to increase power.</li><li>While still holding, drag left or right to angle the throw.</li><li>Release the left mouse button to launch the ball.</li><li>After release, keep moving the mouse left or right to gently steer the ball.</li></ol></div>
+            <div class="tile"><h3>Technical version</h3><p>This is a <strong>mouse-only lane-space throw mechanic</strong> using a <strong>pre-launch lateral positioning state</strong>, a <strong>click-and-drag charge/aim gesture</strong>, a <strong>launch impulse</strong>, and a <strong>post-launch steering assist</strong>. The important variables are player lane Y, drag vector, normalized power, aim yaw, launch speed, steering input, and steering force.</p></div>
+          </div>
+
+          <div class="diagramWrap" style="margin-top:16px">
+            <div class="diagramTitle"><div><strong>Input state machine</strong><span>Use these names in Blueprint or C++</span></div><p class="diagramNote">These state names are the lingo that will help ChatGPT understand what you want later. Each state has one job, which keeps the control code easier to build and debug.</p></div>
+            <figure class="diagramImageFrame"><img src="assets/diagram-input-state-machine.png" alt="Input state machine diagram showing Positioning, Charging, Aiming, Launch, Steering, and Result states." loading="eager" decoding="async" /></figure>
+            <div class="precisionDiagram diagramSource" aria-hidden="true">
+              <div class="stateMachine">
+                <div class="stateNode"><b>Positioning</b><span>No button held. Mouse X moves the player/ball spawn left and right across the approach.</span></div>
+                <div class="stateNode"><b>Charging</b><span>Left mouse button is held. Store <code>DragStartScreenPos</code> and capture the cursor.</span></div>
+                <div class="stateNode"><b>Aiming</b><span>Use current drag vector to calculate <code>Power01</code> and <code>AimYawDegrees</code>.</span></div>
+                <div class="stateNode"><b>Launch</b><span>On mouse release, convert power and yaw into a forward launch vector.</span></div>
+                <div class="stateNode"><b>Steering</b><span>Ball is active. Mouse X applies weak lateral force or torque.</span></div>
+                <div class="stateNode"><b>Result</b><span>When the ball reaches pit or stops, score pins and reset for the next throw.</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid two" style="margin-top:16px">
+            <div class="tile"><h3>Useful UE5 variable names</h3><div class="tokenGrid"><span><code>CurrentThrowState</code>Enum: Positioning, Charging, Aiming, Launched, Steering, Result.</span><span><code>DesiredLaneY</code>The player/ball lateral position in lane space.</span><span><code>MinLaneY / MaxLaneY</code>Clamp limits so the player cannot move outside the allowed approach area.</span><span><code>DragStartScreenPos</code>Mouse screen position when left button is pressed.</span><span><code>CurrentDragVector</code>Current mouse position minus drag start position.</span><span><code>Power01</code>Normalized throw power from 0 to 1.</span><span><code>AimYawDegrees</code>Launch angle left/right from the lane centre line.</span><span><code>MaxAimYawDegrees</code>Maximum allowed throw angle, for example 12 to 18 degrees.</span><span><code>LaunchSpeedMin / LaunchSpeedMax</code>Speed range created from power.</span><span><code>SteerStrength</code>How much control the player has after release.</span><span><code>SteerInput</code>Mouse X converted to -1 to +1.</span><span><code>BallForwardVelocity</code>Velocity down-lane after launch.</span></div></div>
+            <div class="tile"><h3>Blueprint/C++ event wording</h3><div class="codeBlock"><div class="codeTop"><span>Control event flow</span><button class="copyBtn">Copy</button></div><pre><code>OnMouseMove:
+  if State == Positioning:
+    DesiredLaneY += MouseDeltaX * PositionSensitivity
+    DesiredLaneY = Clamp(DesiredLaneY, MinLaneY, MaxLaneY)
+
+  if State == Steering:
+    SteerInput = Clamp(MouseDeltaX / SteerPixelsForFullInput, -1, 1)
+
+OnLeftMouseDown:
+  State = Charging
+  DragStartScreenPos = CurrentMouseScreenPos
+  CaptureMouse()
+
+OnMouseDragWhileHeld:
+  CurrentDragVector = CurrentMouseScreenPos - DragStartScreenPos
+  Power01 = Clamp(-CurrentDragVector.Y / MaxPowerDragPixels, 0, 1)
+  AimYawDegrees = Clamp(CurrentDragVector.X / MaxAimDragPixels, -1, 1) * MaxAimYawDegrees
+  State = Aiming
+
+OnLeftMouseUp:
+  LaunchDirection = LaneForwardVector rotated by AimYawDegrees
+  LaunchSpeed = Lerp(LaunchSpeedMin, LaunchSpeedMax, Power01)
+  LaunchBall(LaunchDirection, LaunchSpeed)
+  State = Steering</code></pre></div></div>
+          </div>
+
+          <div class="grid three" style="margin-top:16px">
+            <div class="tile"><h3>Physics wording</h3><ul><li><strong>Impulse:</strong> one strong push at launch.</li><li><strong>Velocity:</strong> directly setting ball movement speed.</li><li><strong>Lateral force:</strong> gentle side push after launch.</li><li><strong>Torque:</strong> spin-based steering, more physical but harder to tune.</li></ul></div>
+            <div class="tile"><h3>Tuning safeguards</h3><ul><li>Clamp lane position to allowed Y range.</li><li>Add a small deadzone to drag and steering.</li><li>Limit maximum aim yaw.</li><li>Make post-release steering subtle.</li><li>Disable steering after impact or when speed is too low.</li></ul></div>
+            <div class="tile"><h3>Future ChatGPT prompt</h3><p>Use this wording: <em>I need a UE5 C++ or Blueprint mouse-only bowling control system with states for Positioning, Charging, Aiming, Launch, Steering, and Result. Mouse X moves lane-space Y before launch. Left mouse drag up maps to normalized power, drag X maps to aim yaw, release applies launch impulse, and post-launch mouse X applies weak lateral steering.</em></p></div>
+          </div>
+        </div>
+      </section>
+      <nav class="pagePager" aria-label="Guide page navigation">
+        <a class="prev" href="gameplay-markers.html"><small>Previous page</small><strong>Gameplay Markers</strong></a>
+        <div class="pageCurrent" aria-label="Current page"><b>IN</b><small>Current page</small><strong>Mouse Controls</strong><span class="routeHint">Mouse-only throw, charge, aim, release, steering, and input states.</span></div>
+        <a class="next" href="camera-director.html"><small>Next page</small><strong>Camera Director</strong></a>
+      </nav>    </main>
+  </div>
+  <button class="topBtn" id="topBtn" type="button" aria-label="Back to top">&uarr; Top</button>
+  <div class="diagramLightbox" id="diagramLightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Diagram viewer">
+    <div class="lightboxTop">
+      <strong id="diagramLightboxTitle">Diagram</strong>
+      <div class="lightboxControls" aria-label="Diagram zoom controls">
+        <button id="diagramZoomOut" type="button" aria-label="Zoom out">-</button>
+        <button id="diagramZoomIn" type="button" aria-label="Zoom in">+</button>
+        <span class="zoomLabel" id="diagramZoomLabel">100%</span>
+        <button id="diagramZoomReset" type="button">Reset</button>
+        <button id="diagramLightboxClose" type="button">Close</button>
+      </div>
+    </div>
+    <div class="lightboxStage" id="diagramLightboxStage">
+      <img id="diagramLightboxImg" alt="" />
+    </div>
+  </div>
+</body>
+</html>

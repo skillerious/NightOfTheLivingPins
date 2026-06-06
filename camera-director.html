@@ -1,0 +1,361 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Camera states, readable results, reset flow, and click-to-play return." />
+  <meta name="theme-color" content="#14070b" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Living Pins" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+  <title>Camera Director - Night of the Living Pins</title>
+</head>
+<body data-page="camera">
+  <div class="noise"></div><div class="fog"></div>
+  <a class="skip-link" href="#main">Skip to guide</a>
+  <div class="app">
+    <div class="mobilebar">
+      <button class="hamburger" id="openNav" type="button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false"><span><i></i><i></i><i></i></span> Guide Menu</button>
+      <button class="iconbtn" id="mobilePrint" type="button" title="Print guide">Print</button>
+    </div>
+
+    <aside id="sidebar" aria-label="Guide navigation">
+      <button class="navBack" id="closeNav" type="button" aria-label="Close navigation">Back to guide</button>
+      <div class="brand">
+        <div class="emblem" aria-hidden="true"></div>
+        <div><h1>Night of the Living Pins</h1><p>UE5 Level Build Bible</p></div>
+      </div>
+
+      <div class="progressBox">
+        <div class="progressTop"><span>Build progress</span><strong id="progressLabel">0%</strong></div>
+        <div class="progressBar"><div class="progressFill" id="progressFill"></div></div>
+        <div class="miniStats">
+          <div><strong id="doneCount">0</strong><span>Done</span></div>
+          <div><strong id="totalCount">0</strong><span>Tasks</span></div>
+          <div><strong>UE5</strong><span>Ready</span></div>
+        </div>
+      </div>
+
+      <div class="searchWrap">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m21 21-4.3-4.3m2.3-5.2a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="guideSearch" type="search" placeholder="Search guide pages..." />
+        <div class="searchStatus" id="searchStatus" role="status" aria-live="polite"></div>
+      </div>
+
+      <nav id="toc">
+        <a class="navLink" data-page="overview" data-search="vision vision playable, spooky, reusable ue5 level template. 00" href="index.html"><b>00</b> Vision</a>
+        <a class="navLink" data-page="artref" data-search="artwork ref artwork reference visual north star, palette, art hierarchy, and local image references. ar" href="artwork-reference.html"><b>AR</b> Artwork Ref</a>
+        <a class="navLink" data-page="story" data-search="story loop story loop arcade story spine, player goal, threat escalation, rewards, and boss frame. st" href="story-loop.html"><b>ST</b> Story Loop</a>
+        <a class="navLink" data-page="editor" data-search="editor basics unreal editor basics viewport, outliner, details, content drawer, actor workflow, and recovery notes. ed" href="editor-basics.html"><b>ED</b> Editor Basics</a>
+        <a class="navLink" data-page="setup" data-search="project setup project setup folder structure, map setup, naming, and level organization. 01" href="project-setup.html"><b>01</b> Project Setup</a>
+        <a class="navLink" data-page="scale" data-search="scale plan scale plan lane dimensions, coordinates, axes, and top-down ue5 plan. 02" href="scale-plan.html"><b>02</b> Scale Plan</a>
+        <a class="navLink" data-page="blockout" data-search="blockout blockout approach, lane, gutters, walls, ceiling, back wall, and construction values. 03" href="blockout.html"><b>03</b> Blockout</a>
+        <a class="navLink" data-page="markers" data-search="gameplay markers gameplay markers target points, triggers, spawn markers, collision volumes, and tags. 04" href="gameplay-markers.html"><b>04</b> Gameplay Markers</a>
+        <a class="navLink" data-page="controls" data-search="mouse controls mouse controls mouse-only throw, charge, aim, release, steering, and input states. in" href="mouse-controls.html"><b>IN</b> Mouse Controls</a>
+        <a class="navLink active" aria-current="page" data-page="camera" data-search="camera director camera director camera states, readable results, reset flow, and click-to-play return. cm" href="camera-director.html"><b>CM</b> Camera Director</a>
+        <a class="navLink" data-page="lighting" data-search="lighting lighting lumen setup, practical lights, horror accents, and readable lane lighting. 05" href="lighting.html"><b>05</b> Lighting</a>
+        <a class="navLink" data-page="atmosphere" data-search="fog &amp; post fog and post process volumetric fog, exposure, bloom, vignette, and post-process targets. 06" href="fog-post.html"><b>06</b> Fog &amp; Post</a>
+        <a class="navLink" data-page="materials" data-search="materials materials lane wood, concrete, metal, grime, decals, and material instances. 07" href="materials.html"><b>07</b> Materials</a>
+        <a class="navLink" data-page="dressing" data-search="set dressing set dressing props, dressing zones, readability, and horror bowling alley detail. 08" href="set-dressing.html"><b>08</b> Set Dressing</a>
+        <a class="navLink" data-page="screens" data-search="ue5 screens ue5 screenshot aids screenshot checklist and visual references for important editor states. 09" href="ue5-screens.html"><b>09</b> UE5 Screens</a>
+        <a class="navLink" data-page="reuse" data-search="reuse system reuse system level instances, reusable chunks, templates, and future lane variants. 10" href="reuse-system.html"><b>10</b> Reuse System</a>
+        <a class="navLink" data-page="checklist" data-search="checklist interactive checklist guided build checklist with local progress tracking and phase filters. 11" href="checklist.html"><b>11</b> Checklist</a>
+        <a class="navLink" data-page="resources" data-search="resources resources ue5 locations, shortcuts, troubleshooting, and final ownership notice. 12" href="resources.html"><b>12</b> Resources</a>
+      </nav>
+
+      <div class="sideActions">
+        <a class="btn primary" href="checklist.html">Continue Build</a>
+        <button class="btn ghost checklistOnly" id="collapseDone" type="button">Hide completed tasks</button>
+        <button class="btn ghost" id="printBtn" type="button">Print / save PDF</button>
+        <button class="btn danger" id="resetProgress" type="button">Reset progress</button>
+      </div>
+    </aside>
+    <button class="navScrim" id="navScrim" type="button" aria-label="Close navigation"></button>
+
+    <main id="main">
+      <section class="card searchable" id="camera" data-title="camera system player staging foul line ball follow click anywhere to play reset surviving zombie pins last pin spare strike gutter camera director">
+        <div class="sectionHead"><div class="sectionNum">CM</div><div class="sectionTitle"><h2>Stage the player at the foul line and let the camera direct the throw</h2><p>The player should feel locked into an old haunted bowling lane, not free-roaming down the alley. Start behind the ball at the foul line, follow the ball after release, show impact and zombie reactions, then return clearly when the next throw is ready.</p></div><div class="tagRow"><span class="tag good">Foul line locked</span><span class="tag">Ball follow</span><span class="tag">Click to play</span><span class="tag warn">Last-pin gag</span></div></div>
+        <div class="sectionBody">
+          <div class="cameraChapterNav" aria-label="Camera chapter quick links">
+            <a href="#camera-overview">Overview</a>
+            <a href="#camera-build">Build Order</a>
+            <a href="#camera-player">Player Staging</a>
+            <a href="#camera-states">State Matrix</a>
+            <a href="#camera-scenarios">Playbooks</a>
+            <a href="#camera-implementation">Implementation</a>
+            <a href="#camera-qa">QA Checks</a>
+          </div>
+
+          <div class="cameraLeadBoard" id="camera-overview">
+            <div class="cameraDirectorPanel">
+              <h3>Camera director overview</h3>
+              <p>The camera should behave like a small arcade director: it frames the setup, follows the ball, sells the hit, lets the zombie pins react, then clearly returns the player to the foul line. It can be cinematic, but the ball, aim, pins, score state, and next input moment must always be understandable.</p>
+              <div class="cameraDirectorMap" aria-label="Camera director layout map">
+                <div class="cameraMapBlock approach"><div class="cameraFoulLine"></div><strong>Approach</strong><span><code>TP_PlayerView</code><br><code>TP_BallSpawn</code><br><code>FoulLineVolume</code></span></div>
+                <div class="cameraMapBlock gutterTop"><strong>Left gutter</strong><span><code>TV_Gutter_L</code> can trigger tilt, UI, laugh, and reduced steering.</span></div>
+                <div class="cameraMapBlock lane"><div class="cameraPathLine"></div><div class="cameraPathBall"></div><strong>Lane action</strong><span><code>BallFollowView</code> tracks behind and above, looking ahead toward pins.</span></div>
+                <div class="cameraMapBlock gutterBottom"><strong>Right gutter</strong><span><code>TV_Gutter_R</code> uses the same short failure flow.</span></div>
+                <div class="cameraMapBlock pinDeck"><strong>Pin deck</strong><span>Impact, strike, spare, last-pin close-up, open-frame reactions.</span><div class="cameraPinDots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+                <div class="cameraMapBlock machine"><strong>Cursed machine</strong><span>Reset, pin clear, zombie advance, sparks, glitch, match result.</span></div>
+              </div>
+            </div>
+            <div class="cameraSidePanel">
+              <h3>First version target</h3>
+              <p>Build the readable version first. Special camera moments should be short, optional, and event-driven.</p>
+              <div class="cameraMetrics">
+                <div class="cameraMetric"><strong>0 cm</strong><span>Player crosses past the foul line during play.</span></div>
+                <div class="cameraMetric"><strong>1 click</strong><span>Required after result/reset before input returns.</span></div>
+                <div class="cameraMetric"><strong>1-2 sec</strong><span>Last-pin drama maximum duration.</span></div>
+                <div class="cameraMetric"><strong>Always</strong><span>Ball path and pin deck remain readable.</span></div>
+              </div>
+              <ul class="cameraDenseList">
+                <li>Use <code>ANOLPCameraDirector</code> as the only actor that chooses camera states.</li>
+                <li>Let the ball, lane manager, and pin actors raise events instead of moving the camera directly.</li>
+                <li>Disable player input during result, reset, click wait, and return blend.</li>
+                <li>Keep every cinematic moment interruptible by game rules, not by player steering.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="diagramWrap" id="camera-build" style="margin-top:16px">
+            <div class="diagramTitle"><div><strong>Build order</strong><span>Implement in this order</span></div><p class="diagramNote">This order keeps the camera useful while gameplay is still rough. It starts with the readable loop, then adds comedy and cinematic polish after the throw/reset flow works.</p></div>
+            <div class="cameraBuildOrder">
+              <div class="cameraBuildStep"><b>1</b><span><strong>Lock the player to the approach</strong>Add <code>FoulLineVolume</code>, <code>TV_ApproachArea</code>, <code>MinLaneY</code>, and <code>MaxLaneY</code>. The player/ball can slide left and right, aim, charge, launch, and lightly steer, but never walk down-lane.</span></div>
+              <div class="cameraBuildStep"><b>2</b><span><strong>Place camera target points</strong>Add <code>TP_Camera_PlayerView</code>, <code>TP_Camera_AimView</code>, <code>TP_Camera_BallFollow</code>, <code>TP_Camera_PinDeck</code>, <code>TP_Camera_Result</code>, and <code>TP_Camera_Reset</code> before final art.</span></div>
+              <div class="cameraBuildStep"><b>3</b><span><strong>Create the camera director</strong>Give <code>ANOLPCameraDirector</code> target references, current state, blend settings, follow offsets, and event handlers. Do not spread camera decisions across the ball and pins.</span></div>
+              <div class="cameraBuildStep"><b>4</b><span><strong>Prove the core throw loop</strong>Run <code>PlayerView -> ChargeView -> LaunchView -> BallFollowView -> PinImpactView -> ResultView</code> with temporary ball and pin placeholders.</span></div>
+              <div class="cameraBuildStep"><b>5</b><span><strong>Add reset and click wait</strong>After scoring, clear knocked pins, let standing pins remain, show <code>CLICK ANYWHERE TO PLAY</code>, then blend back to the foul-line camera after click.</span></div>
+              <div class="cameraBuildStep"><b>6</b><span><strong>Add surviving pin advance</strong>When pins remain, shuffle them slightly toward the player with a capped distance. Tune by difficulty so it creates tension without becoming unfair.</span></div>
+              <div class="cameraBuildStep"><b>7</b><span><strong>Add special moments</strong>Layer in gutter tilt, strike camera, spare camera, open-frame taunts, and last-pin spare close-up only after the normal loop is stable.</span></div>
+              <div class="cameraBuildStep"><b>8</b><span><strong>Test AI and multiplayer presentation</strong>Use the same camera states for AI and player turns. Add banners, delay beats, and clear turn ownership before launch.</span></div>
+            </div>
+          </div>
+
+          <div class="diagramWrap" id="camera-player" style="margin-top:16px">
+            <div class="diagramTitle"><div><strong>Player staging and marker contract</strong><span>What the player sees before every throw</span></div><p class="diagramNote">The default camera is behind the ball at the foul line, slightly above waist height, looking down the lane. It should feel spooky, but stable enough for accurate aiming.</p></div>
+            <div class="grid two">
+              <div class="cameraModule">
+                <h3>Player view must show</h3>
+                <ul class="cameraDenseList">
+                  <li>The bowling ball in the foreground.</li>
+                  <li>Lane arrows, centre path, gutters, and pin rack.</li>
+                  <li>Aim line and power meter while aiming/charging.</li>
+                  <li>Score, frame, throw number, and active player or AI name.</li>
+                  <li>Zombie pins waiting at the end, with faces readable enough for comedy.</li>
+                  <li>Hazards and power-ups without covering the clean ball path.</li>
+                </ul>
+              </div>
+              <div class="cameraModule">
+                <h3>Subtle player-view motion</h3>
+                <ul class="cameraDenseList">
+                  <li>Gentle camera breathing while idle.</li>
+                  <li>Small push-in when the mouse button is held.</li>
+                  <li>Very small shake or rumble at maximum power.</li>
+                  <li>Light flicker influence from the lane fixtures.</li>
+                  <li>No heavy sway during aim. Accuracy beats atmosphere here.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="tableWrap" style="margin-top:14px">
+              <table>
+                <thead><tr><th>Actor or variable</th><th>Use</th><th>First-pass guidance</th></tr></thead>
+                <tbody>
+                  <tr><td><code>TP_PlayerView</code></td><td>Logical player staging point in the approach area.</td><td>Use it as the place the player feels anchored before each throw.</td></tr>
+                  <tr><td><code>TP_BallSpawn</code></td><td>Ball reset point for every throw.</td><td>Keep it behind the foul line and inside the legal Y range.</td></tr>
+                  <tr><td><code>FoulLineVolume</code></td><td>Invisible boundary that prevents lane walking.</td><td>Block player movement, but do not block the launched ball.</td></tr>
+                  <tr><td><code>TV_ApproachArea</code></td><td>Area where aiming and charging are allowed.</td><td>Input is enabled only when camera return is complete.</td></tr>
+                  <tr><td><code>MinLaneY / MaxLaneY</code></td><td>Clamp values for left/right ball placement.</td><td>Wide enough to aim, narrow enough to stop impossible side shots.</td></tr>
+                  <tr><td><code>ApproachArea</code></td><td>Gameplay concept for the pre-launch control zone.</td><td>Use in code comments and Blueprint names so the rule stays clear.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="diagramWrap cameraStateTable" id="camera-states" style="margin-top:16px">
+            <div class="diagramTitle"><div><strong>Detailed camera state matrix</strong><span>Suggested <code>ENOLPCameraState</code></span></div><p class="diagramNote">Each state should have one job, one readable focus, clear entry and exit events, and a small set of exposed tuning variables.</p></div>
+            <div class="tableWrap">
+              <table>
+                <thead><tr><th>State</th><th>Camera job</th><th>Keep readable</th><th>Entry event</th><th>Exit event</th><th>Useful tuning</th></tr></thead>
+                <tbody>
+                  <tr><td>WaitingForClick</td><td>Hold on a resolved lane state and show the next-turn prompt.</td><td>Remaining pins, score result, active player, <code>CLICK ANYWHERE TO PLAY</code>.</td><td><code>OnLaneResetComplete</code></td><td><code>OnPlayerClickedToPlay</code></td><td><code>bWaitForClickBeforeNextThrow</code>, <code>ClickToPlayText</code></td></tr>
+                  <tr><td>PlayerView</td><td>Frame the approach from behind the ball.</td><td>Ball, aim direction, lane arrows, pin rack, score, turn UI.</td><td><code>OnTurnStarted</code></td><td><code>OnAimingStarted</code></td><td><code>PlayerViewBlendTime</code>, <code>IdleCameraBreathAmount</code></td></tr>
+                  <tr><td>AimView</td><td>Focus slightly for line-up without hiding the lane.</td><td>Ball start Y, aim line, gutters, pins, hazards.</td><td><code>OnAimingStarted</code></td><td><code>OnPowerCharging</code> or cancel</td><td><code>AimViewZoomAmount</code>, <code>AimViewBlendTime</code></td></tr>
+                  <tr><td>ChargeView</td><td>Add tension while the player holds the mouse button.</td><td>Power meter, aim line, ball glow, pin silhouettes.</td><td><code>OnPowerCharging</code></td><td><code>OnBallLaunched</code></td><td><code>ChargeViewCameraShake</code>, <code>MaxPowerShakeThreshold</code></td></tr>
+                  <tr><td>LaunchView</td><td>Sell the release with a short push and shake.</td><td>Ball leaving spawn, direction, initial speed.</td><td><code>OnBallLaunched</code></td><td>Launch beat finishes</td><td><code>LaunchShakeStrength</code>, <code>LaunchPushDistance</code></td></tr>
+                  <tr><td>BallFollowView</td><td>Track behind and above the rolling ball while looking ahead.</td><td>Ball, lane, hazards, gutter drift, pins in distance.</td><td>Launch beat finishes</td><td><code>OnBallEnteredGutter</code>, <code>OnBallNearPinDeck</code>, pit, or stop</td><td><code>BallFollowDistance</code>, <code>BallFollowHeight</code>, <code>BallLookAheadDistance</code>, <code>BallFollowLag</code></td></tr>
+                  <tr><td>GutterView</td><td>Show the failure clearly and briefly.</td><td>Which gutter, ball, UI result, zombie reaction.</td><td><code>OnBallEnteredGutter</code></td><td>Ball reaches pit or stops</td><td><code>GutterCameraDuration</code>, <code>GutterTiltAmount</code></td></tr>
+                  <tr><td>PinImpactView</td><td>Frame the collision as the ball reaches the deck.</td><td>Ball, head pin, pin scatter, important reactions.</td><td><code>OnBallNearPinDeck</code> or <code>OnBallHitPin</code></td><td>Pins settle or scoring begins</td><td><code>PinDeckCutDistance</code>, <code>ImpactCameraShakeStrength</code></td></tr>
+                  <tr><td>LastPinDramaView</td><td>Cut to the last standing pin for a quick spare comedy beat.</td><td>Pin face, incoming ball direction, short voice line.</td><td><code>OnLastPinSpareChance</code></td><td>Impact or timeout</td><td><code>LastPinDramaDistance</code>, <code>LastPinDramaSlowMo</code>, <code>LastPinDramaZoom</code></td></tr>
+                  <tr><td>StrikeView</td><td>Celebrate a first-throw clear.</td><td>Final falling pins, score text, machine reaction.</td><td><code>OnStrike</code></td><td>Presentation finishes</td><td><code>StrikeSlowMoScale</code>, <code>StrikeCameraDuration</code></td></tr>
+                  <tr><td>SpareView</td><td>Reward clearing the remaining pins on throw two.</td><td>Last falling pin, <code>SPARE!</code>, score update.</td><td><code>OnSpare</code></td><td>Presentation finishes</td><td><code>SpareCameraDuration</code>, <code>SpareCameraFocusOffset</code></td></tr>
+                  <tr><td>ResultView</td><td>Let the player understand the outcome.</td><td>Fallen pins, standing pins, score, combo, open/strike/spare result.</td><td><code>OnThrowResolved</code></td><td><code>OnPinsAdvancing</code> or reset</td><td><code>PinSettleWaitTime</code>, <code>ResultDisplayDuration</code></td></tr>
+                  <tr><td>ResetView</td><td>Show pin clearing, surviving pin movement, and machine reaction.</td><td>Standing pins, shuffle distance, next-turn UI.</td><td><code>OnPinsAdvancing</code> or reset start</td><td><code>OnLaneResetComplete</code></td><td><code>ResetCameraDuration</code>, <code>PinAdvanceSpeed</code></td></tr>
+                  <tr><td>ReturnToPlayerView</td><td>Move from resolved lane back to the foul-line camera.</td><td>Camera destination, ball reset, no accidental input.</td><td><code>OnPlayerClickedToPlay</code></td><td>Blend complete</td><td><code>ReturnToPlayerBlendTime</code>, <code>ReturnToPlayerCameraStyle</code></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="diagramWrap" id="camera-flow" style="margin-top:16px">
+            <div class="diagramTitle"><div><strong>Readable throw flow</strong><span>The full loop the player should feel</span></div><p class="diagramNote">This is the rhythm to test in Play In Editor before adding rare cinematic variants.</p></div>
+            <div class="cameraSequence">
+              <div class="flowNode"><b>1. Prompt</b><span>Lane is resolved. UI shows <code>CLICK ANYWHERE TO PLAY</code>. Input for aiming is still disabled.</span></div>
+              <div class="flowNode"><b>2. Return</b><span>Click starts a fast blend to <code>TP_Camera_PlayerView</code>. Ball resets to <code>TP_BallSpawn</code>.</span></div>
+              <div class="flowNode"><b>3. Position</b><span>Mouse X moves lane-space Y within <code>MinLaneY</code> and <code>MaxLaneY</code>.</span></div>
+              <div class="flowNode"><b>4. Charge</b><span>Hold mouse. Camera pushes in, power meter rises, ball glow increases, pins react in distance.</span></div>
+              <div class="flowNode"><b>5. Launch</b><span>Release. Short shake, aim line disappears, ball trail appears, camera blends to follow.</span></div>
+              <div class="flowNode"><b>6. Follow</b><span>Camera tracks behind and above, looking ahead. If the ball drifts, gutter feedback is clear.</span></div>
+              <div class="flowNode"><b>7. Impact</b><span>Near the deck, cut or push to show the collision, reaction, and pin scatter.</span></div>
+              <div class="flowNode"><b>8. Settle</b><span>Wait for physics to settle. Count pins after they stop, not at first contact.</span></div>
+              <div class="flowNode"><b>9. Advance</b><span>Standing zombie pins may twitch and shuffle toward the player, capped by difficulty.</span></div>
+              <div class="flowNode"><b>10. Repeat</b><span>Show result and next prompt. The player clicks to begin the next throw or turn.</span></div>
+            </div>
+          </div>
+
+          <div class="diagramWrap" id="camera-scenarios" style="margin-top:16px">
+            <div class="diagramTitle"><div><strong>Scenario playbooks</strong><span>How each special moment should work</span></div><p class="diagramNote">Each playbook has a trigger, camera action, feedback layer, and exit rule. This keeps comedy moments from dragging or confusing the player.</p></div>
+            <div class="cameraScenarioGrid">
+              <div class="cameraScenario"><h3>Normal hit</h3><dl><dt>Trigger</dt><dd>Ball reaches <code>PinDeckCameraTriggerDistance</code> or hits a pin.</dd><dt>Camera</dt><dd>Continue ball follow into deck for small hits; cut to pin deck angle for strong hits.</dd><dt>Feedback</dt><dd>Impact sound, short shake, pins scream or tumble, score popup after settle.</dd><dt>Exit</dt><dd>When ball reaches pit/stops and pins settle, enter <code>ResultView</code>.</dd></dl></div>
+              <div class="cameraScenario"><h3>Gutter</h3><dl><dt>Trigger</dt><dd>Ball overlaps <code>TV_Gutter_L</code> or <code>TV_Gutter_R</code>.</dd><dt>Camera</dt><dd>Tilt toward the gutter and follow long enough to prove what happened.</dd><dt>Feedback</dt><dd><code>GUTTER!</code>, gutter roll audio, reduced steering, zombie laugh or machine chuckle.</dd><dt>Exit</dt><dd>Resolve as soon as the ball reaches pit or stops. No long punishment shot.</dd></dl></div>
+              <div class="cameraScenario"><h3>Last-pin spare drama</h3><dl><dt>Trigger</dt><dd>Throw two, one pin standing, ball active, predicted path likely hits final pin.</dd><dt>Camera</dt><dd>Dynamic close-up from final pin transform or <code>Socket_FaceCameraTarget</code>.</dd><dt>Feedback</dt><dd>Brief slow motion, eyes widen, default voice line <span class="voiceLine">Uh oh...</span>, impact shake.</dd><dt>Exit</dt><dd>Maximum 1-2 seconds or impact. Then cut to <code>SpareView</code> if the pin falls.</dd></dl></div>
+              <div class="cameraScenario"><h3>Strike</h3><dl><dt>Trigger</dt><dd>All pins down on first throw after settle.</dd><dt>Camera</dt><dd>Low impact cam, overhead chaos cam, ball POV, pin face cam, or machine reaction cam.</dd><dt>Feedback</dt><dd><code>STRIKE!</code>, big sound, sparks, machine anger, brief slow motion only for strong hits.</dd><dt>Exit</dt><dd>Return to result/reset after the celebration beat, not after every pin animation finishes.</dd></dl></div>
+              <div class="cameraScenario"><h3>Open frame</h3><dl><dt>Trigger</dt><dd>Pins remain after the allowed throws.</dd><dt>Camera</dt><dd>Hold on the remaining pins and show them as alive, smug, and dangerous.</dd><dt>Feedback</dt><dd>Laugh, point, wobble, tiny victory dance, score update, <code>OPEN FRAME</code>.</dd><dt>Exit</dt><dd>Advance surviving pins if allowed, then show click prompt.</dd></dl></div>
+              <div class="cameraScenario"><h3>AI or local turn</h3><dl><dt>Trigger</dt><dd>Turn owner changes.</dd><dt>Camera</dt><dd>Show a banner, return to player view or AI setup view, then follow the AI shot normally.</dd><dt>Feedback</dt><dd><code>PLAYER 2 - THROW 2</code> or <code>ROTTEN RANDY IS LINING UP A SHOT...</code>.</dd><dt>Exit</dt><dd>Same result/reset/click flow, so the match rhythm stays consistent.</dd></dl></div>
+            </div>
+          </div>
+
+          <div class="diagramWrap" id="camera-implementation" style="margin-top:16px">
+            <div class="diagramTitle"><div><strong>Implementation contract</strong><span>Who owns which responsibility</span></div><p class="diagramNote">The camera system stays clean if gameplay actors send facts and the director decides presentation.</p></div>
+            <div class="cameraContractGrid">
+              <div class="cameraModule">
+                <h3>Director owns</h3>
+                <div class="cameraContractList">
+                  <div><strong>State transitions</strong><code>CurrentCameraState</code>, blend target, active cinematic timeout.</div>
+                  <div><strong>Target lookup</strong>Find and cache camera target points by tag/name at level start.</div>
+                  <div><strong>Follow logic</strong>Follow ball position, look ahead, lag, FOV, speed shake.</div>
+                  <div><strong>Input gates</strong>Tell controller when aiming input may resume after return blend.</div>
+                </div>
+              </div>
+              <div class="cameraModule">
+                <h3>Gameplay actors notify</h3>
+                <div class="cameraSwimlane">
+                  <div class="cameraSwimlaneRow"><strong>Ball</strong><span><code>OnBallLaunched</code>, <code>OnBallEnteredGutter</code>, <code>OnBallNearPinDeck</code>, <code>OnBallStopped</code>.</span></div>
+                  <div class="cameraSwimlaneRow"><strong>Lane manager</strong><span><code>OnTurnStarted</code>, <code>OnThrowResolved</code>, <code>OnPinsAdvancing</code>, <code>OnLaneResetComplete</code>, <code>OnMatchEnded</code>.</span></div>
+                  <div class="cameraSwimlaneRow"><strong>Pin actor</strong><span>Face socket, standing/fallen state, voice line request, last-pin drama target.</span></div>
+                </div>
+              </div>
+              <div class="cameraModule">
+                <h3>First-pass event order</h3>
+                <div class="codeBlock"><div class="codeTop"><span>Camera event flow</span><button class="copyBtn">Copy</button></div><pre><code>OnTurnStarted
+  SetState(PlayerView)
+  DisableThrowInput()
+  WaitForBlendComplete()
+
+OnAimingStarted
+  SetState(AimView)
+
+OnPowerCharging
+  SetState(ChargeView)
+
+OnBallLaunched
+  SetState(LaunchView)
+  QueueState(BallFollowView)
+
+OnThrowResolved
+  SetState(ResultView)
+  if StandingPinsRemain:
+    SetState(ResetView)
+    AdvanceSurvivingPins()
+  SetState(WaitingForClick)</code></pre></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid two" style="margin-top:16px">
+            <div class="cameraModule">
+              <h3>Last-pin trigger gate</h3>
+              <p>Run this check only while the ball is active. It should trigger rarely enough to stay funny.</p>
+              <div class="codeBlock" style="margin-top:12px"><div class="codeTop"><span>Spare drama gate</span><button class="copyBtn">Copy</button></div><pre><code>CurrentThrowInFrame == 2
+StandingPinCount == 1
+bLastPinDramaPlayed == false
+BallIsActive == true
+BallDistanceToLastPin &lt; LastPinDramaStartDistance
+BallIsHeadingTowardLastPin == true
+LastPinLateralDistanceFromBallPath
+  &lt; LastPinDramaHitPredictionWidth</code></pre></div>
+            </div>
+            <div class="cameraModule">
+              <h3>Surviving pin advance rule</h3>
+              <p>Standing pins are not just leftovers. They become the zombie pressure system.</p>
+              <ul class="cameraDenseList">
+                <li>Clear or disable knocked pins after scoring.</li>
+                <li>Keep standing pins active and facing the player.</li>
+                <li>Shuffle them slightly toward the foul line.</li>
+                <li>Add random offset so movement feels organic.</li>
+                <li>Clamp by <code>MaxSurvivingPinAdvanceDistance</code>.</li>
+                <li>Easy: little or none. Normal: weak throws. Hard: every non-clear. Nightmare: more aggressive plus taunts.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="diagramWrap" id="camera-variables" style="margin-top:16px">
+            <div class="diagramTitle"><div><strong>Blueprint variables to expose</strong><span>Group them by tuning job</span></div></div>
+            <div class="compactGrid">
+              <div class="compactCard"><strong>Player setup</strong><code>PlayerViewBlendTime</code><br><code>AimViewBlendTime</code><br><code>AimViewZoomAmount</code><br><code>IdleCameraBreathAmount</code><br><code>bEnableInputAfterCameraReturn</code></div>
+              <div class="compactCard"><strong>Charge and launch</strong><code>ChargeViewCameraShake</code><br><code>LaunchShakeStrength</code><br><code>LaunchPushDistance</code><br><code>LaunchViewDuration</code><br><code>PowerMeterGlowScale</code></div>
+              <div class="compactCard"><strong>Ball follow</strong><code>BallFollowDistance</code><br><code>BallFollowHeight</code><br><code>BallLookAheadDistance</code><br><code>BallFollowLag</code><br><code>BallFollowRotationLag</code><br><code>HighSpeedCameraShakeThreshold</code></div>
+              <div class="compactCard"><strong>Impact and gutter</strong><code>PinDeckCutDistance</code><br><code>ImpactCameraShakeStrength</code><br><code>GutterCameraDuration</code><br><code>GutterTiltAmount</code><br><code>ResultCameraDelay</code><br><code>PinSettleWaitTime</code></div>
+              <div class="compactCard"><strong>Reset and return</strong><code>ResultDisplayDuration</code><br><code>ResetCameraDuration</code><br><code>bWaitForClickBeforeNextThrow</code><br><code>ReturnToPlayerBlendTime</code><br><code>ReturnToPlayerCameraStyle</code></div>
+              <div class="compactCard"><strong>Zombie pin advance</strong><code>bAllowSurvivingPinAdvance</code><br><code>SurvivingPinAdvanceDistance</code><br><code>SurvivingPinAdvanceRandomOffset</code><br><code>MaxSurvivingPinAdvanceDistance</code><br><code>PinAdvanceSpeed</code><br><code>bPinsAdvanceOnlyAfterMiss</code></div>
+              <div class="compactCard"><strong>Last-pin drama</strong><code>bEnableLastPinDramaCamera</code><br><code>LastPinDramaStartDistance</code><br><code>LastPinDramaHitPredictionWidth</code><br><code>LastPinDramaSlowMotionScale</code><br><code>LastPinDramaDuration</code><br><code>LastPinDramaZoomAmount</code><br><code>LastPinDramaVoiceLine</code></div>
+              <div class="compactCard"><strong>Strike and spare</strong><code>StrikeSlowMoScale</code><br><code>StrikeCameraDuration</code><br><code>SpareCameraDuration</code><br><code>ScorePopupDuration</code><br><code>CursedMachineReactionDelay</code></div>
+            </div>
+          </div>
+
+          <div class="diagramWrap" id="camera-qa" style="margin-top:16px">
+            <div class="diagramTitle"><div><strong>Review checklist</strong><span>Use this before calling the camera pass done</span></div></div>
+            <div class="cameraQA">
+              <div><strong>Foul-line rule</strong>The player can move and aim in the approach area but cannot cross the foul line during active gameplay.</div>
+              <div><strong>Readable player view</strong>From the default view, ball, lane, aim line, power, pins, hazards, score, and turn ownership are visible.</div>
+              <div><strong>Readable ball follow</strong>The camera is not so close that lane hazards, gutters, or pin deck are lost.</div>
+              <div><strong>Short cinematic beats</strong>Gutter, strike, spare, and last-pin moments are punchy and do not block understanding.</div>
+              <div><strong>Reset clarity</strong>The result holds long enough to read score and standing pins before pin clear/advance begins.</div>
+              <div><strong>Zombie advance fairness</strong>Surviving pins move enough to create tension but never so far that the next throw feels unfair.</div>
+              <div><strong>Click-to-play rhythm</strong>After reset, input waits for click. After click, camera return completes before aiming input is active.</div>
+              <div><strong>AI/multiplayer clarity</strong>The active player or AI is announced before the throw, and the camera flow does not change rules between competitors.</div>
+            </div>
+          </div>
+
+          <div class="callout" style="margin-top:16px"><strong>Camera personality target:</strong> the camera is part of the game's personality. The player should remember the ball racing down the lane, the frame shaking when it hits slime, the final zombie pin whispering <code>Uh oh...</code>, surviving pins creeping closer after a weak throw, and the cursed machine snapping the view back to the foul line for one more shot.</div>
+        </div>
+      </section>
+      <nav class="pagePager" aria-label="Guide page navigation">
+        <a class="prev" href="mouse-controls.html"><small>Previous page</small><strong>Mouse Controls</strong></a>
+        <div class="pageCurrent" aria-label="Current page"><b>CM</b><small>Current page</small><strong>Camera Director</strong><span class="routeHint">Camera states, readable results, reset flow, and click-to-play return.</span></div>
+        <a class="next" href="lighting.html"><small>Next page</small><strong>Lighting</strong></a>
+      </nav>    </main>
+  </div>
+  <button class="topBtn" id="topBtn" type="button" aria-label="Back to top">&uarr; Top</button>
+  <div class="diagramLightbox" id="diagramLightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Diagram viewer">
+    <div class="lightboxTop">
+      <strong id="diagramLightboxTitle">Diagram</strong>
+      <div class="lightboxControls" aria-label="Diagram zoom controls">
+        <button id="diagramZoomOut" type="button" aria-label="Zoom out">-</button>
+        <button id="diagramZoomIn" type="button" aria-label="Zoom in">+</button>
+        <span class="zoomLabel" id="diagramZoomLabel">100%</span>
+        <button id="diagramZoomReset" type="button">Reset</button>
+        <button id="diagramLightboxClose" type="button">Close</button>
+      </div>
+    </div>
+    <div class="lightboxStage" id="diagramLightboxStage">
+      <img id="diagramLightboxImg" alt="" />
+    </div>
+  </div>
+</body>
+</html>

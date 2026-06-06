@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Level instances, reusable chunks, templates, and future lane variants." />
+  <meta name="theme-color" content="#14070b" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Living Pins" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+  <title>Reuse System - Night of the Living Pins</title>
+</head>
+<body data-page="reuse">
+  <div class="noise"></div><div class="fog"></div>
+  <a class="skip-link" href="#main">Skip to guide</a>
+  <div class="app">
+    <div class="mobilebar">
+      <button class="hamburger" id="openNav" type="button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false"><span><i></i><i></i><i></i></span> Guide Menu</button>
+      <button class="iconbtn" id="mobilePrint" type="button" title="Print guide">Print</button>
+    </div>
+
+    <aside id="sidebar" aria-label="Guide navigation">
+      <button class="navBack" id="closeNav" type="button" aria-label="Close navigation">Back to guide</button>
+      <div class="brand">
+        <div class="emblem" aria-hidden="true"></div>
+        <div><h1>Night of the Living Pins</h1><p>UE5 Level Build Bible</p></div>
+      </div>
+
+      <div class="progressBox">
+        <div class="progressTop"><span>Build progress</span><strong id="progressLabel">0%</strong></div>
+        <div class="progressBar"><div class="progressFill" id="progressFill"></div></div>
+        <div class="miniStats">
+          <div><strong id="doneCount">0</strong><span>Done</span></div>
+          <div><strong id="totalCount">0</strong><span>Tasks</span></div>
+          <div><strong>UE5</strong><span>Ready</span></div>
+        </div>
+      </div>
+
+      <div class="searchWrap">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m21 21-4.3-4.3m2.3-5.2a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="guideSearch" type="search" placeholder="Search guide pages..." />
+        <div class="searchStatus" id="searchStatus" role="status" aria-live="polite"></div>
+      </div>
+
+      <nav id="toc">
+        <a class="navLink" data-page="overview" data-search="vision vision playable, spooky, reusable ue5 level template. 00" href="index.html"><b>00</b> Vision</a>
+        <a class="navLink" data-page="artref" data-search="artwork ref artwork reference visual north star, palette, art hierarchy, and local image references. ar" href="artwork-reference.html"><b>AR</b> Artwork Ref</a>
+        <a class="navLink" data-page="story" data-search="story loop story loop arcade story spine, player goal, threat escalation, rewards, and boss frame. st" href="story-loop.html"><b>ST</b> Story Loop</a>
+        <a class="navLink" data-page="editor" data-search="editor basics unreal editor basics viewport, outliner, details, content drawer, actor workflow, and recovery notes. ed" href="editor-basics.html"><b>ED</b> Editor Basics</a>
+        <a class="navLink" data-page="setup" data-search="project setup project setup folder structure, map setup, naming, and level organization. 01" href="project-setup.html"><b>01</b> Project Setup</a>
+        <a class="navLink" data-page="scale" data-search="scale plan scale plan lane dimensions, coordinates, axes, and top-down ue5 plan. 02" href="scale-plan.html"><b>02</b> Scale Plan</a>
+        <a class="navLink" data-page="blockout" data-search="blockout blockout approach, lane, gutters, walls, ceiling, back wall, and construction values. 03" href="blockout.html"><b>03</b> Blockout</a>
+        <a class="navLink" data-page="markers" data-search="gameplay markers gameplay markers target points, triggers, spawn markers, collision volumes, and tags. 04" href="gameplay-markers.html"><b>04</b> Gameplay Markers</a>
+        <a class="navLink" data-page="controls" data-search="mouse controls mouse controls mouse-only throw, charge, aim, release, steering, and input states. in" href="mouse-controls.html"><b>IN</b> Mouse Controls</a>
+        <a class="navLink" data-page="camera" data-search="camera director camera director camera states, readable results, reset flow, and click-to-play return. cm" href="camera-director.html"><b>CM</b> Camera Director</a>
+        <a class="navLink" data-page="lighting" data-search="lighting lighting lumen setup, practical lights, horror accents, and readable lane lighting. 05" href="lighting.html"><b>05</b> Lighting</a>
+        <a class="navLink" data-page="atmosphere" data-search="fog &amp; post fog and post process volumetric fog, exposure, bloom, vignette, and post-process targets. 06" href="fog-post.html"><b>06</b> Fog &amp; Post</a>
+        <a class="navLink" data-page="materials" data-search="materials materials lane wood, concrete, metal, grime, decals, and material instances. 07" href="materials.html"><b>07</b> Materials</a>
+        <a class="navLink" data-page="dressing" data-search="set dressing set dressing props, dressing zones, readability, and horror bowling alley detail. 08" href="set-dressing.html"><b>08</b> Set Dressing</a>
+        <a class="navLink" data-page="screens" data-search="ue5 screens ue5 screenshot aids screenshot checklist and visual references for important editor states. 09" href="ue5-screens.html"><b>09</b> UE5 Screens</a>
+        <a class="navLink active" aria-current="page" data-page="reuse" data-search="reuse system reuse system level instances, reusable chunks, templates, and future lane variants. 10" href="reuse-system.html"><b>10</b> Reuse System</a>
+        <a class="navLink" data-page="checklist" data-search="checklist interactive checklist guided build checklist with local progress tracking and phase filters. 11" href="checklist.html"><b>11</b> Checklist</a>
+        <a class="navLink" data-page="resources" data-search="resources resources ue5 locations, shortcuts, troubleshooting, and final ownership notice. 12" href="resources.html"><b>12</b> Resources</a>
+      </nav>
+
+      <div class="sideActions">
+        <a class="btn primary" href="checklist.html">Continue Build</a>
+        <button class="btn ghost checklistOnly" id="collapseDone" type="button">Hide completed tasks</button>
+        <button class="btn ghost" id="printBtn" type="button">Print / save PDF</button>
+        <button class="btn danger" id="resetProgress" type="button">Reset progress</button>
+      </div>
+    </aside>
+    <button class="navScrim" id="navScrim" type="button" aria-label="Close navigation"></button>
+
+    <main id="main">
+      <section class="card searchable" id="reuse" data-title="level instances packed level actor reusable templates duplicated maps future levels">
+        <div class="sectionHead"><div class="sectionNum">10</div><div class="sectionTitle"><h2>Turn the first lane into a reusable level system</h2><p>Once the lane feels good, do not keep copying random actors by hand. Group repeatable pieces so future levels are fast to create and easy to maintain.</p></div><div class="tagRow"><span class="tag good">Future-proof</span><span class="tag">Level Instances</span></div></div>
+        <div class="sectionBody grid two">
+          <div class="tile"><h3>Reusable chunks</h3><ul><li><code>LI_Lane_Core</code> â€” lane, gutters, rails, foul line, arrows, pin deck.</li><li><code>LI_Bowling_Shell</code> â€” walls, ceiling, back wall.</li><li><code>LI_BackMachine_Horror_01</code> â€” pinsetter props, cables, fog, lights.</li><li><code>LI_Approach_Dressing_01</code> â€” ball return, carpet, shoe props, posters.</li></ul></div>
+          <div class="tile"><h3>Future level variations</h3><ul><li><strong>Lane 13:</strong> classic abandoned alley.</li><li><strong>Sewer Strike:</strong> lane flooded with waste and steam.</li><li><strong>Graveyard Bowl:</strong> outside lane through cemetery slabs.</li><li><strong>Arcade Necro-Bowl:</strong> neon horror bonus round.</li></ul></div>
+          <div class="tile"><h3>Level Instance workflow</h3><ol><li>Select a clean group of actors in the Outliner.</li><li>Right-click the selection and look for the Level or Level Instance creation option.</li><li>Save the new Level Instance asset into a clear folder.</li><li>Replace only stable, reusable chunks; leave one-off scare scripting and boss logic in the playable level variant.</li></ol></div>
+          <div class="tile"><h3>Before making a chunk</h3><p>Use the Outliner to verify the selection contains only the intended actors. Check Details for any accidental temporary meshes, test triggers, or prototype-only items before committing the chunk.</p></div>
+          <div class="callout"><strong>Clean duplication workflow:</strong> keep <code>L_BowlingAlley_Template</code> pure. Duplicate it to create playable maps. When a system is proven, move it back into the template.</div>
+          <div class="callout warning"><strong>What not to instance:</strong> gameplay objects that must vary heavily per level, boss-specific scripts, one-off scare triggers, or temporary prototype meshes.</div>
+          <div class="diagramWrap" style="grid-column:1/-1">
+            <div class="diagramTitle"><div><strong>Reusable level architecture</strong><span>Template -> chunks -> variants</span></div><p class="diagramNote">Build one reliable lane, then split it into repeatable chunks. Future levels should change dressing, lighting, hazards, and mood without rebuilding lane measurements or marker logic.</p></div>
+            <figure class="diagramImageFrame"><img src="assets/diagram-reuse-architecture.png" alt="Reusable level architecture diagram showing template map, modular chunks, marker set, art variants, and gameplay variant data." loading="eager" decoding="async" /></figure>
+            <div class="precisionDiagram diagramSource" aria-hidden="true">
+              <div class="variantGrid">
+                <div class="variantCard core"><b>L_BowlingAlley_Template</b><span>Stable source map containing lane measurements, core markers, baseline collision, and starter lighting.</span></div>
+                <div class="variantCard"><b>LI_Lane_Core</b><span>Lane, gutters, rails, foul line, arrows, pin deck, and repeatable physical scale.</span></div>
+                <div class="variantCard"><b>LI_Bowling_Shell</b><span>Walls, ceiling, windows, back wall, camera bounds, and broad room silhouette.</span></div>
+                <div class="variantCard"><b>LI_BackMachine_Horror_01</b><span>Pinsetter shape, cables, fog emitters, warning lights, steam, and danger audio.</span></div>
+                <div class="variantCard"><b>LI_Approach_Dressing_01</b><span>Ball return, shoes, carpet, posters, chairs, and player-facing set dressing.</span></div>
+                <div class="variantCard core"><b>Playable level variants</b><span>Lane 13, Sewer Strike, Graveyard Bowl, and Arcade Necro-Bowl swap theme layers while keeping gameplay logic stable.</span></div>
+              </div>
+              <div class="axisStrip"><span><strong>Stable:</strong> dimensions and markers.</span><span><strong>Swappable:</strong> art, lights, hazards, audio.</span><span><strong>Do not instance:</strong> one-off scripts.</span><span><strong>Workflow:</strong> prove it once, duplicate safely.</span></div>
+            </div>
+            <div class="diagramGrid">
+              <svg viewBox="0 0 840 560" role="img" aria-label="Reusable level architecture diagram">
+                <defs>
+                  <marker id="flowArrowReuse" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#9dffbb"/></marker>
+                </defs>
+                <rect x="18" y="22" width="804" height="514" rx="24" fill="#070b12" stroke="rgba(255,255,255,.14)"/>
+                <rect x="296" y="54" width="248" height="70" rx="18" fill="rgba(157,255,187,.10)" stroke="rgba(157,255,187,.32)"/>
+                <text x="420" y="84" fill="#edf5ff" text-anchor="middle" font-size="15" font-weight="950">L_BowlingAlley_Template</text>
+                <text x="420" y="105" fill="#a9b7c9" text-anchor="middle" font-size="12">clean scale, markers, core lighting, baseline collision</text>
+                <g stroke="#9dffbb" stroke-width="3" marker-end="url(#flowArrowReuse)">
+                  <path d="M420 124 L420 166"/>
+                  <path d="M420 166 C270 166 208 190 176 222"/>
+                  <path d="M420 166 C326 174 308 190 286 222"/>
+                  <path d="M420 166 C420 180 420 196 420 222"/>
+                  <path d="M420 166 C514 174 532 190 554 222"/>
+                  <path d="M420 166 C570 166 632 190 664 222"/>
+                </g>
+                <g>
+                  <rect x="74" y="222" width="188" height="88" rx="18" fill="rgba(255,211,125,.10)" stroke="rgba(255,211,125,.28)"/>
+                  <rect x="278" y="222" width="188" height="88" rx="18" fill="rgba(125,169,255,.10)" stroke="rgba(125,169,255,.28)"/>
+                  <rect x="482" y="222" width="188" height="88" rx="18" fill="rgba(255,94,118,.10)" stroke="rgba(255,94,118,.28)"/>
+                  <rect x="584" y="332" width="188" height="88" rx="18" fill="rgba(157,255,187,.10)" stroke="rgba(157,255,187,.28)"/>
+                  <rect x="176" y="332" width="188" height="88" rx="18" fill="rgba(255,157,98,.10)" stroke="rgba(255,157,98,.28)"/>
+                  <text x="168" y="252" fill="#ffd37d" text-anchor="middle" font-size="13" font-weight="950">LI_Lane_Core</text>
+                  <text x="168" y="274" fill="#a9b7c9" text-anchor="middle" font-size="11">lane, gutters, rails, arrows, pin deck</text>
+                  <text x="372" y="252" fill="#7da9ff" text-anchor="middle" font-size="13" font-weight="950">LI_Bowling_Shell</text>
+                  <text x="372" y="274" fill="#a9b7c9" text-anchor="middle" font-size="11">walls, ceiling, windows, back wall</text>
+                  <text x="576" y="252" fill="#ffb2be" text-anchor="middle" font-size="13" font-weight="950">LI_BackMachine</text>
+                  <text x="576" y="274" fill="#a9b7c9" text-anchor="middle" font-size="11">pinsetter, cables, fog, danger lights</text>
+                  <text x="678" y="362" fill="#9dffbb" text-anchor="middle" font-size="13" font-weight="950">LI_Gameplay_Markers</text>
+                  <text x="678" y="384" fill="#a9b7c9" text-anchor="middle" font-size="11">spawn points, cameras, triggers, tags</text>
+                  <text x="270" y="362" fill="#ffbd91" text-anchor="middle" font-size="13" font-weight="950">LI_Approach_Dressing</text>
+                  <text x="270" y="384" fill="#a9b7c9" text-anchor="middle" font-size="11">ball return, shoes, carpet, posters</text>
+                </g>
+                <g stroke="#9dffbb" stroke-width="3" marker-end="url(#flowArrowReuse)">
+                  <path d="M168 310 C184 452 296 462 420 462"/>
+                  <path d="M372 310 C388 430 404 444 420 462"/>
+                  <path d="M576 310 C552 430 486 452 420 462"/>
+                  <path d="M270 420 C310 452 354 462 420 462"/>
+                  <path d="M678 420 C610 458 522 468 420 462"/>
+                </g>
+                <rect x="222" y="462" width="396" height="52" rx="17" fill="rgba(255,255,255,.045)" stroke="rgba(255,255,255,.12)"/>
+                <text x="420" y="484" fill="#edf5ff" text-anchor="middle" font-size="14" font-weight="950">Duplicate into playable maps</text>
+                <text x="420" y="504" fill="#a9b7c9" text-anchor="middle" font-size="12">Lane 13, Sewer Strike, Graveyard Bowl, Arcade Necro-Bowl</text>
+              </svg>
+              <div class="diagramStack">
+                <div class="blueprintPanel">
+                  <div class="diagramTitle"><div><strong>Variant knobs</strong><span>Change these per map</span></div></div>
+                  <ul class="diagramChecklist">
+                    <li><strong>Lighting:</strong> tube color, sign color, backlight intensity, flicker timing, shadow direction.</li>
+                    <li><strong>Dressing:</strong> posters, cabinets, damage level, bodies, props, exterior window view.</li>
+                    <li><strong>Hazards:</strong> moving machine parts, slime pools, enemy lanes, scare triggers, blocked gutters.</li>
+                    <li><strong>Audio:</strong> room tone, machine groans, crowd stingers, strike impact, zombie-pin barks.</li>
+                  </ul>
+                </div>
+                <div class="blueprintPanel">
+                  <div class="diagramTitle"><div><strong>Keep stable</strong><span>Do not reinvent these</span></div></div>
+                  <ul class="diagramChecklist">
+                    <li><strong>Lane dimensions:</strong> foul line, lane width, pin rack spacing, gutter placement.</li>
+                    <li><strong>Marker names:</strong> code should keep finding the same actor tags and Target Point names.</li>
+                    <li><strong>Collision logic:</strong> gutter/pit/approach volumes should stay predictable across variants.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <nav class="pagePager" aria-label="Guide page navigation">
+        <a class="prev" href="ue5-screens.html"><small>Previous page</small><strong>UE5 Screens</strong></a>
+        <div class="pageCurrent" aria-label="Current page"><b>10</b><small>Current page</small><strong>Reuse System</strong><span class="routeHint">Level instances, reusable chunks, templates, and future lane variants.</span></div>
+        <a class="next" href="checklist.html"><small>Next page</small><strong>Checklist</strong></a>
+      </nav>    </main>
+  </div>
+  <button class="topBtn" id="topBtn" type="button" aria-label="Back to top">&uarr; Top</button>
+  <div class="diagramLightbox" id="diagramLightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Diagram viewer">
+    <div class="lightboxTop">
+      <strong id="diagramLightboxTitle">Diagram</strong>
+      <div class="lightboxControls" aria-label="Diagram zoom controls">
+        <button id="diagramZoomOut" type="button" aria-label="Zoom out">-</button>
+        <button id="diagramZoomIn" type="button" aria-label="Zoom in">+</button>
+        <span class="zoomLabel" id="diagramZoomLabel">100%</span>
+        <button id="diagramZoomReset" type="button">Reset</button>
+        <button id="diagramLightboxClose" type="button">Close</button>
+      </div>
+    </div>
+    <div class="lightboxStage" id="diagramLightboxStage">
+      <img id="diagramLightboxImg" alt="" />
+    </div>
+  </div>
+</body>
+</html>
