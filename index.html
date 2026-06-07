@@ -83,32 +83,104 @@
         <img class="heroBackdrop" src="assets/loading1.png" alt="" aria-hidden="true" />
         <div class="heroGrid"></div>
         <div class="heroSign">LANE 13</div>
-        <div class="pinRack" aria-hidden="true">
-          <div></div><div></div><div></div><div class="pin"></div>
-          <div></div><div></div><div class="pin"></div><div class="pin"></div>
-          <div></div><div class="pin"></div><div class="pin"></div><div class="pin"></div>
-          <div class="pin"></div><div class="pin"></div><div class="pin"></div><div class="pin"></div>
-        </div>
         <div class="heroContent">
-          <div class="eyebrow"><span class="pulse"></span> first playable level template</div>
-          <h2>Build a haunted arcade bowling lane that feels <span>playable, spooky, and reusable.</span></h2>
-          <p class="heroLead">This is your visual production guide for the first level of <strong>Night of the Living Pins</strong>. The goal is not just to make a nice room. The goal is to build a clean UE5 template with sensible scale, lighting, triggers, markers, art zones, and reusable structure for future levels.</p>
+          <div class="eyebrow"><span class="pulse"></span> production manual from zero to playable</div>
+          <h2>Build Lane 13 from a blank UE5 project to a polished playable template.</h2>
+          <p class="heroLead">This site is structured as a professional build bible for <strong>Night of the Living Pins</strong>. Start by setting up Unreal Engine and the project, then move through editor basics, scale planning, blockout, gameplay markers, lighting, fog, textures, materials, set dressing, and reuse.</p>
           <div class="heroActions">
-            <a class="btn primary" href="editor-basics.html">Start in the editor</a>
-            <a class="btn" href="project-setup.html">Project setup</a>
-            <a class="btn" href="story-loop.html">Story loop</a>
-            <a class="btn" href="scale-plan.html">View lane plan</a>
-            <a class="btn" href="mouse-controls.html">Mouse controls</a>
-            <a class="btn" href="ue5-screens.html">UE5 screenshot aids</a>
+            <a class="btn primary" href="project-setup.html">Start at Unreal setup</a>
+            <a class="btn" href="editor-basics.html">Learn the editor</a>
+            <a class="btn" href="blockout.html">Build the blockout</a>
+            <a class="btn" href="materials.html">Textures and materials</a>
+            <a class="btn" href="checklist.html">Open checklist</a>
           </div>
           <div class="heroMetrics">
-            <div class="metric"><strong>18.29m</strong><span>Foul line to head pin</span></div>
-            <div class="metric"><strong>106cm</strong><span>Core lane width</span></div>
-            <div class="metric"><strong>10</strong><span>Pin target points</span></div>
-            <div class="metric"><strong>1</strong><span>Reusable template level</span></div>
+            <div class="metric"><strong>00</strong><span>Unreal setup first</span></div>
+            <div class="metric"><strong>03</strong><span>Measured blockout pass</span></div>
+            <div class="metric"><strong>07</strong><span>Texture and material pass</span></div>
+            <div class="metric"><strong>20+</strong><span>Tracked production tasks</span></div>
           </div>
         </div>
       </header>
+      <section class="card searchable" id="start-here" data-title="start here beginning unreal engine setup blockout textures materials production sequence">
+        <div class="sectionHead">
+          <div class="sectionNum">00</div>
+          <div class="sectionTitle">
+            <h2>Start from the beginning and build in the correct order</h2>
+            <p>The guide now opens with the practical production path. Each stage has one clear job, one expected output, and a link to the page that explains the work in detail.</p>
+          </div>
+          <div class="tagRow"><span class="tag good">Beginner-first</span><span class="tag">Clean sequence</span></div>
+        </div>
+        <div class="sectionBody">
+          <div class="startSequence">
+            <a class="sequenceStep" href="project-setup.html"><span>00</span><div><h3>Install Unreal Engine and create the project</h3><p>Use Epic Games Launcher, create the UE5 project, choose a clean folder location, save the first map, and build the project folders before importing anything.</p></div><small>Setup</small></a>
+            <a class="sequenceStep" href="editor-basics.html"><span>ED</span><div><h3>Learn the Unreal Editor panels</h3><p>Get comfortable with the Viewport, Outliner, Details panel, Place Actors, Content Drawer, transforms, save habits, and Play In Editor testing.</p></div><small>Editor</small></a>
+            <a class="sequenceStep" href="scale-plan.html"><span>02</span><div><h3>Lock the lane scale before art</h3><p>Use the real bowling lane dimensions as the core gameplay spine, then make the surrounding room wider and more theatrical for horror composition.</p></div><small>Scale</small></a>
+            <a class="sequenceStep" href="blockout.html"><span>03</span><div><h3>Block out the playable space with cubes</h3><p>Place the approach, lane, gutters, rails, pin deck, walls, ceiling, and back machine using exact transforms so gameplay has a reliable base.</p></div><small>Greybox</small></a>
+            <a class="sequenceStep" href="gameplay-markers.html"><span>04</span><div><h3>Add gameplay markers, triggers, and readable camera points</h3><p>Target Points and Trigger Volumes establish where the ball, pins, cameras, scares, and result flow will live before final assets are introduced.</p></div><small>Gameplay</small></a>
+            <a class="sequenceStep" href="lighting.html"><span>05</span><div><h3>Light the lane for readability, not noise</h3><p>Keep the ball path visible, push horror contrast to the back machine and side walls, then use fog and post process only after the lighting pass is legible.</p></div><small>Lighting</small></a>
+            <a class="sequenceStep" href="materials.html"><span>07</span><div><h3>Import textures, create materials, and layer decals</h3><p>Build base materials, texture sets, material instances, controlled grime, and decal storytelling without covering the center lane path.</p></div><small>Textures</small></a>
+            <a class="sequenceStep" href="set-dressing.html"><span>08</span><div><h3>Dress the level in controlled zones</h3><p>Add props, damage, posters, cables, ceiling breaks, fog pockets, and back-machine detail by zone so the scene feels rich without becoming cluttered.</p></div><small>Art pass</small></a>
+            <a class="sequenceStep" href="reuse-system.html"><span>10</span><div><h3>Convert clean work into reusable level chunks</h3><p>Package the lane core, shell, markers, lighting, cameras, and dressing groups so future stages can reuse the same production structure.</p></div><small>Reuse</small></a>
+          </div>
+        </div>
+      </section>
+      <section class="card searchable" id="beginner-guide" data-title="beginner guide how to use tutorial unreal engine new user detailed steps">
+        <div class="sectionHead">
+          <div class="sectionNum">BG</div>
+          <div class="sectionTitle">
+            <h2>How to use this guide if you are new to Unreal</h2>
+            <p>Do not try to make the final horror scene in one pass. Work through the guide in order and only move on when the current pass has a clear, testable result.</p>
+          </div>
+          <div class="tagRow"><span class="tag good">Beginner workflow</span></div>
+        </div>
+        <div class="sectionBody grid three">
+          <div class="tile"><h3>Read one page, then build it</h3><p>Keep the relevant page open beside Unreal. Build the exact step, save the map, then continue. Avoid jumping from lighting to props before the blockout works.</p></div>
+          <div class="tile"><h3>Type exact values first</h3><p>When a table gives transforms, type those numbers into Details. Eyeballing is fine for props, but the lane, pins, triggers, and cameras need repeatable values.</p></div>
+          <div class="tile"><h3>Use temporary assets proudly</h3><p>A sphere for the ball and simple placeholder pins are correct at this stage. Replace them only after throw, collision, camera, and result flow are readable.</p></div>
+          <div class="tile"><h3>Check the Outliner daily</h3><p>If the Outliner fills with Cube, Box, Boolean, and Sphere names, pause and rename. Good organization is not polish; it is how you keep the project understandable.</p></div>
+          <div class="tile"><h3>Test in Play In Editor</h3><p>After every major pass, press Play and test the level from the player's point of view. The lane should feel playable before the scene feels beautiful.</p></div>
+          <div class="tile"><h3>Stop each pass on purpose</h3><p>Do not endlessly decorate. Finish setup, then scale, then blockout, then markers, then lighting, then textures, then dressing, then reuse.</p></div>
+        </div>
+      </section>
+      <section class="card searchable" id="current-progress" data-title="current progress screenshots ue5 lane blockout lighting fog materials review">
+        <div class="sectionHead">
+          <div class="sectionNum">WIP</div>
+          <div class="sectionTitle">
+            <h2>Current build progress from the latest UE5 screenshots</h2>
+            <p>The level is past a blank blockout now. The screenshots show a readable lane, gutter form, approach material, placeholder ball, early lighting, and fog. The next job is to control scale, add the back-machine focal point, and push the horror identity without losing lane readability.</p>
+          </div>
+          <div class="tagRow"><span class="tag good">Playable base visible</span><span class="tag">Needs focal point</span></div>
+        </div>
+        <div class="sectionBody">
+          <div class="progressSnapshot">
+            <a class="progressShot" href="assets/Screenshot%202026-06-07%20145951.png" target="_blank" rel="noreferrer">
+              <img src="assets/Screenshot%202026-06-07%20145951.png" alt="Current UE5 bowling lane screenshot showing lane surface, gutter, ball placeholder, fog, and overhead lights" loading="lazy" />
+            </a>
+            <div class="progressNotes">
+              <div><strong>Working well</strong><span>The lane reads immediately, the gutter has depth, the ball scale is easy to understand, and the early fog/light pass already gives atmosphere.</span></div>
+              <div><strong>Main risk</strong><span>The scene still feels like an isolated lane test. It needs walls, ceiling framing, back-machine silhouette, pin deck threat, and side dressing to become Lane 13.</span></div>
+              <div><strong>Next production move</strong><span>Keep this clean playable base, then add controlled horror detail around it: not on top of the ball path, not across the aim line, and not everywhere at once.</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="card searchable" id="layout-rules" data-title="professional layout no clutter detail readability production rules">
+        <div class="sectionHead">
+          <div class="sectionNum">PR</div>
+          <div class="sectionTitle">
+            <h2>Professional layout rules for the build</h2>
+            <p>These rules keep the level and this guide readable. They are repeated across the pages because the project needs detail, but not visual overload.</p>
+          </div>
+          <div class="tagRow"><span class="tag">Readable art pass</span></div>
+        </div>
+        <div class="sectionBody grid four">
+          <div class="tile"><h3>One primary path</h3><p>The center of the lane must stay readable from approach to pins. Put heavy horror detail beside, above, and behind the lane.</p></div>
+          <div class="tile"><h3>Measured first</h3><p>Do not texture or dress a broken layout. Exact transforms, target points, and collision volumes come before beauty work.</p></div>
+          <div class="tile"><h3>Texture in layers</h3><p>Start with broad materials, then add texture variation, then decals, then focal-point damage. Avoid making every surface equally noisy.</p></div>
+          <div class="tile"><h3>Reusable by default</h3><p>Name actors clearly, keep Outliner folders tidy, and preserve a clean template map so new lane variants do not inherit messy one-off decisions.</p></div>
+        </div>
+      </section>
       <nav class="pagePager" aria-label="Guide page navigation">
         <a class="prev" href="resources.html"><small>Previous page</small><strong>Resources</strong></a>
         <div class="pageCurrent" aria-label="Current page"><b>00</b><small>Current page</small><strong>Vision</strong><span class="routeHint">Playable, spooky, reusable UE5 level template.</span></div>

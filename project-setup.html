@@ -79,9 +79,42 @@
     <button class="navScrim" id="navScrim" type="button" aria-label="Close navigation"></button>
 
     <main id="main">
-      <section class="card searchable" id="setup" data-title="project setup folders map editor outliner content browser">
-        <div class="sectionHead"><div class="sectionNum">01</div><div class="sectionTitle"><h2>Set the project up like a real game from day one</h2><p>A tidy level is easier to art-direct, easier to hook up to C++, and much easier to duplicate for future stages. This folder structure gives you a clean base before you place a single cube.</p></div><div class="tagRow"><span class="tag good">C++ friendly</span><span class="tag">UE5 blank project</span></div></div>
+      <section class="card searchable" id="setup" data-title="project setup unreal engine install blank project folders map editor outliner content browser">
+        <div class="sectionHead"><div class="sectionNum">01</div><div class="sectionTitle"><h2>Set up Unreal Engine and the project before building</h2><p>Start with a clean UE5 project, a saved template map, and a clear folder structure. This gives you a professional base before you place the first blockout cube.</p></div><div class="tagRow"><span class="tag good">C++ friendly</span><span class="tag">UE5 blank project</span></div></div>
         <div class="sectionBody grid two">
+          <div class="setupStartPanel" style="grid-column:1/-1">
+            <div class="setupStartText">
+              <h3>Unreal Engine setup checklist</h3>
+              <p>Do these steps first. The rest of the guide assumes the project exists, the editor opens cleanly, and the first map is saved in the correct folder. This section is verified against Epic's Unreal Engine 5.7 documentation.</p>
+            </div>
+            <div class="setupSteps">
+              <div><b>1</b><strong>Install UE5</strong><span>Open Epic Games Launcher, go to Unreal Engine, select Library, add an Engine Version tile, and install the latest stable UE5 release. Avoid Preview builds for this project.</span></div>
+              <div><b>2</b><strong>Create the project</strong><span>Launch Unreal Engine, choose Games, choose Blank, set Target Platform to Desktop, set Quality Preset to Maximum, then pick Blueprint or C++.</span></div>
+              <div><b>3</b><strong>Name it cleanly</strong><span>Use a short project folder such as <code>NightOfTheLivingPins</code>. Avoid spaces and special characters in the project path because they can cause toolchain issues later.</span></div>
+              <div><b>4</b><strong>Save the first map</strong><span>Create an empty level, save it as <code>L_BowlingAlley_Template</code>, then use Save All before adding blockout actors.</span></div>
+            </div>
+          </div>
+          <div class="beginnerPanel" style="grid-column:1/-1">
+            <div class="beginnerCopy">
+              <h3>Beginner project choices explained</h3>
+              <p>Unreal's Project Browser asks for several choices. Use these settings so you can follow the tutorial without fighting extra systems.</p>
+            </div>
+            <div class="beginnerChoiceGrid">
+              <div><strong>Template</strong><span>Use <b>Blank</b>. This keeps the level simple and stops starter gameplay code from confusing the bowling prototype.</span></div>
+              <div><strong>Blueprint or C++</strong><span>Choose <b>Blueprint</b> if you are learning editor workflows first. Choose <b>C++</b> if you already plan to write the gameplay classes.</span></div>
+              <div><strong>Starter Content</strong><span>Leave it off for a clean project. Turn it on only if you want temporary materials and meshes while learning.</span></div>
+              <div><strong>Ray Tracing</strong><span>Leave it off for now. Lumen, basic lights, fog, and post process are enough for this first playable lane.</span></div>
+              <div><strong>Where to save</strong><span>Use a short local path on a fast drive. Avoid OneDrive-synced folders for active UE projects if you can.</span></div>
+              <div><strong>First success check</strong><span>You should be able to open the project, create a new empty level, save it, close Unreal, and reopen the map without errors.</span></div>
+            </div>
+          </div>
+          <div class="officialDocs" style="grid-column:1/-1">
+            <h3>Official UE 5.7 references for this setup</h3>
+            <a target="_blank" rel="noreferrer" href="https://dev.epicgames.com/documentation/unreal-engine/install-unreal-engine">Install Unreal Engine</a>
+            <a target="_blank" rel="noreferrer" href="https://dev.epicgames.com/documentation/en-us/unreal-engine/creating-a-new-project-in-unreal-engine">Creating a New Project</a>
+            <a target="_blank" rel="noreferrer" href="https://dev.epicgames.com/documentation/unreal-engine/create-your-first-project-in-unreal-engine?lang=en-US">Create your First Project</a>
+            <a target="_blank" rel="noreferrer" href="https://dev.epicgames.com/documentation/en-us/unreal-engine/get-started">Get Started</a>
+          </div>
           <div class="tile"><h3>Content Browser folders</h3><p>Create this structure under <strong>Content</strong>. Do it now, before your test assets pile up.</p><div class="codeBlock"><div class="codeTop"><span>Content folder layout</span><button class="copyBtn">Copy</button></div><pre><code>Content/
   NightOfTheLivingPins/
     Maps/
@@ -90,6 +123,12 @@
     Materials/
       Instances/
       Decals/
+    Textures/
+      Lane/
+      Walls/
+      Metal/
+      Decals/
+      Props/
     Meshes/
       Blockout/
       Environment/

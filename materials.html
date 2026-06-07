@@ -100,6 +100,18 @@ MI_Concrete_Moldy
 MI_Rust_Dark
 MI_ExitSign_Red
 MI_Monitor_GlitchGreen</code></pre></div></div>
+          <div class="tile"><h3>Texture import workflow</h3><ol><li>Create <code>Content/NightOfTheLivingPins/Textures</code> and subfolders for <code>Lane</code>, <code>Walls</code>, <code>Metal</code>, <code>Decals</code>, and <code>Props</code>.</li><li>Import one complete texture set at a time: base color, normal, roughness, masks, emissive, and opacity if needed.</li><li>Open each imported texture and check the settings before using it in a material.</li><li>Keep <strong>sRGB on</strong> for base color and emissive color textures.</li><li>Keep <strong>sRGB off</strong> for roughness, metallic, ambient occlusion, masks, and packed utility textures.</li><li>Apply the texture set to a material instance, then test it on a blockout cube before spreading it across the level.</li></ol></div>
+          <div class="tile"><h3>Texture naming and channels</h3><div class="codeBlock"><div class="codeTop"><span>Texture naming</span><button class="copyBtn">Copy</button></div><pre><code>T_LaneWood_BC
+T_LaneWood_N
+T_LaneWood_R
+T_LaneWood_AO
+T_LaneWood_Masks
+T_ConcreteMold_BC
+T_ConcreteMold_N
+T_ConcreteMold_R
+T_Decal_BloodSmear_BC
+T_Decal_BloodSmear_N
+T_Decal_BloodSmear_Opacity</code></pre></div><p style="margin-top:12px">Use <code>BC</code> for base color, <code>N</code> for normal, <code>R</code> for roughness, <code>AO</code> for ambient occlusion, and <code>Masks</code> for packed grayscale channels.</p></div>
           <div class="tile"><h3>Where to use decals</h3><ul><li>Shoe scuffs near the approach.</li><li>Oil streaks and wear down the lane edges.</li><li>Water leaks on side walls and ceiling.</li><li>Blood drag marks near the back machine.</li><li>Handprints on ball return and scoring monitor.</li></ul></div>
           <div class="tile"><h3>Where not to use decals</h3><ul><li>Do not cover the whole lane in blood.</li><li>Do not place high-contrast stains over aiming arrows.</li><li>Do not make all surfaces equally noisy.</li><li>Leave visual rest areas so the important props stand out.</li></ul></div>
           <div class="tile"><h3>Material editor workflow</h3><ol><li>Open the Content Drawer and go to <code>Materials</code>.</li><li>Right-click and create a <strong>Material</strong>, then name it with the <code>M_</code> prefix.</li><li>Double-click it to open the Material Editor.</li><li>Create Material Instances in <code>Materials/Instances</code> so you can tune color, roughness, wetness, and grime without rebuilding the base material.</li><li>Select a mesh actor and assign the instance in Details &gt; Materials.</li></ol></div>

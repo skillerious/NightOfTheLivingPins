@@ -2,6 +2,43 @@
     const $$ = (s, r=document)=>Array.from(r.querySelectorAll(s));
     const body = document.body;
     $('#currentYear')?.replaceChildren(String(new Date().getFullYear()));
+    const navPhaseLabels = [
+      ['overview','Plan'],
+      ['editor','Foundation'],
+      ['blockout','Build'],
+      ['markers','Gameplay'],
+      ['lighting','Art Pass'],
+      ['screens','Polish'],
+      ['checklist','Track']
+    ];
+    navPhaseLabels.forEach(([page,label])=>{
+      const link = $(`#toc a[data-page="${page}"]`);
+      if(!link || link.previousElementSibling?.classList.contains('navGroupLabel')) return;
+      const group = document.createElement('span');
+      group.className = 'navGroupLabel';
+      group.textContent = label;
+      link.before(group);
+    });
+    const materialsNav = $('#toc a[data-page="materials"]');
+    if(materialsNav){
+      materialsNav.dataset.search = `${materialsNav.dataset.search || ''} textures texture import texture sets roughness normal base color`.trim();
+    }
+    const overviewNav = $('#toc a[data-page="overview"]');
+    if(overviewNav){
+      overviewNav.dataset.search = `${overviewNav.dataset.search || ''} beginner tutorial new user workflow detailed start here`.trim();
+    }
+    const setupNav = $('#toc a[data-page="setup"]');
+    if(setupNav){
+      setupNav.dataset.search = `${setupNav.dataset.search || ''} unreal engine 5.7 latest stable install epic games launcher project browser beginner`.trim();
+    }
+    const screensNav = $('#toc a[data-page="screens"]');
+    if(screensNav){
+      screensNav.dataset.search = `${screensNav.dataset.search || ''} current build progress screenshots lane blockout lighting fog review orthographic`.trim();
+    }
+    const resourcesNav = $('#toc a[data-page="resources"]');
+    if(resourcesNav){
+      resourcesNav.dataset.search = `${resourcesNav.dataset.search || ''} official documentation unreal engine 5.7 up to date links`.trim();
+    }
     const openNavBtn = $('#openNav');
     const setNavOpen = open => {
       body.classList.toggle('navOpen', open);
@@ -114,6 +151,7 @@
 
     const progressKey = 'nolp-progress';
     const checklistTaskIds = [
+      'ueinstall',
       'editororientation',
       'folders',
       'map',
@@ -129,6 +167,7 @@
       'lighting',
       'fogpost',
       'materials',
+      'textures',
       'decals',
       'backmachine',
       'dressing',
@@ -291,6 +330,7 @@
     $('#guideSearch')?.addEventListener('input', e=>{
       const q=e.target.value.trim().toLowerCase();
       let matches = 0;
+      $$('.navGroupLabel').forEach(label=>label.classList.toggle('navFiltered', !!q));
       links.forEach(link=>{
         const hay=((link.dataset.search || '')+' '+link.textContent).toLowerCase();
         const matched = !q || hay.includes(q);
